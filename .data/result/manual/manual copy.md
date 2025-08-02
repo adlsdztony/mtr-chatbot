@@ -1,0 +1,3396 @@
+# Mass Transit Railway Corporation
+
+Contract C4342-99E Platform Screen Doors in Urban Lines
+
+Subject:
+
+O&M Manuals Volume 3 Maintenance Manual
+
+Submission Number: GI/OTH/065/G
+
+Document Number: GI_OTH_065_G (O&M Vol 3 Maintenance)
+
+This document contains proprietary information and may not be copied or released to a third party without the written consent of Kaba Gilgen AG.
+
+<table><tr><td>Rev. Index</td><td>Date</td><td>Prepared by</td><td>Revised by</td><td>Reviewed by</td><td>Approved by</td></tr><tr><td>A</td><td>31-10-01</td><td>H. Niedur, Tidser/</td><td></td><td>Aicksnhbaher/</td><td>ProUCtMakager</td></tr><tr><td>B</td><td>07-08-02</td><td></td><td></td><td>PrUIrichaucker</td><td>PrUIrichaucker</td></tr><tr><td>C</td><td>14-03-03</td><td></td><td></td><td>PrUIrichaucker</td><td>PrUfrichmakger</td></tr><tr><td>D</td><td>20-06-03</td><td></td><td></td><td>PrUirichaucker</td><td>Projrich Buakger</td></tr><tr><td>E</td><td>22-08-03</td><td></td><td></td><td>Projeichanager</td><td>Projeichancger</td></tr><tr><td>F</td><td>10-12-04</td><td></td><td>Dickson Chan</td><td>AAeschacher/</td><td>PrOIrichBucker</td></tr><tr><td>G</td><td>01-09-06</td><td></td><td>Dickson Chan</td><td></td><td>PrUIrichBauaker</td></tr></table>
+
+
+# 1 Prerequisite and Safety
+
+# 1.1 Introduction
+
+This section provides general information concerning safety and safety precautions for authorized maintenance personnel. It is compulsory reading for everyone who operates the “PSD System in Urban Lines”.
+
+# 1.2 Definitions and abbreviations
+
+<table><tr><td>ACS</td><td>Automatic Changeover Switch</td></tr><tr><td>ATC</td><td>Automatic Train Control</td></tr><tr><td>CAD</td><td>Cab Access Door</td></tr><tr><td>CBS</td><td>Central Battery System</td></tr><tr><td>DCU</td><td>Door Control Unit</td></tr><tr><td>DIOS</td><td>Door Interlock Overide Key switch</td></tr><tr><td>DPIS</td><td>Door Power Isolating Key switch</td></tr><tr><td>FRACAS</td><td>Fault Reporting and Corrective Action System</td></tr><tr><td>DOI</td><td>Door Open Indicator</td></tr><tr><td>ECS</td><td>Environmental Control System</td></tr><tr><td>EED</td><td>Emergency Escape Door</td></tr><tr><td>EPSD</td><td>End Platform Screen Door</td></tr><tr><td>FSP</td><td>Fixed Screen Panel</td></tr><tr><td>IBP</td><td>Integrated Backup Panel</td></tr><tr><td>ICP</td><td>Incident Control Panel</td></tr><tr><td>LCP</td><td>Local Control Panel</td></tr><tr><td>LED</td><td>Light Emitting Diode</td></tr><tr><td>LRU</td><td>Line Replaceable Units</td></tr><tr><td>MCB</td><td>Miniature Circuit Breaker</td></tr><tr><td>MCS</td><td>Main Control System</td></tr><tr><td>MS</td><td> Maintenance Staff</td></tr><tr><td>OCC</td><td>Operations Control Centre</td></tr><tr><td>OHL</td><td>Overhead Line</td></tr><tr><td>PCC</td><td>PSD Command Circuits</td></tr><tr><td>PIOS</td><td>PSD Interlock Overide Key Switch</td></tr><tr><td>PLC</td><td>Program Logical Control</td></tr><tr><td>PLCS</td><td>PSD Local Control Key Switch</td></tr><tr><td>PSA</td><td>Platform Supervisor&#x27;s Booth Remote Alarm Terminal Box</td></tr><tr><td>PSDC</td><td>PSD Controller</td></tr><tr><td>PSB</td><td>Platform Supervision Booth</td></tr></table>
+
+<table><tr><td>PSIBP</td><td>Platform Supervision Integrated Backup Panel</td></tr><tr><td>PSD</td><td>Platform Screen Door</td></tr><tr><td>PSI</td><td>PSD Status Indicator</td></tr><tr><td>PSIC</td><td>PSD Safety Interlock Circuits</td></tr><tr><td>PTE</td><td>Portable Test Equipment</td></tr><tr><td>PTO</td><td>Passenger Train Operator</td></tr><tr><td>SCR</td><td>Station Control Room</td></tr><tr><td>SER</td><td>Signalling Equipment Room</td></tr><tr><td>SMIBP</td><td>Station Management Integrated Backup Panel</td></tr><tr><td>SMS</td><td> Station Management System</td></tr><tr><td>SMSS</td><td> Station Management System Server</td></tr><tr><td>SMSTB</td><td>Station Management System Terminal Box</td></tr><tr><td>SO</td><td>Station Operator</td></tr><tr><td>TAD</td><td>Track Access Door</td></tr><tr><td>TC</td><td>Traffic Controller</td></tr><tr><td>TH</td><td>Traffic Hour</td></tr><tr><td>TO</td><td>Train Operator</td></tr><tr><td>UPS</td><td>Uninterruptible Power Supply</td></tr><tr><td>URL</td><td> Urban Railway Line</td></tr></table>
+
+# 1.3 Safety Concept
+
+The safety concept is based on a thoroughly planned and detailed hazard and safety analysis. This analysis provides a reliable safety concept that consists of four main levels. An in depth description of each level is as follows:
+
+# Design and engineering:
+
+The PSD System is designed in accordance with regulations and standards. Possible precautions have been taken by planning and designing the system to prevent any incidents resulting in service delay or even personal injury. The design includes safety features such as high reliability of all system components, the use of toughened glass, flexible seals on leading edges, door locking devices, etc.
+
+# Manufacturing and quality control:
+
+High quality work guaranteed by regular traceable quality tests during fabrication, installation and commissioning.
+
+# Safety elements:
+
+Safety elements protect the passengers in emergency situations. These elements include release handles on sliding doors, panic push-bars on emergency escape doors, gap hazard or edge hazard detectors on curved or spiralled platforms.
+
+# Monitoring:
+
+The PSD System is redundantly interlocked with the Automatic Train Control (ATC) system, which, if necessary, stops the arrival or departure of the next train.
+
+# 1.4 Personnel Requirements
+
+<table><tr><td>- NOTE--</td></tr><tr><td>PSD System personnel must be competently trained to perform their duties and be qualified in accordance with the criteria outlined in the MTRC Staffing Plan.</td></tr></table>
+
+# 1.5 Management Responsibilities
+
+It is the managements responsibility to ensure that all maintenance personnel has read and completely understood the safety instructions listed in this manual, in the manual “Instructions / Quality Records” or other MTRC specific safety instructions.
+
+# 1.6 Precautions
+
+In order to guarantee the safe operation of the PSD, the maintenance personnel shall take any necessary precautions when performing their duties. The responsibilities of the maintenance personnel are as follows
+
+• Inform Station Controller before carry out maintenance work.   
+• Inform Traffic Controller (TC) and the maintenance personnel and an authorization must be granted from TC if track access is required for maintenance work. Competent Person (Track) supervises the maintenance work and is responsible for the safe platform duty.   
+. Before performing maintenance work on moving parts, make sure to disconnect the power circuit of the respective door.   
+• No hot works could be performed unless approved by MTRC.   
+• Performing tasks from the track side is very hazardous and requires supplementary precautions:  Inform Station Controller and Traffic Controller before any works.  Ensure the track is protected by flash light and the overhead line is switched off and properly earthed.   
+• No metal ladder could be used anywhere.   
+• Ensure all works carried out in a safe manner and would not affect the operation of train service.   
+Follows the regulations in the Handbook “Rules and Responsibilities Manual for Contractor Working in Operation Railway Premises” issued by MTRC.
+
+# 1.7 Safety Signs
+
+The following safety signs appear in this manual. They are intended to draw your attention to hazards of different danger levels.
+
+<table><tr><td>!!!DANGER !!</td></tr><tr><td>Indicates hazards, which immediately result in serious bodily injuries or death if the respective instructions are not strictiy adhered to</td></tr></table>
+
+<table><tr><td>!!WARNING !!</td></tr><tr><td>Indicate hazards, which result in serious injuries or major system damage if the respective instructions are not strictly adhered to</td></tr></table>
+
+<table><tr><td>!CAUTION!</td></tr><tr><td>Indicates hazards, which result in minor injuries or moderate system damage if the respective instructions are not strictly adhered to.</td></tr></table>
+
+Note Sign   
+The following Note Sign draws your attention to technical requirements and context-specific   
+hints in the individual sections:
+
+<table><tr><td>- NOTE-</td></tr><tr><td>Refers to technical requirements to which particular attention must be paid in order to ensure an optimum performance of the system.</td></tr></table>
+
+# 2 Maintenance Concept
+
+# 2.1 General
+
+Supplementary maintenance is not required during normal operation.
+
+It is the station staff’s responsibility to resolve the degraded operation cases as described in the Operation Manual (First Line, First Call).
+
+If the action is not successful, the Station Staff ensures safe train operation and calls for Maintenance Staff (First Line, Second Call). The Maintenance Staff solves the problem at the platform.
+
+If necessary a defective part is identified as a Line Replaceable Unit (LRU) and replaced either during traffic hours or non-traffic hours. Parts will be repaired or replaced.
+
+Non-repairable parts will be disposed in an environmentally sound manner.
+
+# 2.2 Maintenance Flow Diagram
+
+![](images/1b45964d5f62c84c267d154dff694be197a3139ebbea8469aed1749589b738ea.jpg)
+
+(Note: NG means Not Go)
+
+# 3 Tool list
+
+# 3.1 Maintenance Tools
+
+<table><tr><td>Item</td><td>Tools</td><td>Description</td><td>Qty.</td></tr><tr><td>1.</td><td>Hand Tools</td><td>See Tools Box in Item 3.4</td><td>1 / Station</td></tr><tr><td>2.</td><td>Ladder</td><td>Ladder or stand</td><td>2 /Station</td></tr><tr><td>3.</td><td>Paper and pen</td><td> Some paper and pen for remarks and notes</td><td>1/ Staff</td></tr><tr><td>4</td><td>Head Torch</td><td>LED or light bulb type head torch</td><td>1/Staff</td></tr><tr><td>5.</td><td>Cleaning Cloth</td><td>Cleaning Cloth for remove dirty (keep at station)</td><td>As required</td></tr><tr><td>6.</td><td>Lubricant</td><td>Silicon /Grease type Lubricant for Locking Block and Pulley (keep at station)</td><td>As required</td></tr><tr><td>7</td><td>Ratchet Set</td><td>Ratchet wrench, screwdriver set</td><td>1/Staff</td></tr><tr><td>8.</td><td>Torque Wrench</td><td>10-60Nm Torque Wrench (for 180 days Preventive Maintenance)</td><td>1/Night Shift</td></tr><tr><td>9.</td><td>Ruler</td><td>6&quot; Stainless Steel Ruler for measure Finger Gasket or Belt Tension Adjustment</td><td>1/Staff</td></tr><tr><td>10.</td><td>Flood Light</td><td>500W Flood Light for PSD inspection</td><td>1/Station</td></tr><tr><td>11.</td><td>Timber / Hammer / Face Mask / Hand Glove</td><td>Material for remove broken glass panel</td><td>1 set keep at office</td></tr></table>
+
+# 3.2 Maintenance Test Equipment
+
+<table><tr><td> Item</td><td> Equipment</td><td>Description</td><td> Qty.</td></tr><tr><td>1</td><td>Insulation Tester</td><td>Insulation Tester (Test Voltage 250VDC)</td><td>1 / nigh shift</td></tr><tr><td>2.</td><td>Multimeter</td><td>Digital Multimeter with test lead (for 360 days preventive maintenance)</td><td>1/night shift</td></tr><tr><td>3</td><td>Dummy Load</td><td>3 Ohm,20oW Resistor Load for Batery Discharge Test (for 360 days preventive maintenance)</td><td>1/night shift</td></tr><tr><td>4.</td><td>Ohm Meter</td><td>Moving Coil Ohm Meter with long test lead for checking the earth bonding PSD/EPSD (for 360 days preventive maintenance)</td><td>1/ night shift</td></tr><tr><td>5.</td><td>Force Meter</td><td>0-500N Digital Force Meter (for PSD Survey Only)</td><td>1/night shift</td></tr></table>
+
+# 3.3 Special Tools
+
+<table><tr><td>Item</td><td>Tools</td><td>Description</td><td>Qty.</td></tr><tr><td>1.</td><td>PTE</td><td>Portable Test Equipment (Notebook computer c/w serial port</td><td>1/Staff on</td></tr><tr><td>2.</td><td>PTE cables</td><td>and PTE software) Yellow Cable (Download Only)- P/N: 45-0905-418</td><td>duty&quot; 1/Staff on duty&quot;</td></tr><tr><td>3.</td><td>FloppyPSDC</td><td>Red Cable (Read/Write Only)- P/N: 45-0905-419 Blue Cable (Read Only)- P/N: 45-0905-420 Boot up floppy for download PSDC software (2 Disk)</td><td>2 keep at</td></tr><tr><td>4.</td><td>Master Gauge</td><td>Checking Template (P/N: 0906-050) for Safety Switch</td><td>office 1/night shift</td></tr><tr><td>5.</td><td>Locking Block 26.5mm x 24mm Test Gauge for</td><td>Locking Block Checking Template (P/N: 0906-051) for Safety Switch</td><td>1/ night</td></tr><tr><td>6.</td><td>Locking Block Solenoid 29mm Test Gauge Red</td><td>Locking Block Checking Template (P/N: 0906-053) for Safety Switch</td><td>shift 1/night</td></tr><tr><td>7.</td><td>for EED/TAD/CAD Safety Switch Test Gauge Green</td><td>EED/TAD/CAD Checking Template (P/N: 0906-054) for Safety Switch</td><td>shift 1/ night</td></tr><tr><td>8.</td><td>for EED/TAD/CAD Safety Switch Test Gauge for</td><td>EED/TAD/CAD Checking Template (P/N: 0906-058) for Pin on Locking</td><td>shift 1/night</td></tr><tr><td>9.</td><td>Locking Block Locking Block</td><td>Block Switch Activating Balance Checking Template (P/N: 0900-448) for Locking Pin</td><td>shift 1/night</td></tr><tr><td>10.</td><td>Setting gauge Belt Tension Tester</td><td> 5N Drive Belt Tension Tester (P/N: 0626-163) for Drive Belt</td><td>shift 1/night</td></tr><tr><td>11.</td><td>(Drive Belt) Belt Tension Tester</td><td>Tension adjustment (for 360 days preventive maintenance) 700g_Main Belt Tension Tester (P/N: 0900-485/03) for Main</td><td>shift 1/night</td></tr><tr><td></td><td>(Main Belt)</td><td>Belt Tension adjustment (for 360 days preventive maintenance)</td><td>shift</td></tr><tr><td>12.</td><td>Fuse Remover</td><td>Fuse remover handle for Power Distribution Panel</td><td>1/PDP</td></tr></table>
+
+# 3.4 Tools Box List
+
+<table><tr><td>Item</td><td>Tools</td><td>Description</td><td>Qty.</td></tr><tr><td>1.</td><td>Screwdriver 1</td><td>Slotted screwdriver 3mm, 5mm, 6mm short, 6mm long</td><td>Each 1</td></tr><tr><td>2.</td><td>Screwdriver 2</td><td>Phillips screwdriver size 0, 1, 2</td><td>Each 1</td></tr><tr><td>3.</td><td>Screwdriver 3</td><td> Small screwdriver 2mm for DOI PCB</td><td>1</td></tr><tr><td>4.</td><td>Screwdriver 4</td><td>Electrical screwdriver with lamp tester for live circuit</td><td>1</td></tr><tr><td>5.</td><td>Torx Keys</td><td>Torx Key size T10, T15,T20,T25, T27, T30, T40, T45, T50</td><td>1 Set</td></tr><tr><td>6.</td><td>Needle-nosed pliers</td><td>Needle-nosed pliers medium size</td><td>1</td></tr><tr><td>7.</td><td>Wire cutting pliers</td><td>Wire cutting pliers medium size</td><td>1</td></tr><tr><td>8.</td><td>Hexagon Keys</td><td>Hexagon Allen keys,sizes 1.5,2, 2.5,3,4,5, 6mm</td><td>1 Set</td></tr><tr><td>9.</td><td>Wrench</td><td>Ring/Open-End wrench size 8,10, 13,17,19 mm</td><td>Each 1, 8mm x 2</td></tr><tr><td>10.</td><td>Hammer</td><td>Small Iron hammer</td><td>1</td></tr><tr><td>11.</td><td>File</td><td>6&quot;Flat File</td><td>1</td></tr><tr><td>12.</td><td>Adjustable plier</td><td>Medium plier with adjustable size</td><td>1</td></tr><tr><td>13.</td><td>Knife</td><td>Knife with replaceable blades</td><td>1</td></tr><tr><td>14.</td><td>Insulation Tape</td><td>Electrical Insulation Tape</td><td>1</td></tr><tr><td>15.</td><td>Cable Ties</td><td>Assorted cable ties</td><td>Min. 10</td></tr><tr><td>16.</td><td>Screw Lock Fluid</td><td>Screw locking fluid</td><td>1</td></tr><tr><td>17.</td><td>Lubricant</td><td>WD40,56g</td><td>1</td></tr><tr><td>18.</td><td>DCU Fuse</td><td>125mA Time delay</td><td>2-4</td></tr></table>
+
+![](images/911ce397c4a11b6efd44608c2e5466a2d4444da6889fd201aab0709c36b962b0.jpg)
+
+# 4 Portable Testing Equipment (PTE)
+
+The Portable Testing Equipment (PTE) is a special software tool installed on a laptop, main function of the PTE is to support the maintenance personal and to collect platform data. The PTE can be connected direct to a PSDC, direct to a DCU and to a DCU via PSDC as followings:
+
+![](images/d8d574804f4bf0165ceed31be98bf445daa7f02e82fdadc6cc2a374bfff91aef.jpg)  
+Illustration 1; Connection of PTE
+
+![](images/c31fcf067314d549114ecdf557cc8044b05e50e8eb993d196240e7b772c7f892.jpg)  
+Illustration 2; Connect PTE to PSDC
+
+# 4.1 PTE Hardware Requirements
+
+In order to have optimize performance for running the PTE software, bellow’s hardware requirement is recommended for the laptop computer:
+
+• Pentium Processor with 500MHz or faster 128M Bytes or more system memory   
+• Windows 2000 Operation System   
+• 4 hours of battery backup time   
+With 9-Pin RS232 Serial Port Minimum 2G Bytes of Hard Disk storage space
+
+# 4.2 PTE Cables
+
+There are 3 different types of cable can be used to connect the PTE Laptop to the PSDC and the DCU according to its access level, the “BLUE” one provides “Read Only” access level, the “Red” one provides “Read / Write” access level and the “YELLOW” one provides “Download Only” purpose.
+
+# “Blue” read only cable
+
+If the PTE is connected to a DCU or PSDC with the blue cable, the user has only read access.   
+No parameters can be changed and no actions can be executed.
+
+# “Red” read / write cable
+
+If the PTE is connected with the red read / write access cable and the user had the corresponding access rights (depends on his login), he could change parameters and executes actions.
+
+# “Yellow” Download cable
+
+The yellow cable is used for software download either to a DCU or to a PSDC. To download a software, the laptop has to be connected directly to the corresponding controller (DCU or PSDC). The procedure to download a new software will be described at later chapters.
+
+![](images/1bacee0bdc4ae4ec4af3b9a1b5907c6970fc144c59e34aac10c7d9c0bfa8977b.jpg)  
+Illustration 3; PTE Cable
+
+# 4.3 PTE Software
+
+The PTE software is a portable diagnostic and settings tool. It provides the necessary function to support the maintenance personnel’s needs to maintain the PSDCs in order to calibrate and optimise their function but also to inspect and collect data.
+
+PTE fits into the MTRC maintenance process in order to maintain DCUs and PSDCs. In addition, it’s also involved in the system assurance process by collecting data for backup and further analysis (which is not part of the PTE software).
+
+The PTE software runs on a standard portable PC. It is not able to download firmware either to a DCU nor to a PSDC.
+
+![](images/e95a88bfd0d135807edd2ce136fc766d527973f7e702d5ae29d07bf83425d367.jpg)  
+Illustration 4; Opening Screen of PTE
+
+For further information on PTE operation, please refer to Software Operating Manual (Submission CC_SPE_022_A).
+
+# 5 Description of Main Parts 5.1 General cross section
+
+![](images/b324c19be435082f9e7a2b87af6cce3a8454b2b4e52c2c63f25f2378e9d8ba0b.jpg)
+
+# 5.2 DCU / Drive Unit
+
+Each bi-parting, Platform Screen Door (PSD and EPSD) is controlled by a Door Control Unit (DCU). It is a line replaceable item, with connectors for all wiring.   
+Each Door Control Unit (DCU):
+
+continuously monitors the condition of the two separate door command circuits controls the door motor and locks to cause the door to open or close in response to valid open or valid close commands ensures that the maximum stall force and maximum speed of door movement in each direction are safely controlled monitors the status of door safety switches • controls the DOI at each PSD and EPSD doorway • monitors the health of circuits at each doorway • transmits health and monitoring data to the PSD Controller (PSDC)
+
+Motor drive circuits and all other doorway controls and switches:
+
+• operate independently at each doorway • are contained at each doorway within a single enclosed Door Control Unit (DCU)
+
+# 5.2.1 DCU-Box
+
+The DCU-Box contains circuit breakers for the main power and printed circuit boards for control and drive. Two test switches allow manual operation for each single PSD. All electrical connections are plugged, except for the main power $+ / -$ 48VDC.
+
+The DCU-Box is further equipped with an interface to the PTE for local observation or software download. The DCU controls the motor movement and speed, the solenoid in the locking block and keeps track of the sliding panel position by an encoder in the motor. Obstacle detection, edge/gap hazard detection and DOI are also connected to and controlled by the DCU. A CAN BUS-Connection (RS485) to the PSDC in the PSD Equipment Room enables the exchange of various signals for indication and Error Log. All safety relevant signals and commands are hard wired.
+
+![](images/7f8bd7e9460d02b7ced03f1a59d43b9191c13f1190f87aba815b9246ac87949a.jpg)  
+Illustration 6; Location of a DCU
+
+![](images/40c51ad5be40e0047216c51aa9d165d6bb9962e73f83c316b90993b172887dee.jpg)  
+Illustration 7;Inside DCU Box
+
+# 5.2.2 DCU Test Switch
+
+The DCU is equipped with two “Test Switches” to open and close the specific door manually, for testing and adjusting reasons.
+
+At normal operating condition, the upper “Test Switch” will stay at “Close” position and the lower “Test Switch” will stay at “Auto” position. A mechanical locking bar will prevent the header cover to close without return this test switch to “Auto” position.
+
+The upper “Test Switch” is a spring return switch which has two operating position “Open” and “Close”, this test switch will only function when the lower “Test Switch” was turned to “Manual” position. To open a PSD, turn and hold this test switch to “Open” position, release this switch will automatic return to “Close” position and the PSD will close.
+
+The lower “Test Switch” is used to select from “Auto” to “Manual” control, during normal PSD operation, this switch is in “Auto” position and the specific PSD is control via ATC signal.
+
+![](images/d246016f38306a55e183d286b777de5d707e16ff794fb9ca85304a9b4bc3c909.jpg)  
+Illustration 8; DCU “Test Switch” for manually testing purpose
+
+# 5.2.3 Door Interlock Override Circuit
+
+Each DCU has two Safety Modules inside the DCU Box near the upper right hand corner, when the DIOS Keyswitch is operated, The 4 green LEDs of the Safety Modules will illuminated and it will bypass the 2 safety switches door safety interlock circuit in the Locking Block and the 2 safety interlock circuits for adjacent 2 EEDs (if any) of this Doorway.
+
+![](images/7437e5ac9b51477b75e77b3abccc9154a7ed6693ea8fcfb6d8b9aa49d5685f3c.jpg)  
+Illustration 9; Safety Module inside DCU
+
+![](images/6f40e79f2fc7ffea27abfe175ba45feb31e49d47d24a73b7d170d3e69057a286.jpg)  
+Illustration 11; DCU Circuit Board Layout
+
+# 5.2.4 Drive Unit and Motor
+
+The 3 phase DC-Motor is running on low rpm and drives the panels directly via a speed reduction belt in the drive unit. No gearbox is installed, no oil or grease is needed. The position of the sliding panels is monitored by an encoder in the motor, instead of mechanical end switches.
+
+![](images/c72950d4f461a72ac9251aecd42a0d3b6a772d4459601b0201d77ed81953ad65.jpg)  
+Illustration 12; Drive Unit
+
+# 5.3 Locking Block PSD
+
+Each pair of powered sliding doors (PSD or EPSD) was equipped with a locking block to secure the door closed. The lock shall positively engage such that each door cannot be opened unless the lock is disengaged by a properly applied “Open” command to the Solenoid, or by the proper use of the manual release mechanism.
+
+![](images/28920c0d4d033e056fdfac55f5409a35739c18cabed04d20879ceaa6e9e2acfe.jpg)  
+Illustration 13; Locking Block PSD
+
+# 5.4 Locking Block EED/CAD/TAD
+
+All individual EED, CAD and TAD were equipped with similarly “Piston” locking mechanism which shall positively engage when the door closed, the lock shall not be opened unless the lock is disengaged by “Push Bar” at Track side or by the “Manual Release Lock” at Platform side.
+
+![](images/2bf5d839f61894773bca1378812f9a9bb3b83188d943c82f0aeafb16ecbeb264.jpg)  
+Illustration 14; Locking Block EED
+
+# 5.5 Door Closer TAD
+
+All TAD’s are equipped with a door closer to close the door for safety reasons, after a TAD has been opened
+
+![](images/ff4c7e01f8991f9e446b582376ca2a1f33000c5ae9ee8e735e150935c2562c94.jpg)
+
+Illustration 15; Door closer TAD
+
+# 5.6 Hold Open Device CAD / EED
+
+CAD and EED’s are equipped with hold open devices to prevent the door from unattended closing during the platform duty or during embarking the train by the EED’s
+
+![](images/3d5befdae0a0cd6f92a1288ad85864d65ffe8072356011f4a3b6d179c35502ca.jpg)  
+Illustration 16; Hold open device CAD
+
+![](images/b1bd3fb4f16f653b0de20c5b7a864b8b39801d756398c927da81fce7b3bde8bc.jpg)  
+Illustration 17; Hold open device EED
+
+# 5.7 High Level Keys
+
+<table><tr><td>!!WARNING !!</td></tr><tr><td>Make sure no body is working near the PSD&#x27;s area when using LCP to open all doors, warning all workers if they are working near the PSD&#x27;s area before you can use the PLCS keyswitch to open all PSDs.</td></tr><tr><td>You should always keep the LCP cover closed and locked when you are not in its location, you can never leave the LCP cover open inattention so that other people can accessit!</td></tr></table>
+
+Two different kinds High Level Keys are used to secure the access to the LCP and the Header Covers. Operation staff is authorized to open the LCP to perform the degraded operation. Maintenance staff is authorized to open the LCP as well as the header covers, to perform the maintenance work.
+
+![](images/12a24d4637ed9eeda914e3abcb7bd6d0563b501a45e38735101b420aa496331f.jpg)
+
+Illustration 18; Header Cover Kaba C6 key
+
+![](images/eee2bfc824f17c6e61ea7ba57df334680b490a9f4986f2a2cc95a2a69cea749c.jpg)  
+Illustration 19; LCP Kaba B1 key
+
+# 5.8 PSD Controller (PSDC)
+
+PSDC is combined by a Hardware part and a Programmable Logic Control (PLC) Unit. The Hardware part contains all the safety related functions particularly the interface against the ATC. The software part contains the interface against the SMS, which is not safety related. The interface against the SMIBP is implemented by a combination of Hardware and Software.
+
+The benefit of this system is, that even if the PLC is removed, the PSD system still can be opened and closed via ATC.
+
+![](images/d0fc09f7628d6476fcc85568f8973030249735b4a62594f020546158201b86e2.jpg)
+
+Illustration 20; PSD Controller
+
+# 5.8.1 Safety Circuits
+
+Twelve numbers of Safe Master inside the PSDC forms part of the PSD Safety Interlock Circuits (PSIC), two identical hard-wired circuits loops all 40 PSDs/EPSDs Safety Switches in series and connected to Safe Master 90K3 and 90K6, another pair of safety circuits loops all EEDs Safety Switches in series and connected to Safe Master 90K9 and 90K12.
+
+Similar pair of safety circuit was provided for TAD and CAD at headwall and tailwall, when all PSDs, EPSDs, TADs and CADs were closed and locked, 12 nos. of Safe Master would energized and this activated the “All Doors Closed and Locked” signal to ATC via Safe Master 70K3 and 75K3.
+
+![](images/18ca7706acb66d6d3e6f5fe266c5b7ec932517dcf69c910d82b9cee9d1cd528d.jpg)  
+Illustration 21; Safety Interlock Circuits
+
+# 5.8.2 PSD - ATC Interface
+
+In general, the interface between the ATC and PSD system is through 4 signals connected by the PSDC:
+
+2 signals generated from ATC system to PSD system namely “Door Open Command” and “Door Close Command”.   
+2 signals generated from PSD system to ATC system namely “All Doors Closed and Locked” and “PSD Closed and Locked Override”
+
+Each signal is dual hardwires dry contact circuits therefore forms 8 pairs of hardwires circuits for the complete PSD-ATC Interface.
+
+When a valid “Door Open Command” from ATC to PSD has been continuous for 300ms, this signal will be latched and all PSDs will open. All PSDs will stay open until received a valid “Door Close Command” from the ATC interface.
+
+When the PSDs open, the PSD Safety Circuit (Loop all 40 PSDs/EPSDs) becomes “open circuit” and the “All Doors Closed and Locked” signal from PSD to ATC interface will be deactivated.
+
+When a valid “Door Close Command” from ATC to PSD has been continuous for 300ms, this signal will reset the “Door Open Command” and all PSDs will close.
+
+While all PSDs, EPSDs, CADs, EEDs and TADs were closed, the “All Door Closed and Locked” signal from PSD to ATC interface will be activated.
+
+During degraded operation, if somebody activated the PIOS Keyswitch of the LCP, the “PSD Closed and Locked Override” signal from PSD to ATC interface will be activated until the PIOS Keyswitch is released.
+
+![](images/4ab9ba56b17c2c1c696bea9aaabcea975c152fe2411da3eb6ebf02cb5ef2d266.jpg)  
+Note1: Repeating relays are required for Station without Sector Computer Note 2: PSD/ATC interface is in the SER of station.
+
+Illustration 22; PSD – ATC Interface Diagram
+
+# 5.9 Power Distribution Panel (PDP)
+
+The power for the PSD System for each platform is supplied by a Power Distribution Panel located inside PSD Equipment Room. Each Power Distribution Panel provided two independent power sources voltage $\pm$ 48VDC (for Motor / DCU) and $+ 2 4 \mathsf { V } \mathsf { D } \mathsf { C }$ (for PSDC and signal control).
+
+The $+ 2 4 \mathsf { V } \mathsf { D } \mathsf { C }$ is supported by a group of backup battery to allow continuous operation of the PSDC and signal control equipment when there is total power interruption, in order to increase the system safety, two Power Distribution Panels were designed to connected together via an “Automatic Change Over” Unit and both Power Distribution Panels were taken 415VAC main power from independent HV feeders. When there is power interruption to any 1 HV feeder, the “Automatic Change Over” Unit will transfer the outgoing PSD power source to another Power Distribution Panel to allow continuous operation.
+
+In case of both HV feeder 1 and HV feeder 2 lost mains supply together, all PSDs will stop operation until any 1 HV feeder is back to normal. The design of battery backup time is 24 hours. When the power restore, any opened PSD will close automatically in slow speed after a time delay of 10s of DCU self-test finished.
+
+![](images/6c0426010a2498f1588c6c31ed0ae91234ca860e83759fd6f699eba052bb0329.jpg)  
+Illustration 23; Distribution and Automatic Change-over Circuit
+
+Distribution of $\pm 4 8 \mathsf { V } \mathsf { D } \mathsf { C }$ to each Header is divided into 4 groups (each group consist of 10 nos. of doors) by 4 independent MCBs inside the Power Distribution Panel. When there is any one Header found short-circuit and tripped the distribution MCB, then only 10 nos. of doors would be affected.
+
+# 5.9.1 System Diagram
+
+![](images/a4a08a81d497513dead8acd2dfa917b9478559a8ffaf986025240765f8bbe60f.jpg)  
+Illustration 24; Electrical System Diagram for Power Distribution Panel
+
+# 5.9.2 Front Display Panel
+
+The front panel of the Power Distribution Panel has 3 Liquid Crystal Display modules, the upper left hand side shows the status of $+ 4 8 \vee$ supply and the upper right hand side shows the status of $\mathtt { - 4 8 V }$ supply, the lower side shows the status of $+ 2 4 \vee$ supply and all available alarms.
+
+Press the “SELECT” Button can scroll down the display messages from Voltage, Current, System Status and Alarms. Circuit Breakers status and Change Over Unit alarms are only displayed on the $+ 2 4 \vee$ LCD Display module. Press other buttons has no function to the PDP and can be ignored.
+
+All control switches are located inside the Power Distribution Panel and therefore press any “Button” on the Front Display Panel will no affect the operation of the Power Distribution Panel.
+
+![](images/e3002ddf1fcfb0d42c1827d2a0b364d0c0424e6df62a491a2052bb3deb212c85.jpg)  
+Illustration 25; Front LCD Display Panels
+
+# 5.9.3 Signal Display Module
+
+There are 3 LEDs on the Signal Display Module, each LED indicated different status or alarm conditions:
+
+![](images/540764db6fac45553fd265f7bae79921f3e8c9858bb6e46687b3e05551ce3577.jpg)  
+Illustration 26; Signal Display Module
+
+# 5.9.4 Input / Output Circuit Breakers
+
+![](images/d2b2a17a243927e150da0621280c4fc027843f203e5f918e14c6303ae45044b7.jpg)  
+Illustration 27; PDP Configuration
+
+![](images/3c30aab501d8a64892fd191cc71249b3d1309466e72814048c5a099882fe02ac.jpg)  
+Illustration 28; PDP $+ 2 4 V$ Charger Unit
+
+# 5.9.5 Start Up Procedure
+
+During the “Normal Operation” the PSD System is not disconnected from the power and is not shut down, even during the non traffic hours.   
+However, if the PSD System is shut down for any reasons the SO will start-up the PSD System according to the following instructions:
+
+<table><tr><td>!!WARNING !!</td></tr><tr><td>Indicate hazards, which result in serious injuries or major system damage if the respective instructions are not strictly adhered to</td></tr><tr><td>Make sure that no other people working for the PSD System before carry out works</td></tr></table>
+
+![](images/003e4935f4611675bd12d1cc7e42fa5f383ee6f6f3bf8da3c9a11ae6a57ba3b4.jpg)
+
+# 5.9.6 Shut Down Procedure
+
+During the “Normal Operation” the PSD System is not disconnected from the power and is not shut down, even during the non traffic hours.   
+However, if the PSD System needs to be shut down for any reasons the SO will shut-down the PSD System according to the following instructions:
+
+<table><tr><td>!!WARNING !!</td></tr><tr><td>Indicate hazards, which result in serious injuries or major system damage if the respective instructions are not strictly adhered to</td></tr></table>
+
+![](images/db38c5650a85b1b4d36ed3b6ccca9b502fa1dbd620854dbb344f4839da0c3217.jpg)
+
+# 5.9.7 Backup Battery
+
+20 nos. of 1.2V, 100AH alkaline cells were connected together in series for $+ 2 4 \mathsf { V } \mathsf { D } \mathsf { C }$ backup, it can provides 24 hours power supply for the PSDC in case of total power interruption of both platforms. Periodically check for battery capacity, electrolyte level and battery interconnect terminals required.
+
+![](images/11179ad11af0e4017d7c9a196f359a1a73f95dc65192529559639968b80aae46.jpg)  
+Illustration 29; Backup Batteries
+
+# 5.10 Hazard Detectors
+
+Two kinds of Hazard Detectors were installed on some curved platforms (like Admiralty, Wan Chai, etc.), one is Gap Hazard Detectors and the other is Edge Hazard Detectors. They are protected passengers from step or trap at the gap or edge between Platform Screen Door and the train’s door.
+
+There is no interlock between “All doors closed and locked” signal to ATC and Hazard Detector Alarm, that means the Train will still get “START” signal once all doors is “Closed and Locked” even though when there is a hazard detector alarm but the PSI will flashing plus the particular PSD’s DOI flashing to warning the Train Operator.
+
+# 5.10.1 Gap Hazard Detector
+
+Gap Hazard Detector was installed at the Threshold edge beside both PSDs / EPSDs which is located behind the Fixed Screen Panels. Gap Hazard Detector is a cushioned type sensing switch which can be activated by a force greater than 2kg. Gap Hazard Detector can be activated all the time whatever the PSD / EPSD is in open position or in closed position. Once the gap hazard detector is activated, the PSD / EPSD will stop movement and the DOI of this PSD / EPSD will flash to indicate the alarm location. The PSI will also flash to warning the Train Operator for the activated of a Hazard Detector alarm.
+
+![](images/c300f095ec80f1a189a32b0ee506ee5564fdf0763a258b5820a5ac64a9552d4b.jpg)  
+Illustration 30; Activate a Gap Hazard Detector
+
+# 5.10.2 Edge Hazard Detector
+
+Edge Hazard Detector was installed at the rear of both PSDs / EPSDs trackside. Edge Hazard Detector is a moveable profile which can be activated by a force greater than 2kg. Edge Hazard Detector can only be activated when the PSD is in closed position. Once the Edge hazard detector is activated, the PSD will stop movement and the DOI of this PSD will flash to indicate the PSD’s location. The PSI will also flash to warning the Train Operator there is a Hazard Detector alarm.
+
+![](images/20b9ebeae2282b5af96b73ba0ac727501c0b07f9104d2c030c844fade57d760f.jpg)  
+Illustration 31; Activated an Edge Hazard Detector
+
+# 5.11 Junction Box
+
+Cable distribution for the PSD system along the platform from PSD Equipment Room to the headers are terminated by Junction Boxes, all Junction Box are installed above the false ceiling at the platform and located at the end and at the middle of the platform.
+
+# 5.11.1 PSD Junction Box Hardwire (JBHW)
+
+Located at the middle of platform and connect the hardwire signals from PSDC (cable 425) to Header PSDX20 (cable 431) and PSDX21 (cable 432). Another two longer cables connected the hardwire signals to Header PSDX01 (cable 433) at headwall and PSDX40 (cable 434) at tailwall. All control / alarm hardwire signals from PSDC to each PSD are connected through PSD Junction Box Hardwire (JBHW).
+
+![](images/8679ba8eee3d641581928f71e2965a4f8ea97484e2267fe6036b2e4ded238f19.jpg)
+
+Illustration 32; PSD Junction Box Hardwire (JBHW)
+
+# 5.11.2 PSD Junction Box Serial (JBSE)
+
+Located at the middle of platform and connect the Serial CAN Bus from PSDC (cable 705) to Header PSDX01 (cable 706) at the headwall. The Serial CAN Bus is a data bus which used to transmit the status and alarms from all DCUs to the Programmable Logic Controller (PLC) inside the PSDC.
+
+![](images/569a337962056a1573b69cbac25ad4a6c8bb5f4d798456a79c050eab75a5ec23.jpg)  
+Illustration 33; PSD Junction Box Serial (JBSE)
+
+# 5.11.3 PSD CAD/TAD Junction Box Headwall / Tailwall
+
+Located at the end of platform and connect the hardwire signals from PSDC to Header PSDX01 (cable 630) at the headwall and PSDX40 (cable 635) at the tailwall. The “Closed and Locked” signal form CAD and TAD, DIOS keyswitch status and the DOI current monitoring alarm were connected through the PSD CAD/TAD Junction Box.
+
+![](images/844686899fa6b13499f1a4486da57506623077a906ed3e167853916bd50b466b.jpg)
+
+Illustration 34; PSD CAD/TAD Junction Box
+
+# 5.11.4 PSD PSL/PSI Junction Box Headwall / Tailwall
+
+Located at the top of header (need to remove fascia panel to access) at both end of platform and connect the hardwire signals from PSDC to the PSD Local Control Panel (Master PSL) and PSI (cable 415) at headwall. Another connect hardwire signals from PSDC to PSD Local Control Panel (Slave PSL) and PSI at tailwall (cable 420). The hardwire signals to PSL and PSI were connected through the PSD PSL/PSI Junction Box.
+
+# 6 Preventive Maintenance
+
+# 6.1 General
+
+PSD System must be checked periodically. Different kinds of maintenance activities are performed on intervals of 30, 90, 180 and 360 days after finished commissioning of the platform.
+
+Inspection results must be recorded in checklists that report the actual condition of the system. Based on those report, corrective maintenance tasks can be planned in advance to avoid failure of equipment.
+
+Damaged parts that can affect personal safety or regular train traffic must be repaired immediately!
+
+<table><tr><td>-- NOTE--</td></tr><tr><td>The results of Each periodic inspection shall be recorded in the appropriate check list.</td></tr></table>
+
+# 6.1.1 Personal Requirements
+
+<table><tr><td>-- NOTE--</td></tr><tr><td>PERSONAL WORKING ON THE PSD SYSTEM MUST BY QUALIFIED TO DO THE WORK AND AUTHORIZED ACCORDING TO THE STAFFING PLAN OF THE MTRC.</td></tr></table>
+
+# 6.1.2 Management Responsibilities
+
+It is the managements responsibility to make sure every person in the operation of the PSD System has read and understood all safety instructions, listed in this manual, in the manual “Instructions / Quality Records” or others MTRC specific safety instructions.
+
+# 6.1.3 Before Carry Out Maintenance Works
+
+Take any possible precautions by handling the maintenance works.
+
+Inform Station Controller about to be undertaken maintaining works.   
+Competent Person supervises the maintaining works and is responsible about the   
+correctly performance of the platform duty.   
+Before acting maintaining works, make sure to disconnect the power circuit of the   
+particular PSD.   
+Performing tasks from track side is very hazardously and need supplement precautions: • Inform Traffic Controller (TC) before access to track • Follow TC’s instruction and finished all appropriate track protection procedures before When finished maintenance works, ensure the track is clear of all persons and protection equipment Inform TC and the SC that access to the track has been completed and the track is clear
+
+# 6.2 30 Days Check
+
+# 6.2.1 General
+
+30 Days Check is a preventive service task for the PSD, Power Distribution Panel and the PSDC. It bases on visual inspection for all PSD glass panels and recording the PDP input / output voltage and current conditions, it also include collect platform fault history from the PSDC to allow further analysis of PSD System performance for the whole platform.
+
+# Items to be checked:
+
+# PSD / EPSD / CAD / TAD:
+
+• Visual inspection for any physical damage on Gasket, Brush, Sealing, Kickplate and Glass door panels
+
+# Power Distribution Panel:
+
+• Record the $\yen 480$ output voltage and current from the LCD Display • Record the $\mathbf { - 4 8 V }$ output voltage and current from the LCD Display • Record the $+ 2 4 \vee$ output voltage and current from the LCD Display • Record the 415VAC input voltage and current from the LCD Display • Record the battery current from the LCD Display
+
+# PSD Controller:
+
+• Synchronize PLC real time clock by PTE • Collect Platform data and download fault history by PTE
+
+# 6.2.2 Visual Inspection for Physical Damage
+
+![](images/840d4ce48a49527d74a8f305d1a43b684819b447ad2b9fdec133151f25d98f75.jpg)  
+Illustration 35; Visual inspection for physical damages
+
+# 6.2.3 Record Power Distribution Panel readings
+
+• Press “Select” Button on Front Panel LCD Display Record all necessary input / output conditions and check if they are within normal operation limit (Limit according to 30 Days Check Sheet)
+
+![](images/1bca88164944f0d3fb72cfeeeaf25563db23341f504302929747e310b50fe85f.jpg)  
+Illustration 36; Recording PDP Voltage and Current readings
+
+# 6.2.4 Data Download
+
+Parameter settings and fault history are saved at the DCU of the respective door, all fault history are automatically sent to the PSD controller, its memory is capable to save up to $1 0 0 ^ { \prime } 0 0 0$ records. Fault history must be downloaded periodically with Portable Test Equipment (PTE), otherwise the records will be overwritten.
+
+To prevent wrong handling on the software, the system is protected with different login types (expert, administrator, user).
+
+PTE is delivered with three types of cables according to the login rights, to improve the security of the system,
+
+<table><tr><td>Cable Colour Mark</td><td>Cable Type</td><td>Used for</td></tr><tr><td>Blue</td><td>Read only</td><td>Data download</td></tr><tr><td>Red</td><td>Read and write (Administrator)</td><td> Data exchange, settings</td></tr><tr><td>Yellow/green</td><td>Read and write (Expert)</td><td>Software download</td></tr></table>
+
+Use the blue cable to download data from PSD or DCU Controller to the PTE.
+
+# 6.2.5 Before Data Download
+
+Synchronizing the real time clock of PTE with the central database Server (if available) and refresh PTE’s database for the specific platform strongly recommended.
+
+# 6.2.6 Data Download from PSD Controller to Portable Test Equipment (PTE):
+
+• Connect the blue marked cable from the PTE (Serial Port COM1) to the PCD Controller
+
+![](images/45ca41de9f7d38d7b42a62bc1f7b4b06645b0ec767d87586910a69b72a782cb8.jpg)  
+Illustration 37; Connect PTE cable to PSDC
+
+• Start the respective PTE software program Login with your specific username, password and enter the specific Job No. Select “Tools” at the top menu and select “Synchronize Time”, Click “Sync Now” Close “Synchronize Time” Window   
+• At the lower left corner select “Collect Platform Data” at the Task Menu Wait for 20 minutes to allow collect all 40 nos. of DCU parameters   
+• After finished collected all platform data, select the “Fault History” menu and “Click”   
+• PTE will start to collect all “Fault History” (collecting up to $1 0 0 ^ { \prime } 0 0 0$ records takes about 30 – 40 minutes)   
+• When finished, disconnect and close the program   
+• Disconnect the PTE cable
+
+![](images/e6b1d668ff6ee4ee560bf07611bb80a66a32ed8fa6b549a4420d53d912c42499.jpg)
+
+# 30 Days Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td>MTRC Work Order No.</td><td></td><td>Date&amp;Time</td><td>Scheduled</td><td>Actual</td><td>Time</td></tr><tr><td>Station Name</td><td></td><td>Commence Date</td><td></td><td></td><td></td></tr><tr><td>Platform</td><td></td><td>Completed Date</td><td></td><td></td><td></td></tr><tr><td></td><td colspan="3"></td><td>Ref. Manual</td><td>GI/OTH/065</td></tr></table>
+
+DoorPanels   
+
+<table><tr><td>Door No.</td><td>Task to be done</td><td>Work Done/Remarks</td></tr><tr><td>TAD X91,X92</td><td></td><td>Done and in good condition</td></tr><tr><td>CAD X93,X94</td><td></td><td>Done and in good condition</td></tr><tr><td>PSD X01-X40</td><td></td><td>Done and in good condition</td></tr><tr><td>EED X51-X70</td><td>Visile oerush</td><td>Done and in good condition</td></tr></table>
+
+Power Distribution Panel   
+
+<table><tr><td>Items</td><td>Task to be done</td><td>Reading</td><td></td><td>Limit</td></tr><tr><td>+48ut</td><td>Rerord to+4eLcDDutvoltageand</td><td>+48V: V,</td><td>A</td><td>+47~+49V</td></tr><tr><td></td><td></td><td>-48V: V,</td><td></td><td>-47~-49V</td></tr><tr><td>Outut</td><td>Recordte4hcDDit yoltageand</td><td></td><td>A</td><td></td></tr><tr><td>+24vut</td><td>Recort tro24dcDDutvoltageand</td><td>+24V: V,</td><td>A</td><td>27.7~287V</td></tr><tr><td>AC Input</td><td>retsitte</td><td>VAC:</td><td>V,IUT A</td><td>374~456V</td></tr><tr><td>Butent</td><td></td><td>Ibat：</td><td>A</td><td>&lt;15A</td></tr><tr><td>Alarms</td><td>Check any alarms on LCD Display.</td><td>No Alarm Alarms :</td><td colspan="2"></td></tr></table>
+
+\*Required to adjust the 24VDC Output Voltage ofadjacent PDP to achievebance current
+
+<table><tr><td colspan="3">PSD Controller</td></tr><tr><td>Items</td><td>Task to be done</td><td>Work Done/Remarks</td></tr><tr><td>PSDC PLC</td><td>Synchronize PLC realtime clock by PTE.</td><td>Done and in good condition</td></tr><tr><td>PSDC PLC</td><td>Colect Platform data and download fault history by PTE.</td><td>]Done and in good condition</td></tr></table>
+
+Remarks:
+
+<table><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td>Signature:</td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td>Date:</td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr></table>
+
+# 6.3 90 Days Check
+
+# 6.3.1 General
+
+90 Day Check is a preventive service task for the PSD / EPSD moving parts. It is based on visual, mechanical and functional checks.
+
+Visual inspections detect damage or excessive wears of all items listed in the respective checklist. Checklist reports the actual condition of the system. If any damaged parts are discovered, they must be repaired or replaced immediately.
+
+<table><tr><td>- NOTE-</td></tr><tr><td>Open Header Covers requires and only allows to be carried out at non-trafic hours! Report to Station Controller before carry out maintenance works! Safety Belt should be wear when working at more than 2 meters height!</td></tr><tr><td>！ DANGER !!</td></tr><tr><td>This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!</td></tr></table>
+
+Items to be checked:
+
+# PSD / EPSD:
+
+• Drive Unit complete, including Mounting Bracket and Motor   
+• Tooth Belts   
+Main belt and pulley   
+Guiding and Belt Pulleys, including Tension Plate   
+• Travel Carriages   
+• Locking block   
+Earthing connections   
+• Upper pivot
+
+# 6.3.2 Header Inspection
+
+# Description
+
+For Inspection of Header section, Header covers must be opened from PSD / EPSD and besides of PSD / EPSD. The visual-check detects sign of damages as well as excessive wears.
+
+# Header PSD (FSP-FSP)
+
+![](images/5253be7586873bce2267b5de1336d848d05d22a0c913c38c942a924675ec2628.jpg)
+
+# Copper bus earthing terminal
+
+# Task
+
+• Open header covers   
+• Switch power of DCU “OFF”: Turn Miniature Circuit Breakers F1 to “OFF” position Check motor and motor mounting bracket   
+• Check tooth belt, tension roller and plate   
+• Check all pulleys at drive Unit Check all travel carriages   
+• Check main belt and pulley for main belt Check earthing connection and cable from DCU-Box Check earthing connection and cable from Drive Unit   
+• Check earthing connection and cables from travel carriages middle Check earthing connection and cables from copper bus and copper bus earthing terminal   
+• Switch power of DCU “ON”: Turn Miniature Circuit Breakers F1 to “ON” position   
+• Close header covers
+
+# 6.3.3 Inspection Illustration
+
+# Drive unit
+
+![](images/e7f7520888c17bcfccbfbbfbd9bac02a62cd608c3602a977ce791d59c5280587.jpg)
+
+1 – 4 Bolts for Motor   
+5 & 6 Bolts for Tension plate   
+7 Tooth belt   
+8 Motor   
+9 Earthing cable   
+10 Drive pulley   
+11 Bolts for Drive pulley   
+12 Power connectors   
+13 Control connector
+
+Check visual all parts at drive unit for signs of mechanical damage and excessive wears:
+
+Main belt and pulley
+
+![](images/284df91453017e24bcaa39cea5acaad317ad5ad6132b38bac235dbc456717563.jpg)
+
+Check visual all parts at drive unit for signs of mechanical damage and excessive wears:
+
+• Pulley for main belt • Main belt
+
+Travel carriage
+
+![](images/282b2ec1cb6a57741bcecab3b80de454a69bbeb1818101db9dc9e609341b2c91.jpg)
+
+Check visual for mechanical damage and excessive wears:
+
+• Bolt connections (bolts secured with Loctite)
+
+• Bolt connection to the door Clamping connection to the main belt
+
+# Earthing travel carriage middle
+
+![](images/023c0399ce6991c54e417145d0684bdae642a9425e8e30fea1faf3081fa78e4b.jpg)
+
+#
+
+• Check visual earthing connection for tightness   
+• Check for corrosion and deposition Check visual earthing cable and connection for signs of mechanical damage and excessive wears
+
+# Locking block and plate PSD
+
+![](images/bcde125a3a16c54612e430dcfc443f744948d1106891bf0d936b1e8a1e1de386.jpg)
+
+Check visual all parts at locking block and plate for signs of mechanical damage and excessive wears:
+
+• Check bolts for tightness
+
+# Earthing DCU-BOX
+
+![](images/be2aba77e2ed8f65b22f940311df3a6a0c5c06633edf6bc554f1e25626840ad6.jpg)
+
+DCU Box
+
+Check visual earthing cable and connection for signs of mechanical damage and excessive wears
+
+• Check visual earthing connection for tightness • Check for corrosion and deposition
+
+# Earthing Motor
+
+![](images/bf34f15128598fb3deac25d7e5ec01e0c83957d91643958b23002e38cf8cc6d2.jpg)
+
+Check visual earthing cable and connection for signs of mechanical damage and excessive wears
+
+• Check visual earthing connection for tightness • Check for corrosion and deposition
+
+# Earthing drive unit
+
+![](images/ee4a5b70bbf143bfbbfb83c45fa7e15367f86dbba1293c1bfa4400eadfaa0950.jpg)  
+Drive unit- Motor
+
+# Earthing copper bus and terminal
+
+![](images/e390ff6518de4ec682578c1e15147bc32673aa2bbf848c38dce5d1c2f898239b.jpg)
+
+Earthing terminal
+
+The copper bus is located over the running rail. Copper bus overlaps at both ends from the running rail. Check also this earthing connections.
+
+• Check visual all connections for tightness,   
+• Check for corrosion and deposition Check visual earthing cable and connections for signs of mechanical damage and excessive wears
+
+# Earthing upper pivot CAD / TAD / EED
+
+![](images/6cbb3fc03938a9bd1a99539bcb8d0844e30539a1a4da0d1c4050bda2aa54e829.jpg)
+
+• Check visual all connections for tightness,   
+• Check for corrosion and deposition   
+• Check visual earthing cables and connections for mechanical damage and excessive wears
+
+# 90 Days Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td>MTRC Work Order No.</td><td></td><td>Date&amp; Time</td><td>Scheduled</td><td>Actual</td><td>Time</td></tr><tr><td>Station Name</td><td></td><td>Commence Date</td><td></td><td></td><td></td></tr><tr><td>Platform</td><td></td><td>Completed Date</td><td></td><td></td><td></td></tr><tr><td></td><td colspan="3"></td><td>Ref Manual</td><td>GI/OTH/065</td></tr></table>
+
+<table><tr><td>DoorNo.</td><td>Task tobedone</td></tr><tr><td>PSDX01-X40</td><td>Visualispectionforanyphysicaldamageorexessive wearsofDiveUnit,ToothBelts,DrivePully.Checkdrivebelt tension and major fixing screws for tightness.</td></tr></table>
+
+<table><tr><td>PSD X01-X40</td><td colspan="3"></td></tr><tr><td colspan="4">Travel Carriage</td></tr><tr><td>Door No.</td><td colspan="3">Task to be done</td></tr><tr><td>PSD X01-X40</td><td colspan="3">Vi</td></tr><tr><td colspan="5">DoorBonding</td></tr><tr><td>Door No. All Doors</td><td colspan="3">Task to be done Visual check all earth bondings for tightness or signs of corrosion.</td></tr><tr><td></td><td colspan="3"></td></tr><tr><td>Door No.</td><td>Work Done/Remarks</td><td>PSD X30</td><td>Done and in good condition</td></tr><tr><td>EPSD X01</td><td>Done andin good condition</td><td>PSD X31</td><td>Done and in g ood conditi on</td></tr><tr><td>PSD X02</td><td>Done and in good conditi on</td><td>PSD X32</td><td>Done and in good conditi on</td></tr><tr><td>PSD X03</td><td>Done andin good condition</td><td>PSD X33</td><td>Done and in good conditi on</td></tr><tr><td>PSD X04</td><td>Done and in good conditi on</td><td>PSD X34</td><td>Done and in g ood c onditi on</td></tr><tr><td>PSD X05</td><td>Done andin good condition</td><td>PSD X35</td><td>Done and in good conditi on</td></tr><tr><td>PSD X06</td><td>Done andin good condition</td><td>PSD X36</td><td>Done and in good conditi on</td></tr><tr><td>PSD X07</td><td>Done and in good conditi on</td><td>PSD X37</td><td>Done and in good c onditi on</td></tr><tr><td>PSD X08</td><td>Done andin good condition</td><td>PSD X38</td><td>Done and in good conditi on</td></tr><tr><td>PSD X09</td><td>Done andin good condition</td><td>PSD X39</td><td>Done and in good conditi on</td></tr><tr><td>PSD X10</td><td>Done and in good conditi on</td><td>EPSD X40</td><td>Done and in good conditi on</td></tr><tr><td>PSD X11</td><td>Done andin good condition</td><td></td><td></td></tr><tr><td>PSD X12</td><td>Done and in good conditi on</td><td></td><td></td></tr><tr><td>PSD X13</td><td>Done andin good condition</td><td></td><td></td></tr><tr><td>PSD X14</td><td>Done andin good condition</td><td></td><td></td></tr><tr><td>PSD X15</td><td>Done and in good conditi on</td><td></td><td></td></tr><tr><td>PSD X16</td><td>Done andin good conditi on</td><td></td><td></td></tr><tr><td>PSD X17</td><td>Done andin good conditi on</td><td></td><td></td></tr><tr><td>PSD X18</td><td>Done and in good conditi on</td><td></td><td></td></tr><tr><td>PSD X19</td><td>Done andin good conditi on</td><td></td><td></td></tr><tr><td>PSD X20</td><td>Done and in good condition</td><td></td><td></td></tr><tr><td>PSD X21</td><td>Done andin good conditi on</td><td></td><td></td></tr><tr><td>PSD X22</td><td>Done andin good condition</td><td></td><td></td></tr><tr><td>PSD X23 PSD X24</td><td>Done and in good conditi on</td><td></td><td></td></tr><tr><td></td><td>Done andin good conditi on</td><td></td><td></td></tr><tr><td>PSD X25</td><td>Done andin good conditi on</td><td></td><td></td></tr><tr><td>PSD X26</td><td>Done andin good conditi on</td><td></td><td></td></tr><tr><td>PSD X27</td><td>Done and in good conditi on</td><td></td><td></td></tr><tr><td>PSD X28</td><td>Done andin good condition</td><td></td><td></td></tr><tr><td>PSD X29</td><td>Done andin good conditi on</td><td></td><td></td></tr></table>
+
+# 90 Days Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td>Rem arks:</td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr></table>
+
+<table><tr><td colspan="20">PartsUsed</td></tr><tr><td>Part Name</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1) ID Faulty Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>/</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1) ID Installed Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1) Locati on</td><td></td><td></td><td></td><td>=</td><td>PSD</td><td></td><td>=</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+
+<table><tr><td colspan="20">PartsUsed</td></tr><tr><td>Part Name</td><td colspan="10"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Faulty Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>/</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Installed Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) Location</td><td></td><td></td><td></td><td></td><td>PSD</td><td></td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+
+Remarks:
+
+![](images/d31c517c8d3ec7a778c121bd234cd96df5c65029d7a13ddd94f12568ba676567.jpg)
+
+Performed by: Signature: Date:
+
+Checked by: Signature: Date
+
+# 6.4 180 Day Check
+
+# 6.4.1 General
+
+180 Day Check is an important preventive service task. It bases on visual, mechanical and functional checks and cleaning.
+
+180 Day Check covered all maintenance task for 90 Days Check and additional functional test.
+
+Visual checks detect damage or excessive wears of all items listed in the respective check list.
+
+The mechanical check consist of checking bolts to the assigned torque.
+
+Check list reports the actually condition of the system, reported damaged parts must be repaired or replaced immediately.
+
+<table><tr><td>-- NOTE --</td></tr><tr><td>Open Header Covers requires and only allows to be carried out at non-traffic hours!</td></tr><tr><td>Report to Station Controller before carry out maintenance works!</td></tr><tr><td> Safety Belt should be wear when working at more than 2 meters height!</td></tr></table>
+
+# !!! DANGER !!!
+
+Track access requires and only allows to be carried out at non-traffic hours!
+
+<table><tr><td>!!WARNING!!</td></tr><tr><td>Make sure no body is working near the PSD&#x27;s area when using LCP to open al doors, warning all workers if they are working near the PSD&#x27;s area before you can use the PLCS keyswitch to open all PSDs.</td></tr><tr><td>You should always keep the LCP cover closed and locked when you are not in its location, you can never leave the LCP cover open inattention so that other people can accessit!</td></tr><tr><td>To prevent risk for falling at height, Maximum 150mm was allowed for an opened PSD/EPSD when working with ladder.For EED/CAD/TAD, the door leaf in front of ladder must keep at closed position when working with ladder.</td></tr></table>
+
+Items to be checked:
+
+PSD / EPSD: EED / CAD / TAD
+
+# Visual check:
+
+• Manual Release Lock including Locking Block   
+• Hold open device   
+• Door closer   
+• Threshold PSD / EPSD   
+• Coping Stone
+
+• Air gap between PSD Header Covers and Fascia Panels • Expansion Joints at LAK, LAT, TAK and AIR platforms
+
+# Functional test:
+
+• Functional test for DIOS / DPIS / DOI and PSI   
+• Functional test of the Manual Release Lock, track and platform side   
+• Functional test of Local Control Panel   
+• Functional test for Edge / Gap Hazard Detector (If applicable)   
+• Functional test for PSD Emergency Lighting   
+• Opening Force test for EED/CAD/TAD Push Bar   
+• Functional test of Obstruction Detection (Single Point)
+
+# Cleaning:
+
+Surface cleaning of PSD / EPSD Mullion, Top & Bottom Transom and Vertical Profile
+
+# 6.4.2 Visual Inspection PSD / EPSD
+
+# Description
+
+The visual check is a safety and recovery check and detect all kind of damage and excessive wears at sliding doors.
+
+<table><tr><td>!!!DANGER !!</td></tr><tr><td>This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully,while this task is performed!</td></tr></table>
+
+# Task
+
+Open header cover PSD / EPSD   
+Switch power of DCU “OFF”: Turn Miniature Circuit Breakers F1 to “OFF” position   
+• Check locking block and locking plate   
+• Check threshold   
+• Check Coping stone   
+• Switch the power of DCU “ON”: Turn Miniature Circuit Breakers F1 to “ON” position   
+• Close header cover
+
+# 6.4.3 Functional Test PSD / EPSD manual release lock and DPIS / DIOS Key Switches
+
+<table><tr><td>!!!DANGER !!!</td></tr><tr><td>Get authorization from the Traffic Controller (TC) and finished all safety protection procedures before access to Track!</td></tr></table>
+
+# Test Manual Release Lock (MRL) platform side:
+
+Open PSD / EPSD MRL from platform side use Square Key, check smooth and easy manual movements After 30 seconds the door will close automatically, block the door and verify the obstruction detection function   
+• Check DOI and PSI are “ON” while door is opened   
+• After 5 seconds the door will close again automatically   
+• While door closing, turn DPIS to isolate the door power to check the function of DPIS   
+• Turn DIOS to override the “closed and lock signal” and check the PSI should be turns “OFF” and DOI should flash   
+• Resumed both DIOS and DPIS keyswitch, the door will close automatically   
+• Check the “Closed and Locked” signals - DOI and PSI are “OFF”
+
+# Test Manual Release Lock (MRL) track side:
+
+Pull the PSD / EPSD MRL handle from track side · The PSD / EPSD will open $1 2 0 \mathsf { m m }$ automatically • Check DOI and PSI are “ON” After 30 seconds the door will close automatically • Check the “Closed and Locked” signals - DOI and PSI are “OFF”
+
+# 6.4.4 Functional Test Edge / Gap Hazard Detector (If applicable)
+
+<table><tr><td>!!!DANGER !!!</td></tr><tr><td>Get authorization from the Traffic Controller (TC) and finished all safety protection procedures before access to Track!</td></tr></table>
+
+# Test Edge / Gap Hazard Detector track side:
+
+. Open PSD / EPSD Header Cover   
+. Turn DCU Test Switch to “Test” position   
+• Press Gap Hazard Detector track side by hand   
+• Both DOI and PSI will flash   
+• Try to open PSD by Test Switch and PSD will not open   
+Reset alarm by turn DPIS keyswitch to “RED”, wait 3 seconds and turn back to “GREEN”, wait for 10 seconds allow DCU to start-up   
+• Both DOI and PSI will not flash   
+• Test open PSD by Test Switch and PSD will open now   
+• Close PSD by release Test Switch   
+• When PSD closed, press Edge Hazard Detector track side by hand   
+• Both DOI and PSI will flash   
+• Try to open PSD by Test Switch and PSD will not open Reset alarm by turn DPIS keyswitch to “RED”, wait 3 seconds and turn back to “GREEN”, wait for 10 seconds allow DCU to start-up   
+. Both DOI and PSI will not flash   
+• Test open PSD by Test Switch and PSD will open now   
+• Close PSD by release Test Switch   
+• Resume DCU Test Switch to “Normal” position   
+• Close Header Cover
+
+# 6.4.5 Functional Test of Local Control Panel 1. Open LCP Cover
+
+# 2. Press Lamp Test Button
+
+![](images/02bcd3d439cff04f0c386cc1b069fd22620818a0a359e33d0ea52e9fe40a23f6.jpg)
+
+![](images/a1f81fe4a8fef3830fb15979257aeb32f1e3c4a7f8cd7d824b4c8b6a09de4ba9.jpg)
+
+2. Check PLCS function
+
+# 3. Check PIOS Function
+
+![](images/2c4e0538d71d833897f465358d3babbfbe920c206e37f54c6fad51f67ee945be.jpg)
+
+![](images/63b7d02f627978b3cde11c1e95ac200bafb9005f31ecbf2aeba3faab7e75810a.jpg)
+
+# Task
+
+• Open Local Control Panel Cover with Kaba B1 key   
+• Press Lamp Test button to check all indicators   
+Turn PLCS keyswitch from “OFF” position to “OPEN PSD” position   
+• All PSD / EPSD should be opened   
+All DOIs and PSI should “ON”   
+• Check the “Open Command $( + ) ^ { , , }$ and “Open Command (-)” indicators should “ON”   
+• Turn PLCS keyswitch from “OPEN PSD” position to “CLOSE PSD” position   
+• All PSD / EPSD should be closed   
+• All DOIs and PSI should “OFF”   
+Check the “Open Command $( + ) ^ { , , }$ and “Open Command (-)” indicators should “OFF”   
+• Turn PLCS keyswitch to “OFF” position   
+• Turn and hold PIOS keyswitch to “ON” position   
+• Check the “PSD / EED Opened” indicators should flash   
+• Release PIOS keyswitch, close LCP Cover
+
+# !!! DANGER !!!
+
+# Get authorization from the Traffic Controller (TC) and finished all safety protection procedures before access to Track!
+
+# 1. Force Measurement Push Bar - Left
+
+![](images/556503e5398a806cf4dba57cc76ec183536c475ac9fc4f336d26440d17f97947.jpg)
+
+![](images/483cec082fbb480bd5894264789b6eac83ec329239578219c4ff1382e7bc7795.jpg)  
+3. Force Measurement Push Bar - Right
+
+2. Force Measurement Push Bar - Middle
+
+![](images/63da6a8fd9cadcfe2db36ba3a98173c9f60fb8a665eaf03d96798d8ad45e509f.jpg)
+
+# Task
+
+Open EED/CAD/TAD and go to trackside, close EED/CAD/TAD   
+Attach Push Bar Adaptor to the Force Meter and put the force meter to the left side of push bar   
+Slowly apply force at approx. 80mm from left end of Push Bar until you hear a “Click” sound from the Manual Release Lock (MRL) Headdetail mechanism “Latched”, record down the maximum force reading from the force meter   
+Once the MRL headdetail was “Latched”, the EED/CAD/TAD can be pushed open by hand, but please don’t care the reading require to push open the door, we just need the force reading to “Latched” the MRL mechanism   
+Repeat above steps for Push Bar at position “Middle” and “Right”
+
+# 6.4.7 Functional Test Obstacle Detection (Single Point)
+
+# !!! DANGER !!!
+
+# Get authorization from the Traffic Controller (TC) and finished all safety protection procedures before access to Track!
+
+# 1. Metallic Bar 40 x 8mm (0906-531)
+
+![](images/b4dd30919a4ca1e4980f1fc2308490547dd2d230d6f1c37e99b0fa67eedbcc34.jpg)
+
+2. Insert 8mm Bar between PSD during door closing at a height approx. middle of PSD
+
+![](images/d5f67de03dd7821ebdfb142a11bd934cdcb5a0f6658a7e0fd1a69b898ce63667.jpg)
+
+# Task
+
+• Open header cover PSD / EPSD   
+• Fully open PSD by turn and hold DCU “Test” Switch   
+• Insert a 8mm Bar (Gauge 0906-531) between PSD at a height approx. middle of PSD   
+• Release DCU “Test” Switch and allow PSD / EPSD blocked by the metal bar When PSD / EPSD stopped, check DOI should be “ON” and there is no driving power for 5 seconds, the door can be manually slid opened during this period   
+• Remove the 8mm Bar and allow PSD re-close automatically   
+Check the “Closed and Locked” signals - DOI and PSI are “OFF”   
+• If obstacle detection is not satisfactory, re-adjust PSD is required   
+• Close header cover PSD / EPSD
+
+# 6.4.8 Inspection Illustration
+
+# General view PSD
+
+![](images/dffa0e92371a3b1cee731a21791ac8b31f4e6a3a561704a647dff8686231e6eb.jpg)
+
+# Threshold
+
+![](images/aee69821bdbd2cbe7531dfffa55d3de9a816c409373deadc61dad7f2770c8329.jpg)  
+Check yellow marking tape for damage and excessive wear, replace if necessary
+
+# Locking block and plate PSD
+
+![](images/3656ca28ed5d419d73b741725c335d445cb8d1a5d13c4cf329f43a7194201eea.jpg)
+
+Check visual all parts at locking block and plate for signs of mechanical damage and excessive wears:
+
+• Check bolts for tightness to the assigned torque
+
+Safety switches PSD/EPSD /DIOS/DPIS
+
+![](images/969b5053fa17cc40e5fb6166793955330ae3b6fb489c9eba1abbb254d80cfc2a.jpg)
+
+Check the safety switches, if the DOI is still “ON” after a door is closed and locked
+
+# 6.4.9 Visual Inspection EED / CAD / TAD Description
+
+The visual check is a safety and recovery check and detect all kind of damage and excessive wears, at the pivoted doors.
+
+# Task
+
+• Open header cover over EED / CAD / TAD   
+Check locking block EED / CAD / TAD   
+Check support hold open device EED / CAD / TAD   
+• Check door closer TAD   
+• Check coping stone and yellow marking tape EED / CAD   
+Check threshold EED / CAD   
+• Check mounting bracket   
+• Close header cover
+
+# Test function of Manual Release Lock (MRL) at EED / CAD
+
+• Open door EED / CAD from platform side   
+• Check hold open device holds the door in place   
+• Check DOI is “ON”   
+• Check PSI is “ON”   
+• Close the door manually   
+• Check “closed and locked signals” -DOI is “OFF” -PSI is “OFF”
+
+# Test function of Manual Release Lock (MRL) of TAD
+
+• Open door TAD from platform side   
+• Check DOI is “ON”   
+• Check PSI is “ON”   
+• Let the door closed by the door closer   
+• Check “closed and locked signals” -DOI is “OFF” -PSI is “OFF”
+
+# 6.4.10 Inspection Illustration
+
+# General view EED
+
+![](images/a43d01432af135ca1878d581096ccd292e27ee2716a5059439d8008783c5f8d4.jpg)
+
+# Threshold
+
+![](images/b2451ef0c11928795b79d2c259c800cd6edf546caae341db8bb34fe7729603c9.jpg)  
+Check yellow marking tape for damage and excessive wear, replace if necessary
+
+# Locking block and plate EED
+
+![](images/2aab3766b70ee03f5fa9610f5e3cb194ba74dd7016eca756c7d203dded59e61b.jpg)
+
+Check visual for signs of mechanical damage and excessive wears:
+
+• Check bolts for tightness to the assigned torque
+
+# Safety switches EED
+
+![](images/b4a39e6b4b0e66f98c8317e32e6275ace5df0c352fda4f817dd04af4fe5a85a5.jpg)
+
+• Check the safety switches, if the DOI is still “ON” after a door is closed and locked
+
+![](images/2270830720c20c40e65d46171b1608d9afd77ecf25178172413b2bfccf06b65a.jpg)  
+Hold open device EED / CAD
+
+Check for signs of damage and excessive wears:
+
+• Check bolts for tightness to the assigned torque
+
+![](images/734ac6f598b662d85feaf43624bbf4fceccb4b7dda6b98368936fb50a3d29bd6.jpg)  
+Door closer TAD
+
+Check for signs of damage and excessive wears:
+
+• Check bolts for tightness to the assigned torque
+
+# 6.4.11 Visual Inspection the Air gap between PSD Header Covers and Fascia Panels
+
+# Description
+
+The visual check is a safety check to prevent any short circuit between Station Earth (Fascia Panels) and Track Earth (PSD Header Covers) along the platform.
+
+# Task:
+
+![](images/76c77eb03390525c96a44c063575762bc0abf5fbe886741944d71eaf79519ee4.jpg)
+
+Visual inspection the air gap between PSD Header Covers and Fascia Panels for any abnormal distribution. Randomly choose 3 points along the platform, insert a 10mm thickness insulation board into the air gap, it should be free from moving between PSD Header Covers and Fascia Panels along the air gap
+
+# 6.4.12 Visual Inspection the Expansion Joints (If applicable)
+
+Floor   
+• Baseframe and Coping Stone   
+• Doors & Panels   
+• Headers   
+• Covers   
+• Environmetal Seal   
+• Lighting   
+. Overheadbeam
+
+# Description
+
+The purpose of the Expansion Joints is to enable the PSD design to compensate any displacement of the platform caused by temperature variations, vibrations or ageing by means of a flexible system. At regular intervals, the Expansion Joints must be checked to discover possible signs of wear, pollution or damages.
+
+In order to allow for a displacement of the entire front, different solutions for the Expansion Joints have been designed to answer the needs of the various situations (Header, Doors & Screens, Covers, Environmental seal, Lighting und Coping Stones).
+
+The chart hereafter shows the particular solution that has been chosen for the respective situation on the individual platforms. These solutions are illustrated hereafter and the most important checkpoints are described.
+
+<table><tr><td></td><td></td><td>Plf.</td><td>LAK1</td><td>LAK2 LAT1</td><td>LAT2</td><td>TAK1</td><td></td><td>TAK2</td><td>AIR</td></tr><tr><td>Situation at</td><td>Draw.Case</td><td></td><td>3</td><td>2 1</td><td></td><td>1</td><td>3</td><td>3</td><td>2</td></tr><tr><td>Header</td><td>7-124H</td><td></td><td>#1361, m,r</td><td></td><td>#125-</td><td>#215-</td><td>#106-</td><td>#207-</td><td></td></tr><tr><td>FSP Support</td><td>7-315D1</td><td></td><td></td><td></td><td>#126</td><td>#216</td><td>#107 #119- #120 #132- #133</td><td>#208 #220 - #221 #233- #234</td><td></td></tr><tr><td>FSP</td><td>7-313D2</td><td></td><td>#120- 121</td><td>#217- #218 #230- #231</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>FSP</td><td>7-316D3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>#106- #107 #112- #113</td></tr><tr><td>EED</td><td>7-314</td><td>D4</td><td>#156- #104 #136- #163</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Covers</td><td>7-123C</td><td></td><td>#155- #156 #120- #121 #161-</td><td>#217-#125- #218 #126 #230- #231</td><td>#215- #216</td><td>#120</td><td>#106- #107 #119- #132-</td><td>#207-#106- #208 #220- #221 #233-</td><td>#107 #112- #113</td></tr><tr><td>Lighting</td><td>7.151</td><td>L</td><td>#162 #155- #156 #120- #121</td><td>#217- #218 #230- #231</td><td>#125- #126</td><td>#215- #216</td><td>#133 #106- #107 #119- #120 #132-</td><td>#234 #207- #208 #220- #221 #233-</td><td>#106- #107 #112- #113</td></tr><tr><td>Environmental7-122E Seal</td><td></td><td></td><td>#161- #162 #155- #156 #120- #121 #161 -</td><td>#217- #218 #230 - #231</td><td>#125- #126</td><td>#215- #216</td><td>#133 #106- #107 #119- #120 #132 -</td><td>#234 #207- #208 #220- #221 #233-</td><td>#106- #107 #112- #113</td></tr><tr><td>Coping Stone</td><td>7-206C</td><td></td><td>#162 #103- #104 #120- #121 #136- #137</td><td>#217- #218 #230- #231</td><td>#125- #126</td><td>#215- #216</td><td>#133 #106- #107 #119- #120 #132- #133</td><td>#234 #207- #208 #220-#112- #221 #233- #234</td><td>#106- #107 #113</td></tr></table>
+
+![](images/fa30049eba1a909fb70b70fbd1012130e27dbb788553edb46b2a97e06ae5f1eb.jpg)  
+Case H: Header Installation 7-124 (LAK1)
+
+# To check
+
+The Header Connection must   
+not be twisted (inclined position,   
+deformed elements)   
+Slight grinding traces on the   
+Header profile may be visible   
+Check bolts for tightness to the   
+assigned torque
+
+# Case D1: Doors and Screens 7-315 (LAT1, LAT2, TAK1, TAK2)
+
+To check
+
+![](images/3ab9ec2bdef87e3c955a953d6cc88e7eaa8562e331be5c7378f4e1b27a9495d2.jpg)
+
+FSP-Support must not be twisted (inclined position, deformed elements)   
+Slight grinding traces on the Header profile may be visible   
+Check bolts for tightness to the assigned torque
+
+# Case B: Base frame and Coping Stones 7-206 (all platforms with expansion joints)
+
+![](images/dfa94ef42ee8758b5fc5ef75c4137841a1a68773e07f46ea717457ffd2f5331f.jpg)
+
+# To check:
+
+Measure the distance between the Coping Stones (nominal 62 mm) Sealant is not torn Gasket is not arched (risk of stumbling) nor torn or otherwise damaged
+
+Copper Bus Bar
+
+![](images/c1f8d58a4c2d403e8d72c10b7fe37b84e5b01c3b9979be5a19b00c8bf64be380.jpg)
+
+Illustration 2
+
+To check:
+
+Earth braid strip (Pos. 20) is not damaged • Free hanging, does not touch anything else
+
+# Case D4: Doors and Screens 7-314 (LAK1)
+
+![](images/d219ab426f29d2f9ddf2c36868a69865e06426bd8944ce5116b9b03c882fa001.jpg)
+
+To check
+
+EED Locking block support must not be twisted (inclined position, deformed elements) Slight grinding traces on the Header profile may be visible
+
+# To check
+
+![](images/cdd547c7184466fc3fb24ab9d60fde8baded318b35e37554ab2bb8c8445ef88b.jpg)
+
+EED Bearing support must not be   
+twisted (inclined position, deformed   
+elements)   
+Slight grinding traces on the Header   
+profile may be visible   
+Functional checking of the EED   
+according to 6.5.3
+
+![](images/31499a01951d46b6bc340e801a9b5264e5ee6ba2b4637428cb00e42a52518d46.jpg)  
+Case D2: Doors and Screens 7-313 (LAK1, LAK2)
+
+To check
+
+• Cover sheet FSP/FSP, platform side (Pos. 130) and trackside (Pos. 140) is not deformed, but flat and fitting. • Cover sheet FSP/FSP, platform side: on the unfastened side parallel with the glass $( + / - 2 \mathsf { m m } )$ .
+
+# Case D3: Doors and Screens 7-316 (AIR)
+
+![](images/524aa2399dc91c20fe3d2b999771ba3038faf58a1b5e91bb07a3a048f323a167.jpg)
+
+To check
+
+• Cover sheet FSP/FSP, platform side (Pos. 130) and trackside (Pos. 140) is not twisted but flat and fitting. • Cover sheet FSP/FSP, platform side: on the unfastened side parallel with the glass $( + / - 2 \mathsf { m m } )$ ).
+
+Case C: Cover Installation 7-123 (all platforms with expansion joints)
+
+Expansion Joint Covers
+
+To check:
+
+![](images/cc4b13f52e783f27f5f9942a2f8582b20eeb9193f0f106b0dfe2e99cbe41a7f4.jpg)
+
+Measure the distance between the Front Covers (nominal 30mm) No light gap is visible
+
+# Case E: Environmental seal installation 7-122 (all platforms with expansion joints)
+
+![](images/e09b1451073352ddf8bcbc26a7513b283a3b899d36d1dcaa637f886def29b1d3.jpg)  
+Case L: Lighting Installation 7-151 (all platforms with expansion joints)
+
+# To check:
+
+Environmental seal, membrane and glued connections are not torn Fastenings are neither damaged nor detached
+
+![](images/05128efc26579bec0b5feb75ceb0a5a7b3a5aeb74602c1c2626922cdb4a8fd23.jpg)
+
+To check:
+
+• Check for mechanical damage or deformation
+
+# 6.4.13 Functional test for PSD Emergency Lighting
+
+Carry out the functional test for emergency lighting by switch off the emergency lighting power supply. Replacement of backup battery required if necessary.
+
+<table><tr><td>-- NOTE--</td></tr><tr><td>Only Registered Electrical Worker is allowed toreplace Emergency Lighting backup battery.</td></tr></table>
+
+# Task:
+
+• Switch off emergency lighting power supply.   
+Visual check each emergency lighting was maintained by battery. (Emergency lighting will show dimmer when supplied by battery)   
+• Visual check the LED indicator for each emergency lighting is extinguished. Ensure all emergency lightings could maintain minimum operation for 1 hour, replace backup battery if necessary.   
+• Switch on emergency lighting power supply. Visual check each emergency lighting was resumed to normal. (Emergency lighting will brighter when supplied by mains power)   
+• Visual check the LED indicator for each emergency lighting is luminant.
+
+# 6.4.14 Cleaning
+
+Carry out the cleaning with warm water containing wetting agent or mild soap solution. Use soft clean rags, sponges or brushes to avoid scratch and damages on any glazed panels, metal covers or powder coated surfaces.
+
+Use a rag or spray to apply silicon oil to the rubber gaskets on glazing, doors, etc. after cleaning.
+
+<table><tr><td>！CAUTION!</td></tr><tr><td>Chemical solutions, gasoline,paraffin, heavy abrasive (cleaning) agents or similar products are not to be applied to any surfaces!</td></tr></table>
+
+# General cleaning PSD / EPSD
+
+![](images/af3cd3cbbc2dd4a84bfd1c1de2441f2135fdd25ad7bfa9e9980e28993455e9d5.jpg)
+
+# To be cleaned:
+
+Header & its components (Clean gently with a brush the dust from header components) • Cover (wet with mild soap) • Top Transom (wet with mild soap) • Middle vertical profile (wet with mild soap)
+
+• Mullion (wet with mild soap) • Bottom Transom (wet with mild soap) • Screens (with screen cleaner spray…etc.) • Coping stone (wet with mild soap)
+
+\*Remarks: Please refer to Operation manual for technical information of cleaning solution.
+
+# 6.4.15 General cleaning EED / CAD / TAD
+
+![](images/d8f44e31f3ccdaf579159a2739baf0d9a6c719d39f94222cd417c5622e62b78a.jpg)
+
+# To be cleaned:
+
+Header & its components (Clean gently with a brush the dust from header components) • Cover (wet with mild soap) • Top Transom (wet with mild soap) • Middle vertical profile (wet with mild soap)
+
+• Mullion (wet with mild soap) • Bottom Transom (wet with mild soap) Screens (with screen cleaner spray…etc.) • Coping stone (wet with mild soap)
+
+# 180 Days Check List for PSD-URL
+
+<table><tr><td colspan="6">(ContDact M912-99K)LISt 10T FSD-URL</td></tr><tr><td>MTRC Work</td><td></td><td></td><td>Scheduled</td><td>Actual Time</td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Platform</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Remarks</td><td>180 Days Check Listincluding all workslisted in 90 Days Check List</td><td></td><td></td><td>Ref Manual</td><td>G1/OTH/065</td></tr><tr><td colspan="6">Drive Unit</td></tr><tr><td colspan="6">Door No. Task to be done VisualinspectionforanyphysicaldarageorexcessivewearsofDriveUnit,TothBeltsDrivePulley.Check drivebelt</td></tr><tr><td colspan="6">PSD X01-X40 tensionandmajorfiinsresfortighessTurTestButtontomaualmodeandplatheorforseeraltimescheck anyabnomal noise</td></tr><tr><td colspan="6">Travel Carriage</td></tr><tr><td>Door No.</td><td colspan="4">Task to be done</td><td></td></tr><tr><td>PSD X01-X40</td><td colspan="5"></td></tr><tr><td rowspan="2">PSD X01-X40</td><td colspan="5">Apply lubrication grease to Locking Block and Main Belt Pulley.</td></tr><tr><td colspan="5"></td></tr><tr><td colspan="6">Door Bonding Door No.</td></tr><tr><td rowspan="2">Al1 Doors</td><td colspan="5">Task to be done Visual check allearth bondings fortightnessor signs of corrosion.</td></tr><tr><td colspan="5">Manual Release Lock/DOI/DPIS/DIOS/PSI</td></tr><tr><td rowspan="2">Door No. PSD X01-X40</td><td colspan="5">Task to be done Function testhe manualreleaselockbothonplatformsideandtrack side,block thedoorwitha8mmmetalicbar (Gauge</td></tr><tr><td colspan="5">andcheck thePSIshouldbe turs“offResume all keyswitchto normalposition after finished testing</td></tr><tr><td rowspan="2">TAD X91-X92 CAD X93-X94 EEDX50-X70</td><td colspan="5">FunctiontestthePushBarontrack sideandthe ManualReleaseLock atplatformside,visual inspection forany physical damageormisalignmentforLockingBlockVerifythecorrectnessofDoindicatonduringdooopenedRandomcheck 2TAD/CAD/EEDforPushBaropeningforce andrecordthereadings</td></tr><tr><td colspan="5">Local Control Panel</td></tr><tr><td colspan="5">Door No Task to be done LCPHeadwall Verify PLCS switch function by turns PLCS to open and closeallPSDs.Check PCC+and PCC-indicators should be“on&quot;</td></tr><tr><td colspan="5">and Tailwall whenalldoorsopened.TurnPIOSto“Override&quot;position,“Alldoorclosedandlockedindicatorshouldbeflash.</td></tr><tr><td colspan="5">Edge/Gap Hazard Detector (If applicable) Door No. Task to be done</td></tr><tr><td colspan="5">If applicable</td></tr><tr><td colspan="5">PSDEmergency Lighting and Fascia Panel Air Gap (pleaserefer to separated Emergency Light Check List)</td></tr><tr><td colspan="5">Door No. Task to be done</td></tr><tr><td colspan="5">If applicable</td></tr><tr><td colspan="5">FunctionalTest and inspection of allabove items:</td></tr><tr><td colspan="5">Work Done /Remarks</td></tr><tr><td>Door No.</td><td></td><td>Door No. PSD X10</td><td></td><td>Work Done/Remarks</td></tr><tr><td>TAD X91</td><td>Done and in good condition</td><td>PSD X11</td><td>Done and in good condition</td><td></td></tr><tr><td>CAD X93</td><td>Done and in good condition</td><td></td><td>Done and in good condition</td><td></td></tr><tr><td>EPSD X01</td><td>Done and in good condition</td><td>PSD X12</td><td>Done and in good condition</td><td></td></tr><tr><td>PSD X02</td><td>Done and in good condition</td><td>PSD X13</td><td>Done and in good condition</td><td></td></tr><tr><td>PSD X03</td><td>Done and ingoodcondition</td><td>PSD X14</td><td>Done and in good condition</td><td></td></tr><tr><td>PSD X04</td><td>Done and in good condition</td><td>PSD X15</td><td>Done and in good condition</td><td></td></tr><tr><td>PSD X05</td><td>Done and ingood condition</td><td>PSD X16</td><td></td><td>Done and in good condition</td></tr><tr><td>PSD X06</td><td>Done and in good condition</td><td>PSD X17</td><td></td><td>Done and in good condition</td></tr><tr><td>PSD X07</td><td>Done and in good condition</td><td>PSD X18</td><td></td><td>Done and in good condition</td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td>PSD X08</td><td>Done and in good condition</td><td>PSD X19</td><td></td><td>Done and in good condition</td></tr><tr><td>PSD X09</td><td>Done and in good condition</td><td></td><td>PSD X20</td><td>Done and in good condition</td></tr></table>
+
+# 180 Days Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td>Door No.</td><td>Work Done/Remarks</td></tr><tr><td>PSD X21</td><td>Done and in good condition</td></tr><tr><td>PSD X22</td><td>]Done and in good condition</td></tr><tr><td>PSD X23</td><td>Doneand in goodcondition</td></tr><tr><td>PSD X24</td><td>Doneand in good condition</td></tr><tr><td>PSD X25</td><td>]Doneand in goodcondition</td></tr><tr><td>PSD X26</td><td>Done and in good condition</td></tr><tr><td>PSD X27</td><td>Done and in good condition</td></tr><tr><td>PSD X28</td><td>Done and in good condition</td></tr><tr><td>PSD X29</td><td>Done and in goodcondition</td></tr><tr><td>PSD X30</td><td>Doneand in goodcondition</td></tr><tr><td>PSD X31</td><td>]Done and in good condition</td></tr></table>
+
+<table><tr><td>Door No.</td><td>Work Done/Remarks</td></tr><tr><td>PSD X32</td><td>Doneand in goodcondition</td></tr><tr><td>PSD X33</td><td>Done and in goodcondition</td></tr><tr><td>PSD X34</td><td>]Done and in good condition</td></tr><tr><td>PSD X35</td><td>Doneand in goodcondition</td></tr><tr><td>PSD X36</td><td>]Doneand in goodcondition</td></tr><tr><td>PSD X37</td><td>Done and in good condition</td></tr><tr><td>PSD X38</td><td>Doneand in goodcondition</td></tr><tr><td>PSD X39</td><td>]Doneand in goodcondition</td></tr><tr><td>EPSD X40</td><td>Done and in good condition</td></tr><tr><td>CAD X94</td><td>Done and in good condition</td></tr><tr><td>TAD X92</td><td>Done and in good condition</td></tr></table>
+
+<table><tr><td colspan="10">Push Bar Opening Force</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>TADX91L</td><td>M</td><td>R</td><td></td><td>CADX93LL</td><td>M</td><td>R</td><td>N</td><td>EED</td><td>L</td><td>M</td><td>R</td><td>N)</td></tr><tr><td>TADX92 L</td><td>M</td><td>R</td><td>N)</td><td>CADX93RL</td><td>M</td><td>R</td><td>N</td><td>EED</td><td>L</td><td>M</td><td>R</td><td>(N)</td></tr></table>
+
+<table><tr><td>Remarks:</td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr></table>
+
+<table><tr><td colspan="20">Parts Used</td></tr><tr><td>Part Name</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1) ID Faulty Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>/</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1) ID Installed Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1) Location</td><td></td><td></td><td></td><td>=</td><td>PSD</td><td></td><td></td><td></td><td></td><td></td><td>=</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+
+<table><tr><td colspan="17">PartsUsed</td></tr><tr><td>PartName</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Faulty Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Installed Patt</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>/</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) Location</td><td></td><td></td><td></td><td>=</td><td>PSD</td><td></td><td></td><td></td><td></td><td></td><td>=</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+
+Remarks:
+
+Performed by: Signature: Date:
+
+Checked by: Signature: Date:
+
+180 Days Check List_Rev7.doc 22/2/2006 Page 2/2
+
+# PSD Lighting Maintenance Record (Contract M912-99E)
+
+<table><tr><td>MTRC Work Order No.</td><td></td><td>Date&amp;Time</td><td>Scheduled</td><td>A ctual</td><td>Time</td></tr><tr><td>Station Name</td><td></td><td>Commence Date</td><td></td><td></td><td></td></tr><tr><td>Platform</td><td></td><td>Completed Date</td><td></td><td></td><td></td></tr><tr><td></td><td colspan="3"></td><td>Ref.Manual</td><td>GI/OTH/065</td></tr></table>
+
+Part A: General Lighting and Fascia Panels Air Gap Check   
+
+<table><tr><td>DoorNo.</td><td>Task to be done</td><td>Work Done/Rem arks</td></tr><tr><td>PSDX01-X40</td><td>Visual inspection forall fluorescent lamps are in normal working condition without black colour on both ends.Replace with new fluorescent lamp if necess ary.</td><td>Done andin good condition</td></tr><tr><td>TAD X91-X92</td><td>Visual inspectionforal fluorescentlampsarein normal working condition without black colour on both ends.Replace with new fluorescent lampif necessary.</td><td>Done andin good condition</td></tr><tr><td>Whole Platform</td><td>Visualinspectonandmeahrth aigt bethaen PSD Heade</td><td>Done and in good condition</td></tr></table>
+
+Spares used: 58W Fluorescent Tubes nos. 18W Fluorescent Tubes nos.
+
+<table><tr><td colspan="2">Part B:Emergency LightingCheck</td></tr><tr><td colspan="2">Task tobedone</td></tr><tr><td colspan="2">Switch off emergency lighting power supply. Visualheckeachemergencylightingwasmaintainedbybatery(Emergencylightingwillshowdimmerwhensupliedbybatery)</td></tr><tr><td colspan="2"></td></tr><tr><td colspan="2">Visual check the LED indicator for each emergency lighting is extinguished.</td></tr><tr><td colspan="2">Ensure allemergency lightings couldmaintain minimumoperation for1hour,replacebackup battery if necessary.</td></tr><tr><td colspan="2">Switch on emergency lighting power supply. Visualcheckeachemergencylightingwasresumedtonormal.(Emergencylightingwillshowbrighterwhensuppliedbymains</td></tr></table>
+
+<table><tr><td>Emergency Light No.</td><td>Work Done</td><td>Emer gency Light No.</td><td>Work Done</td></tr><tr><td>E01 at TAD X91</td><td>Done andin good condition</td><td>E08</td><td>Done and in good condition</td></tr><tr><td>E02</td><td>Done and in good condition</td><td>E09</td><td>Done and in good condition</td></tr><tr><td>E03</td><td>Done and in good condition</td><td>E10</td><td>Done and in good condition</td></tr><tr><td>E04</td><td>Done andin good condition</td><td>E11</td><td>Done and in good condition</td></tr><tr><td>E05</td><td>Done andin good condition</td><td>E12</td><td>Done and in good condition</td></tr><tr><td>E06</td><td>Done andin good condition</td><td>E13 at TAD X92</td><td>Done and in good condition</td></tr><tr><td>E07</td><td>Done and in good condition</td><td></td><td>Done and in good conditi on</td></tr></table>
+
+Spares used: Backup Battery rep laced in Emergency Light No.
+
+Remarks:
+
+Checked by: Signature: Date:
+
+# 6.5 360 Days Check
+
+# 6.5.1 General:
+
+360 Days Check is a preventive service task. It bases on visual, mechanical and functional checks.
+
+360 Days Check covered all maintenance task for 180 Days Check. Additional functional test for Power Distribution Panel (PDP) Change Over Test, Battery Discharge Test and cleaning works for door bonding.
+
+Visual checks detect damages or excessive wears of all items listed in the respective check list.
+
+The mechanical test consists of checking bolts to the assigned torque.
+
+The check list reports the actually condition of the system, the reported damaged parts must be repaired or replaced immediately.
+
+<table><tr><td>-- NOTE--</td></tr><tr><td>Open Header Covers requires and only allows to be carried out at non-traffic hours!</td></tr><tr><td>Report to Station Controller before carry out maintenance works!</td></tr><tr><td> Safety Belt should be wear when working at more than 2 meters height!</td></tr></table>
+
+<table><tr><td>！ DANGER !!</td></tr><tr><td>This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!</td></tr></table>
+
+<table><tr><td>!!WARNING !!</td></tr><tr><td>Make sure no body is working near the PSD&#x27;s area when using LCP to open al doors, warning all workers if they are working near the PSD&#x27;s area before you can use the PLCS keyswitch to open all PSDs.</td></tr><tr><td>You should always keep the LCP cover closed and locked when you are not in its location, you can never leave the LCP cover open inattention so that other people can access it!</td></tr><tr><td>To prevent risk for falling at height,Maximum150mm was allowed for an opened PSD/EPSD when working with ladder.For EED/CAD/TAD,the door leaf in front of ladder must keep at closed position when working with ladder.</td></tr></table>
+
+Items to be checked:
+
+PSD / EPSD: EED / CAD / TAD
+
+# Visual check:
+
+• Manual Release Lock including Locking Block   
+• Hold open device   
+• Door closer   
+• Threshold PSD / EPSD
+
+• Coping Stone
+
+Check the following items for function, mechanical damages or excessive wear:
+
+• Upper pivot bearing support EED / CAD / TAD Various Seal and Gaskets. see illustrated views • Sliding Guide PSD / EPSD   
+• Speed Reduction Unit EPSD
+
+# Fix Screen Panel:
+
+Check the following items for function, mechanical damages or excessive wear:
+
+• Current bearing • Thrust bearing
+
+# Seals:
+
+Check all seals for signs of damage or excessive wear.
+
+# Functional test:
+
+• Functional test for DIOS / DPIS / DOI and PSI   
+• Functional test of the Manual Release Lock, track and platform side   
+• Functional test of Local Control Panel   
+• Functional test for Edge / Gap Hazard Detector (If applicable)   
+• Power Distribution Panel Change-over Test   
+• Power Distribution Panel Battery Discharge Test   
+• Station Management Integrated Backup Panel Alarms
+
+# Earth Insulation Resistance:
+
+Measure the PSD to Station Earth Insulation Resistance (Please refer to section 6.10).
+
+# Cleaning:
+
+Surface cleaning of PSD / EPSD Mullion, Top & Bottom Transom and Vertical Profile
+
+# Screw Tightness:
+
+![](images/d3372ee51967947855f8632e5f44212a99495888ec82626c52bd7ebd249c16c9.jpg)
+
+![](images/1f246e1864716b0d70b638d3f483d944a22d2f90be9f12cce0517af0dfa638fb.jpg)
+
+# 6.5.2 Inspection of PSD / EPSD
+
+# Description:
+
+This inspection is a safety and recovery check and detect all kind of damage and excessive wears at sliding doors and checking of bolts to the assigned torque.
+
+# Task
+
+• Open header cover PSD / EPSD   
+• Switch power of DCU “OFF”: Turn Miniature Circuit Breakers F1 to “OFF” position   
+• Check locking block and locking plate to the assigned torque Check visually the sliding guide, top sliding seal and the brushes; sections A & B   
+• Check visually the wiper gaskets, edge and the noising seals and the wiper gasket buffer   
+• Switch the power of DCU “ON”: Turn Miniature Circuit Breakers F1 to “ON” position   
+• Close header cover
+
+# 6.5.3 Inspection of EED / CAD / TAD Description:
+
+The inspection of EED / CAD / TAD contain safety and recovery checks, detect all kind of damage and excessive wears and checking of bolts to the assigned torque.
+
+# Task
+
+• Open header cover EED / CAD / TAD   
+• Check locking block and locking plate to the assigned torque   
+Check upper pivots left and right   
+• Check hold open device EED / CAD to the assigned torque   
+• Check door closer TAD to the assigned torque   
+• Check seals and the brush; sections $A + \textsf { B } \& \textsf { C }$   
+• Close header cover
+
+# 6.5.4 Inspection of Fixed Screen Panel FSP Description:
+
+The visual check is a safety and recovery check and detect all kind of damage and excessive wears at FSP
+
+# Task
+
+• Open header cover FSP   
+• Check current bearing to the assigned torque   
+• Check thrust bearing to the assigned torque   
+• Check the top wiper gasket   
+• Close header cover FSP
+
+# 6.5.5 Inspection Illustrations Overview PSD / EPSD
+
+![](images/a346ebb26504e675a77c010d1e023eccf45a6428a824ffb5f1e45220aaba861d.jpg)
+
+# Detail of Seals: Section A-A
+
+# Section B-B
+
+![](images/290d9ca281be48a0be2330e60d5f9ec2bd847b72c54dcab9be27b4904972c6f6.jpg)
+
+![](images/a1a9a9777c49989b0422ff21c96ee1bcaa28c3c6071a1d7da53450ef441d51c5.jpg)
+
+Check for mechanical damage and wears:
+
+• Exchange Brush and Seal if necessary
+
+Check for mechanical damage and wears:
+
+• Exchange Brush and Sliding guide if necessary
+
+# Section C-C
+
+![](images/fa6263b3a7c03601c36330a3a5907cba47e4b9ffbee3e46ea240e5065690518c.jpg)
+
+Check for mechanical damage and excessive wears:
+
+• Exchange the seals, gaskets and buffer if necessary
+
+# Check Sliding Guide Fixing Screws Tightness (Safety Critical Item)
+
+![](images/e407d572bceefbd6c35f689aad2463cec41b33aae48ea1a38c968ac354dbcc30.jpg)
+
+Check the Sliding Guide Fixing Screws:
+
+Check & tighten Fixing Screws Inspected by a Safety Independent Checker after finished maintenance activates and endorse the checklist for record
+
+![](images/311f6d265bdaf545f9cb02ae34c47d5ea0be03900c37e3cb0b7cc4819a4884fc.jpg)
+
+Check the Sliding Guide Fixing Screws
+
+# Overview EED / CAD / TAD:
+
+![](images/1da4a694fd2d8a6d524b2ee1bc5bd0e2ba3cd61b8a9425d0987ac3b05d23eada.jpg)
+
+Upper pivot bearing support
+
+![](images/f0a8a553ea13e9224b0e7250fbdc123077e6f963f839734befef07452046e16c.jpg)
+
+Check for signs of damage and excessive wears:
+
+• Check for tight bolt connections
+
+# Seals: Overview EED:
+
+![](images/ac1b86ec284ba783ee77d960f0f5d4e317a8bbd21dcc124c36e7d59075d14ff8.jpg)
+
+# Detail of seals: Section A-A
+
+# Section B-B
+
+![](images/d391498b709e2f0b0d0581ed0bf4b38d07036d6524d6eb8aeacd412fc0a51613.jpg)
+
+![](images/6729c566cecdef3ce360480edf95a07b632ffc75b124220f4ab97a27adf48beb.jpg)
+
+Check for mechanical damage and excessive wears:
+
+• Exchange seals and the brush if necessary
+
+# Section C-C
+
+![](images/67f3c4f0472c344c8944f5d55db7ec040631a4c09f73b62d79437b01910660af.jpg)
+
+Check for mechanical damage and excessive wears:
+
+• Exchange the seals if necessary
+
+# Fix Screen Panel (FSP):
+
+# Presentation of mounting:
+
+![](images/ba5af36cbe42de7a886d086fe0f4b2001bc7d1f61da4d321a7519f74d737d8b8.jpg)  
+Thrust bearing: Section A-A
+
+# Current bearing: Detail B
+
+![](images/407faf3aa9bdbeaceb00308f9a77cb27b0cb43055e195e57cdef4f1e60579074.jpg)
+
+![](images/debca062c85a952a4b6a81bb070a50bc59a81fae33dae83ce1c5525b244a1014.jpg)
+
+Check for signs of mechanical damage and wears.
+
+Check for signs of mechanical damage and excessive wear in the cross piece.
+
+Visual check for signs of damage or excessive wears on cover gasket and sealing handle
+
+![](images/ec73603541ff2097f20cf17a2295fa88a254f42beafd94798fbac1dc0539bc6d.jpg)
+
+A. Change Over Test by switch off DJS1 1. Open PDP Cabinet
+
+2. Switch off Mains Input DJS1
+
+![](images/daefd01dda0aae2eae8a61fe3af05aa925a98740bd154b30d8dfdc2d0a1b89e1.jpg)
+
+![](images/840eabca58e88961d4a87a5b5202881a476ed9f7643e5316f053b99d5f5eb083.jpg)
+
+# 3. Open LCP Cover
+
+4. Test PSDs with PLCS
+
+![](images/bb1de008d6db1b4a556c9ded2417fdac29c84dc3ae376c77d5275d26997375b8.jpg)
+
+![](images/83bb953d5be4af5ce83bd66cb596bb63ce24f4d86979a8ea634bb2c90c935d53.jpg)
+
+# Task1 – Check PDP1 change over function:
+
+Open platform 1 Power Distribution Panel (PDP1) cabinet door Turns off mains supply by MCB DJS1 Change over for PDP1 will be switched ON and platform 1 will supplied by PDP2   
+. Open LCP Cover of platform 1   
+. Turns PLCS keyswitch to open all doors of Platform 1 All PSDs / EPSDs should be opened Turns PLCS keyswitch to close all doors of Platform 1   
+• All PSDs / EPSDs should be closed Close LCP Cover of platform 1 Turns on mains supply by MCB DJS1 Change over for PDP1 will be switched OFF and platform 1 will supplied back by PDP1   
+• Close PDP1 cabinet door
+
+# Task2 – Check PDP2 change over function:
+
+• Open platform 2 Power Distribution Panel (PDP2) cabinet door Turns off mains supply by MCB DJS1 Change over for PDP2 will be switched ON and platform 2 will supplied by PDP1 Open LCP Cover of platform 2 Turns PLCS keyswitch to open all doors of Platform 2 All PSDs / EPSDs should be opened Turns PLCS keyswitch to close all doors of Platform 2 All PSDs / EPSDs should be closed Close LCP Cover of platform 2 Turns on mains supply by MCB DJS1 Change over for PDP2 will be switched OFF and platform 2 will supplied back by PDP2 Close PDP2 cabinet door
+
+# B. Change Over Test by switch off 415VAC Mains (To be arranged with MTRC)
+
+1. Go to PSD Power Supply Switch Room (To be arranged with MTRC)
+
+2. Switch off 415VAC Mains Circuit Breaker for PDP supply (Carry out by MTRC’s staff)
+
+3. Open LCP Cover
+
+4. Test PSDs with PLCS
+
+![](images/de9675d3e1e4a2bd476bfd81ed3af558659d5d241d87b80c04a31307df209594.jpg)
+
+![](images/19bebf41a308a5916fb5387c2514fb57ccbf3c111c0feaa61ab58d8a8e61f059.jpg)
+
+# Task1 – Check PDP1 change over function:
+
+• Go to PSD Power Supply Switch Room Turns off 415VAC mains supply to PDP1 (by MTRC’s Staff)   
+• Change over for PDP1 will be switched ON and platform 1 will supplied by PDP2   
+• Open LCP Cover of platform 1 Turns PLCS keyswitch to open all doors of Platform 1 All PSDs / EPSDs should be opened Turns PLCS keyswitch to close all doors of Platform 1   
+• All PSDs / EPSDs should be closed Close LCP Cover of platform 1 Turns on 415VAC mains supply to PDP1 (by MTRC’s Staff) Change over for PDP1 will be switched OFF and platform 1 will supplied back by PDP1   
+Close PDP1 cabinet door
+
+# Task2 – Check PDP2 change over function:
+
+Go to PSD Power Supply Switch Room   
+Turns off 415VAC mains supply to PDP2 (by MTRC’s Staff)   
+Change over for PDP2 will be switched ON and platform 2 will supplied by PDP1   
+Open LCP Cover of platform 2   
+Turns PLCS keyswitch to open all doors of Platform 2   
+All PSDs / EPSDs should be opened   
+Turns PLCS keyswitch to close all doors of Platform 2   
+All PSDs / EPSDs should be closed   
+Close LCP Cover of platform 2   
+Turns on 415VAC mains supply to PDP2 (by MTRC’s Staff)   
+Change over for PDP2 will be switched OFF and platform 2 will supplied back by PDP2   
+Close PDP2 cabinet door
+
+# Battery Discharge Test
+
+# !!! DANGER !!!
+
+Battery electrolyte is a very corrosion liquid, avoid to touch with hands and eye! Wear plastic protective glove and face shield when handling battery!
+
+# Task:
+
+• Recording the float charge voltage from cell no.1 to cell no.20 Visual inspection the cell terminal or any sign of corrosion and tightness Visual inspection the cell electrolyte level cannot bellow the “LOW” level, if the cell electrolyte level drop below the “LOW” level, it need to be topping up with distilled water Open Power Distribution Panel cabinet door Switch off Battery Breaker DJB Connect a dummy load to the Battery terminal positive and negative and allow for battery discharge, record the time for start discharge test Battery discharge test for 3 hours and keep monitoring the dummy load condition for every half an hour for any abnormal condition like over heat or cooling fan malfunction After 3 hours of discharge time, record again all cell voltage from cell no.1 to cell no.20 Remove dummy load from Battery terminal Switch on Battery Breaker DJB Close PDP cabinet door Record the Battery charging current from the PDP front display panel after closed Battery Breaker DJB for 2 mins
+
+# 360 Days Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td>MTRCWork OrderNo.</td><td></td><td>Date &amp; Time</td><td>Scheduled</td><td>Actual</td><td>Time</td></tr><tr><td>Station Name</td><td></td><td>Commence Date</td><td></td><td></td><td></td></tr><tr><td>Platform</td><td></td><td>Completed Date</td><td></td><td></td><td></td></tr><tr><td>Remarks</td><td colspan="3">360 Days Check List including all works listed in 180 Days Check List</td><td>RefManual</td><td>GI/OTH/065</td></tr></table>
+
+Drive Unit   
+
+<table><tr><td>DoorNo.</td><td>Task tobe done</td></tr><tr><td>PSDX01-X40</td><td>Visualinspectionforanyphysical damageorexcessivewearsofDriveUnitToothBelts,DrivePulleyCheck drivebelt tensionandmajorfixingscrewsfortightness.Turn“TestButon”tomanualmodeandplaythedoorforseveraltimes,check any abnormal noise.</td></tr></table>
+
+<table><tr><td colspan="2">TravelCarriage</td></tr><tr><td>DoorNo.</td><td>Task to be done</td></tr><tr><td>PSDX01-X40</td><td>i</td></tr><tr><td>PSD X01-X40</td><td>Apply lubrication grease to Locking Block and MainBelt Pulley.</td></tr></table>
+
+<table><tr><td>DoorNo.</td><td>Task tobe done</td></tr><tr><td>PSD X01-X40</td><td>Tighten allfixing screws of PSD Sliding Guide.</td></tr></table>
+
+# DoorBonding
+
+<table><tr><td>Door No.</td><td>Task to be done</td></tr><tr><td>Al11 Doors</td><td>Visual check all earth bondings for tightness or signs of corrosion.</td></tr></table>
+
+Manual ReleaseLock/DOI/DPIS/DIOS/PSI   
+
+<table><tr><td>DoorNo.</td><td>Task to bedone</td></tr><tr><td>PSDX01-X40</td><td>Functiontestthe manualreleaselockbothonplatformsideandtrackside,block thedoorwitha8mmmetalicbar(auge andcheck thePSI should be turns“off.Resume all keyswitch to normal position after finished testing</td></tr><tr><td>TADX91-X92 CADX93-X94 EEDX50-X70</td><td>Function testhePushBarontrack sideand the ManualReleaseLock atplatformside,visualinspectionforany physical damageor misalignment forLocking Block Verify thecorectnessofDOIindicationduringdoor opened.Randomcheck 2TAD/CAD/EED for Push Bar opening force and record the readings.</td></tr></table>
+
+# Local Control Panel
+
+<table><tr><td>DoorNo.</td><td>Task to be done</td></tr><tr><td>LCPHeadwall and Tailwall</td><td>Verify PLCS switch function byturns PLCSto openandcloseallPSDs.Check PCC+andPCC-indicatorsshould be“on” whenall doors opened.Tum PIOS to“Override&quot;position,“Alldoor closedand locked”indicator shouldbeflash.</td></tr></table>
+
+# Edge/Gap Hazard Detector (If applicable)
+
+<table><tr><td>DoorNo.</td><td>Task tobedone</td></tr><tr><td>If applicable</td><td>F</td></tr></table>
+
+# Power Supply/PSD Controller
+
+<table><tr><td>1owerSuppry/1SDCoiiroir Equipment</td><td>Task tobedone</td></tr><tr><td></td><td>Turnsoff mains supplybyswitchoffPDP1/PDP2DJS1MCCB and testthechangeover functionofPDP1/PDP2,Open allPSDsofPlatform1/Platform2byLCPtoverifythechangeoverfunctionisproperlyworkingResumemainssupply</td></tr><tr><td>PDP1/PDP2</td><td>of PDP1/PDP2, change over will be switched off Turnsoffmainssupply byswitchof415VACMains (cariedoutbyMTR’sstaff)of PDP1/PDP2andtestthe change over functionofPP2penallDsoflatfom1/Patfom2byLCtoerifythechangeoerfuctionisoerl w orking.Resume mains supply of PDP1/PDP2, change over will be sw itched off.</td></tr><tr><td>PDP1/PDP2</td><td>Recording thefloatchargevoltageforbatteryno.1tono2O.Visualchecktheelectrolytelevelofeachbaterycell. SwitchoffPD/PDPBattryBreakerDJB,conectaummyloadacrosspositiveandnegativeteminalofthebattery bankforPDP1/PDP2andallowbatterybanktodischarge.After3hours,recordingtheterminalvoltageforbattryno.1to no.20,discoectthedummyload,swichonandallowthebterytochargeupecordingtherging current.</td></tr></table>
+
+# 360 Days Check List for PSD-URL
+
+<table><tr><td colspan="6">(Contract M912-99E) ZZEN</td></tr><tr><td>PDP/PSDC</td><td colspan="5"></td></tr><tr><td colspan="6">Cleaning</td></tr><tr><td>Door No. PSD X01-X40</td><td colspan="6">Task to be done</td></tr><tr><td colspan="7">Cleaningtheearthrail copperbar and check thecontinuityof copper brush inthe TravelCarriage.</td></tr><tr><td colspan="7">PSD Emergency Lighting and Fascia Panel Air Gap Door No. Task to be done</td></tr><tr><td colspan="7">If applicable</td></tr><tr><td colspan="7"></td></tr><tr><td colspan="7">PSD Earth Insulation Resistance</td></tr><tr><td>Items</td><td colspan="2">Task to be done</td><td colspan="3">Reading I=_ Ω/Km</td><td>Limit</td></tr><tr><td>Insutatin</td><td colspan="2"></td><td colspan="3">Vemp: Humd</td><td>&gt; 15 Ohm / Km</td></tr><tr><td colspan="2">Equipment used for measurement</td><td colspan="3">Datodealibratio</td><td colspan="2">DuDte ）</td></tr><tr><td colspan="7"></td></tr><tr><td colspan="7"></td></tr><tr><td>Door No.</td><td colspan="2">Work Done /Remark s</td><td>Door No.</td><td colspan="2"></td><td>Work Done/Remarks</td></tr><tr><td>TAD X91</td><td colspan="2">Done and in good condition</td><td>PSD X21 PSD X22</td><td colspan="2">Doneand in goodcondition</td><td></td></tr><tr><td>CAD X93</td><td colspan="2">Done and in good condition</td><td></td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>EPSD X01</td><td colspan="2">Done and in good condition</td><td>PSD X23</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X02</td><td colspan="2">Doneand in goodcondition</td><td>PSD X24</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X03</td><td colspan="2">Done and in good condition</td><td>PSD X25</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X04</td><td colspan="2">Done and in good condition</td><td>PSD X26</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X05</td><td colspan="2">]Done and in good condition</td><td>PSD X27</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSDX06</td><td colspan="2">Done and in good condition</td><td>PSDX28</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X07</td><td colspan="2">Done and in good condition</td><td>PSD X29</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X08</td><td colspan="2">Done and in good condition</td><td>PSD X30</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X09</td><td colspan="2">Done and in goodcondition</td><td>PSD X31</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X10</td><td colspan="2">Done and in good condition</td><td>PSD X32</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X11</td><td colspan="2">Done and in good condition</td><td>PSD X33</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X12</td><td colspan="2">Done and in good condition</td><td>PSD X34</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X13</td><td colspan="2">Done and in good condition</td><td>PSD X35</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X14</td><td colspan="2">Done and in good condition</td><td>PSD X36</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X15</td><td colspan="2">Done and in good condition</td><td>PSD X37</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X16</td><td colspan="2">Done and in good condition</td><td>PSD X38</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X17</td><td colspan="2">Done and in good condition</td><td>PSD X39</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td></td><td colspan="2"></td><td>EPSD X40</td><td colspan="2"></td><td></td></tr><tr><td>PSD X18</td><td colspan="2">Done and in good condition</td><td>CAD X94</td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X19</td><td colspan="2">Done and in good condition</td><td></td><td colspan="2">Done and in good condition</td><td></td></tr><tr><td>PSD X20</td><td>Done and in good condition</td><td colspan="2"></td><td>TAD X92</td><td colspan="2">Done and in good condition</td></tr></table>
+
+<table><tr><td colspan="10">Push Bar Opening Force</td></tr><tr><td></td><td></td><td>R</td><td>N)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td rowspan="2">TADX91L TADX92L</td><td>M</td><td></td><td></td><td>CADX93L</td><td>M</td><td>R</td><td>N</td><td>EED</td><td>L</td><td>M</td><td>R</td><td>N</td></tr><tr><td>M</td><td>R</td><td>N</td><td>CADX94L</td><td>M</td><td>R</td><td></td><td>EED</td><td>L</td><td>M</td><td>R</td><td>N)</td></tr></table>
+
+# 360 Days Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td colspan="14"></td></tr><tr><td>PartsUsed Part Name</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1) ID Faulty Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>/</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1) ID Installed Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>/</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1) Location PartsUsed</td><td></td><td></td><td></td><td></td><td>PSD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan="14"></td></tr><tr><td>Part Name</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Faulty Part (2) ID Installed Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>/</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) Location</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>PSD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan="13"></td></tr><tr><td>Remarks:</td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td colspan="14"></td></tr><tr><td></td><td colspan="14"></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td colspan="14"></td><td></td><td></td></tr><tr><td></td><td colspan="14"></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td></tr> colspan="14"<td></td><td></td></tr></table>
+
+<table><tr><td colspan="3">PowerDistribution Panel Change Over Test</td></tr><tr><td rowspan="2">Equipment</td><td colspan="2">Work Done/Remarks</td></tr><tr><td></td><td></td></tr><tr><td rowspan="2">PDP</td><td>Change Over Testby 415V AC Mains</td><td>Done andin goo ondtion</td></tr><tr><td></td><td></td></tr></table>
+
+<table><tr><td colspan="2">Power Distribution Panel Discharge Start Time :</td><td colspan="4">：</td></tr><tr><td>Batry</td><td>Reading before Battery Discharge Test</td><td>Batry</td><td></td><td>Reading before Batery Discharge Test</td><td>Limit</td></tr><tr><td>1</td><td>V，ElectrolyteChecked</td><td></td><td>11.</td><td>V，ElectrolyteChecked</td><td>1.340~1.480V</td></tr><tr><td>2</td><td>V，ElectrolyteChecked</td><td></td><td>12.</td><td>V，ElectrolyteChecked</td><td>1.340~1.480V</td></tr><tr><td>3</td><td>V，ElectrolyteChecked</td><td></td><td>13.</td><td>V，ElectrolyteChecked</td><td>1.340~1.480V</td></tr><tr><td>4</td><td>V，ElectrolyteChecked</td><td></td><td>14.</td><td>V，ElectrolyteChecked</td><td>1.340~ 1.480V</td></tr><tr><td>5.</td><td>_V，ElectrolyteChecked</td><td></td><td>15.</td><td>V，ElectrolyteChecked</td><td>1.340~ 1.480V</td></tr><tr><td>6</td><td>V，ElectrolyteChecked</td><td></td><td>16.</td><td>V，ElectrolyteChecked</td><td>1.340~ 1.480V</td></tr><tr><td>7</td><td>V，ElectroyteChecked</td><td></td><td>17.</td><td>V，ElectrolyteChecked</td><td>1.340~1.480V</td></tr><tr><td>8</td><td>V，ElectrolyteChecked</td><td></td><td>18.</td><td>V，ElectrolyteChecked</td><td>1.340~ 1.480V</td></tr><tr><td>9.</td><td>V，ElectrolyteChecked</td><td></td><td>19.</td><td>_V，ElectrolyteChecked</td><td>1.340~ 1.480V</td></tr><tr><td>10.</td><td>V，ElectrolyteChecked</td><td></td><td>20.</td><td>_V,ElectrolyteChecked</td><td>1.340~ 1.480V</td></tr></table>
+
+# 360 Days Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td colspan="2">Power Distribution Panel</td><td colspan="4">Discharge End Time : ：</td></tr><tr><td>Bate.y</td><td>Reading After Battery Discharge Test</td><td>Batory</td><td>Reading After Battery Discharge Test</td><td></td><td>Limit</td></tr><tr><td>1.</td><td></td><td>V</td><td>11. </td><td>V</td><td>&gt; 1.0V</td></tr><tr><td>2</td><td></td><td></td><td>12.</td><td>_V</td><td>&gt;1.0V</td></tr><tr><td>3</td><td></td><td></td><td>13.</td><td>V</td><td>&gt; 1.0V</td></tr><tr><td>4</td><td></td><td>V</td><td>14.</td><td></td><td>&gt;1.0V</td></tr><tr><td>5</td><td></td><td>V</td><td>15.</td><td></td><td>&gt;1.0V</td></tr><tr><td>6</td><td></td><td>V</td><td>16.</td><td>V</td><td>&gt; 1.0V</td></tr><tr><td>7</td><td></td><td>V</td><td>17.</td><td>V</td><td>&gt; 1.0V</td></tr><tr><td>8</td><td></td><td>V</td><td>18.</td><td>V</td><td>&gt; 1.0v</td></tr><tr><td>9</td><td></td><td></td><td>19.</td><td>V</td><td>&gt; 1.0V</td></tr><tr><td>10.</td><td></td><td>V</td><td>20.</td><td>_V</td><td>&gt;1.0V</td></tr></table>
+
+<table><tr><td>Equipment</td><td>Battery Charging Current After Discharge Test</td><td>Limit</td></tr><tr><td>PDP</td><td>A</td><td>&lt;15A</td></tr></table>
+
+Remarks:
+
+![](images/a48fb34dcd994ae5c683263872e19d2cc0bc0ea45b36eb63e89abb63167e1e2c.jpg)
+
+Ihave inspected the following works are carried out in satisfactory condition according to work instructions: All Sliding Guide Fixing Screws were tighten.(Safety Critical Item) B.PDP Change Over Test was carried out and function normal.
+
+# PSD Lighting Maintenance Record (Contract M912-99E)
+
+<table><tr><td>MTRC Work Order No.</td><td></td><td>Date&amp;Time</td><td>Scheduled</td><td>A ctual</td><td>Time</td></tr><tr><td>Station Name</td><td></td><td>Commence Date</td><td></td><td></td><td></td></tr><tr><td>Platform</td><td></td><td>Completed Date</td><td></td><td></td><td></td></tr><tr><td></td><td colspan="3"></td><td>Ref.Manual</td><td>GI/OTH/065</td></tr></table>
+
+Part A: General Lighting and Fascia Panels Air Gap Check   
+
+<table><tr><td>DoorNo.</td><td>Task to be done</td><td>Work Done/Rem arks</td></tr><tr><td>PSDX01-X40</td><td>Visual inspection forall fluorescent lamps are in normal working condition without black colour on both ends.Replace with new fluorescent lamp if necess ary.</td><td>Done andin good condition</td></tr><tr><td>TAD X91-X92</td><td>Visual inspectionforal fluorescentlampsarein normal working condition without black colour on both ends.Replace with new fluorescent lampif necessary.</td><td>Done andin good condition</td></tr><tr><td>Whole Platform</td><td>Visualinspectonandmeahrth aigt bethaen PSD Heade</td><td>Done and in good condition</td></tr></table>
+
+Spares used: 58W Fluorescent Tubes nos. 18W Fluorescent Tubes nos.
+
+<table><tr><td colspan="2">Part B:Emergency LightingCheck</td></tr><tr><td colspan="2">Task tobedone</td></tr><tr><td colspan="2">Switch off emergency lighting power supply. Visualheckeachemergencylightingwasmaintainedbybatery(Emergencylightingwillshowdimmerwhensupliedbybatery)</td></tr><tr><td colspan="2"></td></tr><tr><td colspan="2">Visual check the LED indicator for each emergency lighting is extinguished.</td></tr><tr><td colspan="2">Ensure allemergency lightings couldmaintain minimumoperation for1hour,replacebackup battery if necessary.</td></tr><tr><td colspan="2">Switch on emergency lighting power supply. Visualcheckeachemergencylightingwasresumedtonormal.(Emergencylightingwillshowbrighterwhensuppliedbymains</td></tr></table>
+
+<table><tr><td>Emergency Light No.</td><td>Work Done</td><td>Emer gency Light No.</td><td>Work Done</td></tr><tr><td>E01 at TAD X91</td><td>Done andin good condition</td><td>E08</td><td>Done and in good condition</td></tr><tr><td>E02</td><td>Done and in good condition</td><td>E09</td><td>Done and in good condition</td></tr><tr><td>E03</td><td>Done and in good condition</td><td>E10</td><td>Done and in good condition</td></tr><tr><td>E04</td><td>Done andin good condition</td><td>E11</td><td>Done and in good condition</td></tr><tr><td>E05</td><td>Done andin good condition</td><td>E12</td><td>Done and in good condition</td></tr><tr><td>E06</td><td>Done andin good condition</td><td>E13 at TAD X92</td><td>Done and in good condition</td></tr><tr><td>E07</td><td>Done and in good condition</td><td></td><td>Done and in good conditi on</td></tr></table>
+
+Spares used: Backup Battery rep laced in Emergency Light No.
+
+Remarks:
+
+Checked by: Signature: Date:
+
+# 6.6 2 Year Check
+
+# 6.6.1 General
+
+2 Year Check is an extended preventive service task. It bases on visual and mechanical checks of the moving parts and the checking and cleaning of the electrical insulators.
+
+Visual checks detect damages or excessive wears of all items listed in the respective check list.
+
+Mechanical tests consist checking the bolts to the assigned torque.
+
+The check list reports the actually condition of the system, the reported damaged parts must be repaired or replaced immediately.
+
+<table><tr><td>-- NOTE-</td></tr><tr><td>Open Header Covers requires and only allows to be carried out at non-traffic hours! Report to Station Controller before carry out maintenance works! Safety Belt should be wear when working at more than 2 meters height!</td></tr><tr><td>!!!DANGER !!</td></tr><tr><td>This task involves handling on power installtions! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!</td></tr><tr><td>!!WARNING !!</td></tr><tr><td>Make sure no body is working near the PSD&#x27;s area when using LCP to open all doors, warning all workers if they are working near the PSD&#x27;s area before you can use the PLCS keyswitch to open all PSDs.</td></tr><tr><td>You should always keep the LCP cover closed and locked when you are not in its location, you can never leave the LCP cover open inattention so that other people can accessit!</td></tr><tr><td>To prevent risk for falling at height, Maximum 150mm was allowed for an opened PSD/EPSD when working with ladder.For EED/CAD/TAD, the door leaf in front of ladder must keep at closed position when working with ladder.</td></tr></table>
+
+# Items to be checked:
+
+Check for mechanical damage and excessive wears:
+
+• Door bonding PSD / EPSD • Axle Journal • Ball Socket with Threaded Rod, TAD
+
+# Controlling the torque:
+
+• Lever at Door Bearing TAD • Toggle Lever Door closer TAD
+
+# Functional test:
+
+• Functional test of Obstruction Detection (3 Points)
+
+# 6.6.2 Check PSD / EPSD
+
+# Description:
+
+The inspection of PSD / EPSD contain safety and recovery checks, detect all kind of damage and excessive wears and checking of bolts to the assigned torque.
+
+# Task
+
+• Open header cover PSD / EPSD Switch power of DCU “OFF”: Turn Miniature Circuit Breakers F1 to “OFF” position Check the conductivity ( the contact) of door bonding to the copper bus, see image below Check all electrical contacts for their cleanness, free from any kind of particles   
+• Check the earthing contacts Check for any signs of corrosion, clean up if necessary   
+• Switch the power of DCU “ON”: Turn Miniature Circuit Breakers F1 to “ON” position   
+• Close header cover
+
+# Door bonding
+
+![](images/1cd92e233e64a4594f5420cf2eca5f80a98672895f988db282c2c462e9d5c748.jpg)  
+Door bonding
+
+# 6.6.3 Inspection of TAD Description
+
+The inspection of TAD contain safety and recovery checks, detect all kind of damage and excessive wears and checking of bolts to the assigned torque.
+
+# Task:
+
+• Open header cover TAD   
+• Check all electrical contacts for their cleanness, free from any kind of particles   
+• Check the earthing contacts   
+• Check for any signs of corrosion, clean up if necessary   
+• Close header cover
+
+# DOOR CLOSER
+
+![](images/f625959562016b323b1a0112150df032b70f5962f9b56f93e3d1bcadd0904567.jpg)
+
+1 Lever joint   
+2 Screws   
+3 Screws   
+4 Door closer   
+5 Door leaf   
+6 Upper pivot
+
+# Get authorization from the Traffic Controller (TC) and finished all safety protection procedures before access to Track!
+
+# 1. Metallic Bar 40 x 8mm (0906-531)
+
+![](images/95d8d7fc4a9f770fd6528cc678ec3150377f49f3ec7d6f0ebe55309b5a37780d.jpg)
+
+# 2. Insert 8mm Bar between PSD during door closing at a height approx. $1 0 0 \ m \ m$ above threshold
+
+![](images/848332d8d2953d4eb93d088e90bea26f4b2e127140a673bfe1ea499f93af8703.jpg)
+
+![](images/59a46ef813fa64e06642e71f9f90a19ab2e0b2ad9ea10a9c9c83f153c19c88bd.jpg)  
+3. Test at a height approx. middle of PSD
+
+![](images/c9764dfe18bee43dae0d8a9f8f88bac642636b9d608916e51df5b24e3a6b9bc5.jpg)  
+4. Test at a height approx. 100mm from Top of PSD
+
+# Task
+
+Open header cover PSD / EPSD Fully open PSD by turn and hold DCU “Test” Switch
+
+Insert a 8mm Bar (Gauge 0906-531) between PSD at a height approx. 100mm from threshold Release DCU “Test” Switch and allow PSD / EPSD blocked by the metal bar . When PSD / EPSD stopped, check DOI should be “ON” and there is no driving power for 5 seconds, the door can be manually slid opened during this period • Remove the 8mm Bar and allow PSD re-close automatically Check the “Closed and Locked” signals - DOI and PSI are “OFF” Repeat the above procedures with a height at approx. middle of door leaf and $1 0 0 \mathsf { m m }$ from top of door leaf • If obstacle detection is not satisfactory, re-adjust PSD is required • Close header cover PSD / EPSD
+
+# 2 Years Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td>MTRC Work Order No</td><td></td><td>Date &amp;Time</td><td>Scheduled</td><td>Actual</td><td>Time</td></tr><tr><td>Station Name</td><td></td><td>Commence Date</td><td></td><td></td><td></td></tr><tr><td>Platform</td><td></td><td>Completed Date</td><td></td><td></td><td></td></tr><tr><td>Remarks</td><td colspan="3">2 YearsCheck List incduding all works listed in 360 Days Check List</td><td>Ref Manual</td><td>GI/OTH/065</td></tr><tr><td colspan="6">Drive Unit</td></tr><tr><td rowspan="2">Door No.</td><td colspan="5">Task to be done VisualinspectionforanyphysicaldamageorexcessivewearsofDrive Unit,oothBelts,DrivePully.Checkdrivebelt</td></tr><tr><td colspan="4">tensionandmajorfixingscrews fortightnessTurn“TestButon”tomanual modeand playthedorforseveral times,check any abnormal noise.</td></tr><tr><td>Travel Carriage</td><td colspan="5"></td></tr><tr><td>Door No.</td><td colspan="5">Task to be done</td></tr><tr><td>PSD X01-X40</td><td colspan="5"></td></tr><tr><td rowspan="2">PSD X01-X40</td><td colspan="5">Apply lubrication grease to Locking Block and Main Belt Pulley.</td></tr><tr><td colspan="5"></td></tr><tr><td>TAD DoorCloser Door No.</td><td colspan="5">Task to be done</td></tr><tr><td>PSD X91&amp;X92</td><td colspan="5">Check TADdor hearig,Bal soket ith Threde Rrdfr a excssire erdjut te tgse e  </td></tr><tr><td>Sliding Guide</td><td colspan="5"></td></tr><tr><td colspan="5">Door No.</td><td></td></tr><tr><td colspan="5">PSD X01-X40 Tighten al fixing screws of PSD Sliding Guide.</td><td></td></tr><tr><td colspan="5">Door Bonding</td><td></td></tr><tr><td colspan="5">Door No.</td><td></td></tr><tr><td colspan="2">All Doors</td><td colspan="5">Task to be done Visual check allearth bondings fortightnessor sgns of corrosion.</td></tr><tr><td colspan="5">PSD X01-X40 Check the conductivity of door bonding to the copper bus using conductivity meter.</td><td></td></tr><tr><td colspan="5">Manual ReleaseLock/DOI/DPIS/DIOS/PSI</td><td></td></tr><tr><td rowspan="2">DoorNo. PSD X01-X40</td><td colspan="5"></td></tr><tr><td colspan="5">Functiontesthemanualreleaselockbothonplatformsideandtrackside,blockthedoorwitha8mmmetalicbar(Gauge 4590-53iltsi andcheck thePSI shouldbeturns“offResume all keyswitch to normalpositionafter finished testing.</td></tr><tr><td>TAD X91-X92 CAD X93-X94 EED X50-X70</td><td colspan="5">FunctiontestthePushBarontrack sideandtheManualReleaseLock atplatformside,visualinspectionforanyphysical damageormisalignment forLockingBlock VerifythecorectnessofDOIindicationduringdooropenedRandomcheck 2TAD/CAD/EED forPush Bar opening force andrecord thereadings.</td></tr><tr><td colspan="5">Local Control Panel</td><td></td></tr><tr><td colspan="5">Door No.</td><td>Task to be done</td></tr><tr><td colspan="5">LCP Headwall and Tailwall</td><td>Verify PLCS switch function by turns PLCS to open andclose allPSDs.Check PCC+and PCC-indicators should be“on”</td></tr><tr><td colspan="5">Edge/Gap Hazard Detector (If applicable)</td><td>whenall doors opened.TumPIOS to“Override”position,“Alldoorclosedandlocked”indicatorshouldbeflash.</td></tr><tr><td colspan="5">Door No.</td><td>Task to be done</td></tr><tr><td colspan="5">If applicable</td><td></td></tr><tr><td colspan="5">Cleaning</td><td></td></tr><tr><td colspan="5">Door No.</td><td>Task to be done</td></tr><tr><td colspan="5">PSD X01-X40</td><td>Cleaning the earthral copper bar and check the contiuity of copperbrush in the Travel Cariage.</td></tr><tr><td colspan="5"></td><td></td></tr></table>
+
+15/8/2006
+
+# 2 Years Check List for PSD-URL (Contract M912-99E)
+
+Functional Test and inspection of all above items:
+
+<table><tr><td>Door No.</td><td>Work Done/Remarks</td></tr><tr><td>TAD X91</td><td>Done and in good condition</td></tr><tr><td>CAD X93</td><td>Done and in good condition</td></tr><tr><td>EPSD X01</td><td>Done and in good condition</td></tr><tr><td>PSD X02</td><td>Done and in good condition</td></tr><tr><td>PSDX03</td><td>Doneand in good condition</td></tr><tr><td>PSD X04</td><td>]Doneand ingoodcondition</td></tr><tr><td>PSD X05</td><td>]Doneand in goodcondition</td></tr><tr><td>PSD X06</td><td>Doneand in goodcondition</td></tr><tr><td>PSD X07</td><td>Done and in good condition</td></tr><tr><td>PSD X08</td><td>Done and ingoodcondition</td></tr><tr><td>PSDX09</td><td>]Doneand in goodcondition</td></tr><tr><td>PSD X10</td><td>]Done and in good condition</td></tr><tr><td>PSD X11</td><td>Done and in good condition</td></tr><tr><td>PSD X12</td><td>]Doneand in goodcondition</td></tr><tr><td>PSD X13</td><td>Doneandin goodcondition</td></tr><tr><td>PSD X14</td><td>Done and in good condition</td></tr><tr><td>PSD X15</td><td>Doneand in good condition</td></tr><tr><td>PSD X16</td><td>Done and in good condition</td></tr><tr><td>PSD X17</td><td>Done and in good condition</td></tr><tr><td>PSD X18</td><td>Done and in good condition</td></tr><tr><td>PSD X19</td><td>Done and in good condition</td></tr><tr><td>PSD X20</td><td>Done and in good condition</td></tr></table>
+
+<table><tr><td>Door No.</td><td>Work Done/Remarks</td></tr><tr><td>PSD X21</td><td>Doneand in good condition</td></tr><tr><td>PSD X22</td><td>Done and in good condition</td></tr><tr><td>PSD X23</td><td>Done and in good condition</td></tr><tr><td>PSD X24</td><td>Doneand ingood condition</td></tr><tr><td>PSD X25</td><td>]Doneand in goodcondition</td></tr><tr><td>PSD X26</td><td>]Done and in good condition</td></tr><tr><td>PSD X27</td><td>]Done and in good condition</td></tr><tr><td>PSD X28</td><td>]Done and in goodcondition</td></tr><tr><td>PSD X29</td><td>Done and in goodcondition</td></tr><tr><td>PSDX30</td><td>Doneand in good condition</td></tr><tr><td>PSD X31</td><td>Done and in good condition</td></tr><tr><td>PSD X32</td><td>Done and in good condition</td></tr><tr><td>PSD X33</td><td>Done and in good condition</td></tr><tr><td>PSD X34</td><td>Done and in good condition</td></tr><tr><td>PSD X35</td><td>Done and in good condition</td></tr><tr><td>PSD X36</td><td>Doneand in good condition</td></tr><tr><td>PSD X37</td><td>Doneand in good condition</td></tr><tr><td>PSD X38</td><td>Doneand in good condition</td></tr><tr><td>PSD X39</td><td>Done and in good condition</td></tr><tr><td>EPSD X40</td><td>Done and in good condition</td></tr><tr><td>CAD X94</td><td>Doneand ingood condition</td></tr><tr><td>TAD X92</td><td>Done and in good condition</td></tr></table>
+
+Push Bar Opening Force   
+
+<table><tr><td>TADX91 L</td><td>M</td><td>R</td><td>N)</td><td>CADX93L</td><td>M R</td><td></td><td>N EED</td><td>L</td><td>M</td><td>R</td><td>N)</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>TADX92L</td><td>M</td><td>R</td><td>N)</td><td>CADX94L</td><td>M</td><td>R</td><td>N)</td><td>EED</td><td></td><td>R</td><td>N)</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>L</td><td>M</td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+
+<table><tr><td colspan="2">Power Supply/PSDController</td></tr><tr><td>Equipment</td><td>Task tobedone Turns offmains supply by switch offPDP1/PDP2DJS1MCCB and testthechange over function ofPDP1/PDP2,Open</td></tr><tr><td>PDP1/PDP2</td><td>allPSDsofPlatformi/Platform2byLCPtoverifythechangeoverfunctionisproperlyworkingResumemainssupply of PDP1/PDP2, change over will be switched off. Turns off mains supply byswitch off415VACMains (carredout byMTR’s staff)ofPDP1/PDP2andtestthe change over functionofDD2OpcnallDsofatfom1/latfom2byLCovrifythcchangeovcrfunctionisporly w orking.Resume mains supply of PDP1/PDP2, change over will be switched off.</td></tr><tr><td>PDP1/PDP2</td><td>Recordingthefloatchargevoltageforbatteryno.1tono20.Visualchecktheelectrolytelevelofeachbaterycell. SwitchoffDP/PDPBatteryBreakerDJBconnectadummyloadacrosspositiveandnegativeteminalofthebattery bankforPDP1PDP2andallowbatterybanktodischarge.After3hours,recordingtheterminalvoltageforbatteryno.1 to no20,discoecthemladsoDndalloeterytogeecodingtheging</td></tr><tr><td>PDP/PSDC</td><td>current.</td></tr></table>
+
+SDEmergency LightingandFascia Panel AirGap (pleaserefer to separated EmergencyLight Check List)   
+
+<table><tr><td>DoorNo.</td><td>Task to be done</td></tr><tr><td>If applicable</td><td>Fnisep</td></tr></table>
+
+PSD Earth Insulation Resistance   
+
+<table><tr><td></td><td>PSDEartitItsuiadionResistallce</td><td>Reading</td><td colspan="2"></td><td>Limit</td></tr><tr><td>Items Insulation</td><td>Task to be done Rramoveth athlinku ethen Psinaudatian</td><td colspan="2">V= I= R=</td><td rowspan="3">Ω/Km</td><td rowspan="3">&gt; 15 Ohm/Km</td></tr><tr><td>Resistance</td><td>resistance from PSD to Station Earth.</td><td>,Humidity: Temp:</td><td>(S/N:</td></tr><tr><td colspan="2">Equipment used for measurement</td><td colspan="2">Model: Dateof Calibration:</td></tr></table>
+
+2 Years Check List_Rev6.doc 15/8/2006 Page 2/5
+
+# 2 Years Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td colspan="15">PartsUsed</td></tr><tr><td>Part Name</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1)ID Faulty Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>/</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1) ID Installed Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1) Location</td><td></td><td></td><td></td><td>=</td><td>PSD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="4"></td></tr></table>
+
+<table><tr><td colspan="20">PartsUsed</td></tr><tr><td>Part Name</td><td colspan="10"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Faulty Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>/</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Installed Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) Location</td><td></td><td></td><td></td><td>=</td><td>PSD</td><td></td><td>=</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+
+<table><tr><td colspan="20">PartsUsed</td></tr><tr><td>Part Name</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Faulty Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Installed Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) Location</td><td></td><td></td><td></td><td></td><td>PSD</td><td></td><td></td><td></td><td></td><td></td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+
+<table><tr><td colspan="20">PartsUsed</td></tr><tr><td>Part Name</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Faulty Patt</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>/</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Installed Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) Location</td><td></td><td></td><td></td><td></td><td>PSD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+
+Remarks:
+
+![](images/e4452f8aa8ef264f63defa94564bac9e075bd71919ff10b52a48d160e5c4fc97.jpg)
+
+# 2 Years Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td colspan="3">Power Distribution Panel Change Over Test</td></tr><tr><td>Equipment</td><td colspan="2">Work Done /Remarks</td></tr><tr><td rowspan="2">PDP</td><td>Change Over Tes by D15v AC Mains</td><td>Done and in good ondition</td></tr><tr><td></td><td></td></tr></table>
+
+<table><tr><td colspan="2">Power Distribution Panel Discharge Start Time :</td><td colspan="3">：</td></tr><tr><td>Batry</td><td>Reading before Battery Discharge Test</td><td>Battery</td><td>Reading before Battery Discharge Test</td><td>Limit</td></tr><tr><td>1</td><td>V，ElectrolyteChecked</td><td>11.</td><td>_V,ElectrolyteChecked</td><td>1.340~1.480V</td></tr><tr><td>2</td><td>_V，ElectrolyteChecked</td><td>12.</td><td>_V,ElectrolyteChecked</td><td>1.340~1.480V</td></tr><tr><td>3</td><td>V，ElectrolyteChecked</td><td>13.</td><td>V，ElectrolyteChecked</td><td>1.340~ 1.480V</td></tr><tr><td>4</td><td>V，ElectrolyteChecked</td><td>14.</td><td>V，ElectrolyteChecked</td><td>1.340~ 1.480V</td></tr><tr><td>5</td><td>V，ElectrolyteChecked</td><td>15.</td><td>_V,ElectrolyteChecked</td><td>1.340~1.480V</td></tr><tr><td>6</td><td>V，ElectrolyteChecked</td><td>16.</td><td>V，ElectrolyteChecked</td><td>1.340~ 1.480V</td></tr><tr><td>7.</td><td>V，ElectrolyteChecked</td><td>17.</td><td>V，ElectrolyteChecked</td><td>1.340~ 1.480V</td></tr><tr><td>8.</td><td>V，ElectrolyteChecked</td><td>18.</td><td>_V，ElectrolyteChecked</td><td>1.340~ 1.480V</td></tr><tr><td>9.</td><td>V，ElectrolyteChecked</td><td>19.</td><td>V，ElectrolyteChecked</td><td>1.340~ 1.480V</td></tr><tr><td>10.</td><td>V，ElectrolyteChecked</td><td>20.</td><td>_V，ElectrolyteChecked</td><td>1.340~1.480V</td></tr></table>
+
+<table><tr><td colspan="2">Power Distribution Panel</td><td colspan="4">Discharge End Time: ：</td></tr><tr><td>Batery</td><td colspan="2">Reading After Battery Discharge Test</td><td>Batery</td><td colspan="2">Reading AfterBattery Discharge Test</td><td>Limit</td></tr><tr><td>1</td><td></td><td>V</td><td>11.</td><td>V</td><td></td><td colspan="2">&gt;1.0V</td></tr><tr><td>2</td><td></td><td>V</td><td>12.</td><td></td><td>V</td><td colspan="2">&gt;1.0V</td></tr><tr><td>3</td><td></td><td>V</td><td>13.</td><td></td><td>V</td><td colspan="2">&gt;1.0V</td></tr><tr><td>4</td><td></td><td>V</td><td>14.</td><td></td><td>V</td><td colspan="2">&gt; 1.0V</td></tr><tr><td>5</td><td></td><td>V</td><td>15.</td><td></td><td>V</td><td colspan="2">&gt; 1.0V</td></tr><tr><td>6</td><td></td><td></td><td>16.</td><td></td><td></td><td colspan="2">&gt; 1.0V</td></tr><tr><td>7</td><td></td><td>V</td><td>17.</td><td></td><td>V</td><td colspan="2">&gt; 1.0V</td></tr><tr><td>8</td><td></td><td>V</td><td>18.</td><td></td><td>V</td><td colspan="2">&gt;1.0V</td></tr><tr><td>9.</td><td></td><td>V</td><td>19.</td><td></td><td>V</td><td colspan="2">&gt;1.0V</td></tr><tr><td>10.</td><td></td><td>V</td><td>20.</td><td></td><td>_V</td><td colspan="2">&gt;1.0V</td></tr></table>
+
+<table><tr><td>Equipment</td><td>Battery Charging Current After Discharge Test</td><td>Limit</td></tr><tr><td>PDP</td><td>A</td><td>&lt;15A</td></tr></table>
+
+# 2 Years Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td colspan="20">PartsUsed</td></tr><tr><td>Part Name</td><td colspan="10"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Faulty Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>/</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Installed Pat</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) Location</td><td></td><td></td><td></td><td>=</td><td>PSD</td><td></td><td>=</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+
+<table><tr><td colspan="17">PartsUsed</td></tr><tr><td>Part Name</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Faulty Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>/</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Installed Pat</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) Location</td><td></td><td></td><td></td><td>=</td><td></td><td>PSD</td><td>1</td><td></td><td></td><td></td><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="4"></td></tr></table>
+
+Remarks:
+
+![](images/6855c3503214acb0e5ba5fd37dfa0ca3ecda7c3200033324712796de42a82156.jpg)
+
+Ihave inspected the following works are carried out in satisfactory condition according to work instructions: All Sliding Guide Fixing Screws were tighten. (Safety Critical Item) B.PDP Change Over Test was carried out and function normal.
+
+Inspected by: Signature: Date:
+
+Performed by: Signature: Date:
+
+2 Years Check List_Rev 6.doc 15/8/2006
+
+# PSD Lighting Maintenance Record (Contract M912-99E)
+
+<table><tr><td>MTRC Work OrderNo.</td><td></td><td>Date&amp; Time</td><td>Scheduled</td><td>A ctua1</td><td>Time</td></tr><tr><td>Station Name</td><td></td><td>Commence Date</td><td></td><td></td><td></td></tr><tr><td>Platfom</td><td></td><td>Completed Date</td><td></td><td></td><td></td></tr><tr><td></td><td colspan="3"></td><td>Ref.Manual</td><td>GI/OTH/065</td></tr></table>
+
+PartA:GeneralLightingandFascia PanelsAirGap Check   
+
+<table><tr><td>DoorNo.</td><td>Task to be done</td><td>Work Done/Rem arks</td></tr><tr><td>PSD X01-X40</td><td>Visual inspection for allfluorescent lamps are in normal working condition without black colour on both ends.Replace with new fluorescent lamp if necessary.</td><td>Done and in good condition</td></tr><tr><td>TAD X91-X92</td><td>Visual inspection for allfluorescent lamps are in normal working condition without black colour on both ends.Replace with new fluorescent lamp if necessary.</td><td>Done and in good condition</td></tr><tr><td>Whole Platform</td><td>Visalinspetonandmeashreth aigap betaen PSDd Header</td><td>Done andin good condition</td></tr></table>
+
+Spares used: 58W Fluorescent Tubes nos. 18W Fluorescent Tub es nos.
+
+<table><tr><td colspan="2">Part B:EmergencyLighting Check</td></tr><tr><td colspan="2">Task to be done</td></tr><tr><td rowspan="3">Switch off emergency lighting power supply.</td><td></td></tr><tr><td>Visualceckeachemergencylighting wasmaintainedbybattery.(Emergencylightingwillshowdimmerwhensuppliedbybaery)</td></tr><tr><td rowspan="2">Visual check the LED indicator for each emergency lighting is extinguished.</td></tr><tr><td>Switch on emergency lighting power supply.</td></tr><tr><td></td><td>Ensure all emergency lightings could maintain minimum operation for 1hour,replacebackupbattery if necessary.</td></tr><tr><td>power）</td><td>Visualcheckeach emergencylightingwas resumedtonormal.(Emergencylighting willshowbrighterwhensuppliedbymains</td></tr><tr><td>Visual check the LED indicator for each emergency lighting is luminant.</td><td></td></tr></table>
+
+<table><tr><td>Emergency Light No.</td><td>Work Done</td><td>Emer gency Light No.</td><td>Work Done</td></tr><tr><td>E01 atTAD X91</td><td>Done andin good condition</td><td>E08</td><td>Done and in goodcondition</td></tr><tr><td>E02</td><td>Done andin good condition</td><td>E09</td><td>Done and in good condition</td></tr><tr><td>E03</td><td>Done andin good condition</td><td>E10</td><td>Done and in good condition</td></tr><tr><td>E04</td><td>Done andin good condition</td><td>E11</td><td>Done and in good condition</td></tr><tr><td>E05</td><td>Done andin good condition</td><td>E12</td><td>Done and in good condition</td></tr><tr><td>E06</td><td>Done andin good condition</td><td>E13 atTAD X92</td><td>Done and in good condition</td></tr><tr><td>E07</td><td>Done andin good condition</td><td></td><td>Done and in goodcondition</td></tr></table>
+
+Spares used: Backup Battery replaced in Emergency Light No.
+
+<table><tr><td>Rem arks:</td></tr><tr><td></td></tr><tr><td></td></tr></table>
+
+# 6.7 5 Year Check
+
+# 6.7.1 General
+
+5 Year Check is a service task, including the reconditioning of mechanical components and extended functional tests.
+
+It bases on visual and functional checks, some items have to be replaced. Visual checks detect damage or excessive wears of all items listed in the respective check list.
+
+The check list reports the actually condition of the system, the reported damaged parts must be repaired or replaced immediately.
+
+<table><tr><td>-- NOTE-</td></tr><tr><td>Open Header Covers requires and only allows to be carried out at non-traffic hours!</td></tr><tr><td>Report to Station Controller before carry out maintenance works!</td></tr><tr><td>Safety Belt should be wear when working at more than 2 meters height!</td></tr></table>
+
+<table><tr><td>!!!DANGER !!</td></tr><tr><td>This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!</td></tr></table>
+
+<table><tr><td>！ WARNING !!</td></tr><tr><td>Make sure no body is working near the PSD&#x27;s area when using LCP to open alldoors, warning all workers if they are working near the PSD&#x27;s area before you can use the PLCS keyswitch to open all PSDs.</td></tr><tr><td>You should always keep the LCP cover closed and locked when you are not in its location, you can never leave the LCP cover open inattention so that other people can access it!</td></tr><tr><td>To prevent risk for falling at height, Maximum 150mm was allowed for an opened PSD/EPSD when working with ladder.For EED/CAD/TAD, the door leaf in front of ladder must keep at closed position when working with ladder.</td></tr></table>
+
+# Items to be checked with:
+
+# Functional test
+
+PSD Safety Interlock Circuits (PSIC) signals • PSD Interlock Override Key Switch (PIOS) signals Station Management System (SMS) hardwire signals PSD Local Control Key switch (PLC) Open / close signals
+
+# Items to be replaced:
+
+• Lithium battery pack
+
+# 6.7.2 Inspection of the PSIC
+
+Task:
+
+• Close all doors   
+• Check the coil-voltage of each safe master measured at terminal A1 and A2   
+• The coil-voltage must reach 20V at least
+
+90K3 90K6 90K9 90K12   
+95K3 95K6 95K9 95K12   
+100K3 100K6 100K9 100K12
+
+![](images/9ced477877e824cd6557d3458393da84b7c422aa94c56438d937ec6b119185b9.jpg)
+
+Position for 90K3 to 100K12
+
+![](images/243ff41d83e88f10a82b8a0c593ba4bbc1b2c75d7e44061ca8b38052faff83ad.jpg)  
+Position for A1 / A2
+
+# 6.7.3 Inspection of the PIOS Signal
+
+# Task:
+
+. Open a door Switch the PIOS in the LCP to the “Override” position • Check the monitoring of the signal in the control-room at the ATC
+
+6.7.4 Inspection of the SMIBP Hardwire Signals Unauthorised opening of a door:
+
+# Task:
+
+• Open any EED or TAD manually   
+• Open any PSD, EPSD or CAD before a valid Open Command exists   
+• Check the monitor signal at the SMIBP
+
+# PSD not closed and locked signal:
+
+# Task:
+
+Open any PSD or EPSD manually • Check the monitor signal at the SMIBP
+
+# Multiple door power failures:
+
+# Task:
+
+Shut down the power at the PDP . Open the PDP (Power Distribution Panel) • Shut down the power at switch “IG” in the PDP OR trip any MCB DJU1-DJU4 OR trip IGU Check the monitor signal at the SMIBP
+
+# PSD Automatic Control Failure:
+
+# Task:
+
+Open a PSD or an EPSD manually   
+Switch the PLCS switch at the LCP to the “CLOSED” position   
+OR Valid “Open” and “Closed” signal generated at the same time   
+OR Only one “Open” or “Closed” signal received   
+OR Valid “Open” Command But one or more PCC fails   
+OR open any PSD, EPSD or CAD door before a valid Open Command exists   
+Check the monitor signal at the SMIBP
+
+# PSD local control are Operated:
+
+# Task:
+
+Operate PLCS other than “OFF” position OR operate any DCU test keyswitch OR operate any DPIS or DIOS keyswitch • Check the monitor signal at the SMIBP
+
+# Edge / Gap Hazard detector (curved and spiralled platforms only)
+
+# Task:
+
+• Activated any Hazard Detector at the platform • Check the monitor signal at the SMIBP
+
+6.7.5 DCU Maintenance Inspection “Open Command”
+
+# Task:
+
+• Open LCP Cover and turn PLCS to open all PSDs / EPSDs Check the coil-voltage of the Relays on DCU Interface Board K1 / K2 • The coil-voltage measured across Diode D9 and D15 must reach 17V at least
+
+# Items to be replaced:
+
+• Exchange the lithium battery pack in the PLC inside of PSD controller
+
+![](images/b52c80fc379967782ea07e1d244ce267cfd12d0732f97633da39cda1114a1129.jpg)
+
+# Task:
+
+Open the lid manually as shown at image 1 (no tool needed)   
+Pull at the battery-string, image 2   
+Take off the battery, images 3   
+Replace the battery, image 4   
+Battery string must be as shown at image 4 on top   
+Close the lid
+
+# 6.7.6 Check Sheet for Testing and Commissioning SMIBP Interface Test
+
+<table><tr><td>Kaba Gilgen AG Freiburgstrasse 34 CH-3150Schwarzenburg</td><td>MTRC Contract C4342-99E Platform Screen Doors in Urban Lines Elericalntefacetesting</td><td>ZIZEN</td><td>KARA</td></tr><tr><td colspan="4">Electrical Equipment Testing</td></tr><tr><td colspan="4">Platform SMIBP Interface Test</td></tr><tr><td colspan="4">Station Platform</td></tr><tr><td>Check This test is carried out before Panel</td><td>Testing Procedure</td><td>Effect</td><td>Date</td></tr><tr><td colspan="4">Installation Safety Switches must be used instead of Doors to simulate alarms</td></tr><tr><td colspan="4">Verify CableCommissioning EnsurethatSCableoinsulationandcontinuityVerifyCablehasbeenintalld</td></tr><tr><td>te sts satisfactorily completed</td><td>Check Insulationand testing forms for cable 400</td><td colspan="2"></td></tr><tr><td colspan="3">Verify Hardwire Interface 1.MultipleDoorsPowerFailureAlarmTripMCBDJU1</td></tr><tr><td rowspan="4"></td><td></td><td colspan="2">AlarmActivated</td></tr><tr><td></td><td colspan="2"></td></tr><tr><td></td><td colspan="2">Alam Actvated</td></tr><tr><td>Trip MCB DJU 4 TrIp IGU</td><td colspan="2">AlarmActivated</td></tr><tr><td></td><td>Shut Off415Vsupply atLV SWB</td><td>AlarmActlvated AlarmActivated</td><td></td></tr><tr><td>2. PSD Automatic Control Failure Alarm</td><td>Operate PLCSat HeadwallorTailwall</td><td></td><td></td></tr><tr><td>PS 9.3.2.1g</td><td>Valid &quot;Open&quot; Command or Valid &quot;Closed&quot; Command</td><td>Alarm Activated</td><td></td></tr><tr><td>Push buttons are installed to simulate the ATC</td><td>&quot;Open&quot;and &quot;Closed&quot; signal generated at the same time.</td><td>Alarm de-activated, AlDorsopenand ldse as</td><td></td></tr><tr><td>RemoveRelay Number 85K3 or No 85 K9</td><td>Onlyone&quot;Open&quot;or&quot;Closed&quot;signal received Valid &quot;Open&quot; Command But one ormore PCC</td><td>AlarmActivated and DoorsDO NOToperate Alarm Activated and DoorsDO</td><td></td></tr><tr><td></td><td>fails (Shut Off MCBs 120F8,120F7,120F11,120F10)</td><td>NOToperate</td><td></td></tr><tr><td>3.UnauthorisedOpeningof a Door</td><td></td><td colspan="2">AlarmActivated</td></tr><tr><td>(safety switches to be used to simulate open and closed condition as doors are not installed at this time)</td><td>Any EED or TAD&#x27;areopened&#x27;.</td><td colspan="2"></td></tr><tr><td>4.PSDNOTClosedand Locked</td><td></td><td colspan="2">AlarmActivated</td></tr><tr><td>(safety switches to be usedto simulate open and closed ni 5.PSDLocal Controlare Operated</td><td>OpenanyPSDor EPSD door Operateallof the following:-</td><td colspan="2">AlarmActivated</td></tr><tr><td>6.PSD Edge/Gap Hazard (Where Applicable)</td><td>Operate temporary PLCS (to position other than auto) Operate DCU test Keyswitch Remove DPIS Bridging Plug at any DCU Actuateof any Gap Hazard detectors (Remove Override Plug)</td><td colspan="2">AlarmActivated</td></tr><tr><td></td><td>(Toreset removeandreplace DPIs Bridging plug)</td><td colspan="2"></td></tr><tr><td colspan="4">Reading Taken (KML) Witnessed (KGS) Witnessed (MTRC) (Initials) (Initials) (Initias) (Sign) (sign) (Sign) (Date)] (Datej] (Date)</td></tr></table>
+
+# 5 Years Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td>OrderNo.rK</td><td></td><td>Date&amp;Time</td><td>Scheduled</td><td>Actual</td><td>Time</td></tr><tr><td>Station Name</td><td>Date</td><td>Commence</td><td></td><td></td><td></td></tr><tr><td>Platform</td><td></td><td>Completed Date</td><td></td><td></td><td></td></tr><tr><td>Remarks</td><td colspan="3">5 Years Check List induding all works listed in 2 Years Check List</td><td>Ref Manual</td><td>GI/OTH/065</td></tr><tr><td>Drive Unit</td><td colspan="3">Task to be done</td><td></td><td></td></tr><tr><td>Door No.</td><td colspan="5">VisualnspectionforanyphysicaldamageorexcessivewearsofDriveUnit,ToothBelts,DrivePulleyCheck driveelt</td></tr><tr><td rowspan="2">PSD X01-X40</td><td colspan="5">tensionandmajorfixingscrewsfortightnessTurn“TestButon”tomanualmodeand playthedoorforseveraltimes,check any abnormal noise.</td></tr><tr><td colspan="5">Travel Carriage</td></tr><tr><td>Door No.</td><td colspan="5">Task to be done</td></tr><tr><td>PSD X01-X40</td><td colspan="5"></td></tr><tr><td rowspan="2">PSD X01-X40</td><td colspan="5">Apply lubrication grease to Locking Block and Main Belt Pulley.</td></tr><tr><td colspan="5"></td></tr><tr><td>TADDoor Closer Door No.</td><td colspan="5">Task to be done</td></tr><tr><td>PSD X91&amp;X92</td><td colspan="5">d</td></tr><tr><td>Sliding Guide</td><td colspan="5"></td></tr><tr><td>Door No.</td><td colspan="5">Task to be done</td></tr><tr><td>PSD X01-X40 Tighten allfixing screws of PSD Sliding Guide.</td><td colspan="5"></td></tr><tr><td>DoorBonding</td><td colspan="5"></td></tr><tr><td>Door No.</td><td colspan="5">Task to be done</td></tr><tr><td>All Doors</td><td colspan="5">Visual check allearth bondings for tightness or signs of corrosion.</td></tr><tr><td>PSD X01-X40</td><td colspan="5">Check the conductivity of door bonding to the copper bus using conductivity meter.</td></tr><tr><td>Manual ReleaseLock/DOI/DPIS/DIOS/PSI</td><td colspan="5"></td></tr><tr><td>DoorNo.</td><td colspan="5">Task to be done Function testhe manualreleaselock both onpatformside andtrack side,block thedoor witha8mmmetallicbar (Gauge</td></tr><tr><td>PSD X01-X40</td><td colspan="5">45906-531)aliiles and Check thePSI should beturns“ofResume allkeyswitch tonormalpositionafter finished testing.</td></tr><tr><td>TAD X91-X92 CAD X93-X94 EED X50-X70</td><td colspan="5">Function testthePushBarontrack sideandtheManualReleaseLock atplatformside,visualinspectionforanyphysical damageormisalignmentforLockingBlock VerifythecorectnessofDOIindicationduringdooropenedRandomcheck 2TAD/CAD/EED for Push Bar opening force andrecord the readings.</td></tr><tr><td>Local Control Panel</td><td colspan="5"></td></tr><tr><td>Door No.</td><td colspan="5">Task to be done</td></tr><tr><td>LCP Headwall and Tailwall</td><td colspan="5">Verify PLCS switch function by turns PLCSto open and close allPSDs.Check PCC+and PCC-indicators should be“on” whenall doors opened.TumPIOSto“Override”position,“All door closedand locked”indicatorshouldbeflash.</td></tr><tr><td>Edge/GapHazard Detector (If applicable)</td><td colspan="5"></td></tr><tr><td>Door No.</td><td colspan="5">Task tobe done</td></tr><tr><td>If applicable</td><td colspan="5"></td></tr><tr><td>ReplacePLCBackupBattery</td><td colspan="5"></td></tr><tr><td>Item</td><td colspan="5">Task tobe done</td></tr><tr><td>PSDC PLC</td><td colspan="5">Open lit of PLC backup battery,replace the oldlithiumbattery with new battery, close the lit</td></tr><tr><td></td><td colspan="5"></td></tr></table>
+
+# 5 Years Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td colspan="2">PowerSupply/PSDController</td></tr><tr><td>Equipment</td><td>Task to be done</td></tr><tr><td>PDP1/PDP2</td><td>Turns off mains supply byswitchoffPDP1/PDP2DJS1MCCB and testthechange over functionofPDP1/PDP2,Open allPSDsofPlatformi/Platform2byLCPtoverifythechangeoverfunctionisproperlyworkingResumemainssupply of PDP1/PDP2, change over will be switched off Turns offmains supplybyswitchoff415VACMains (cariedoutbyMTR’s staff)ofPDP1/PDP2andtestthe change over functionofPDPi/PDP2，Openal1 PSDsofPlatfom1/Platform2byLCPtoverifythechangeoverfunctionisproperly w orking.Resume mains supply of PDP1/PDP2, change over willbe sw itched off</td></tr><tr><td>PDP1/PDP2</td><td>Recording thefloatchargevoltageforbateryno.1tono.20.Visualchecktheelectrolytelevelof eachbaterycell. SwitchoffPDPDP2BatteryBreakerDJB,conectaummyloadacrosspositiveandnegativeterminalofthebattery bankforPDP1PDP2andallowbatterybanktodischarge.After3hours,recordingtheterminalvoltageforbatteryno.i to no.20,discoecttheummyoadsichonDPDJandalowthebatertochargeupecordingthegng current.</td></tr><tr><td>PDP/PSDC</td><td>CheckallelectricalconnectionsfortightnessandproperbondingVisuallycheckcableatachmentsandroutingforsigns of mechanicaldamageand chafing.</td></tr><tr><td>PDP1/PDP2</td><td>Ttuns ffmaisuply yswich ffD/PDJ1MCE,measuretheisulatioresistace etwn Phase R,Y,B</td></tr></table>
+
+Function Test   
+
+<table><tr><td>Items</td><td>Task tobe done</td></tr><tr><td>PSIC Signal PSDC</td><td>12,e</td></tr><tr><td>PIOS Signal PSDC</td><td></td></tr><tr><td>SMIBP Alarms</td><td>Simulate SMBP alarm signals and check corresponding alarm was activ ated in SMIBP.</td></tr><tr><td>DCU Maintenance</td><td>RpenLCPC/Popasddteha</td></tr></table>
+
+Cleaning   
+
+<table><tr><td>DoorNo.</td><td>Tasktobe done</td></tr><tr><td>PSDX01-X40</td><td>CleaningtheearthailcopperbarandcheckthecontinuityofcopperbrushintheTravelCaie</td></tr></table>
+
+# PSD Emergency Lighting and Fascia Panel Air Gap
+
+<table><tr><td>DoorNo.</td><td>Task tobe done</td></tr><tr><td>If applicable</td><td>FunctiontestPSDemergencylightings byswitchof theemergencylightingpowersupplyfor1hour.Replaceemergency lightingbackup battery if necessary.Check Fascia Panel air gap with gauge for beyond minirmumdistance.</td></tr></table>
+
+# PSD Earth Insulation Resistance
+
+<table><tr><td>Itcms</td><td>Task to bc donc</td><td>Rcading</td><td>Limit</td></tr><tr><td>Insutation</td><td>T</td><td>Temp: I=_ Humid Ω/Km</td><td>&gt; 15 Ohm/Km</td></tr><tr><td colspan="2">Equipment used for measurement</td><td>Dateofelibaton DueDate:</td></tr></table>
+
+<table><tr><td>Door No.</td><td>Work Done /Remarks</td></tr><tr><td>TAD X91</td><td>Done and in good condition</td></tr><tr><td>CADX93</td><td>Done and in good condition</td></tr><tr><td>EPSD X01</td><td>Done and in good condition</td></tr><tr><td>PSD X02</td><td>Done and in good condition</td></tr><tr><td>PSD X03</td><td>Done and in good condition</td></tr><tr><td>PSD X04</td><td>Done and in good condition</td></tr><tr><td>PSD X05</td><td>Done and in good condition</td></tr><tr><td>PSD X06</td><td>Done and in good condition</td></tr><tr><td>PSD X07</td><td>Done and in good condition</td></tr></table>
+
+<table><tr><td>Door No.</td><td>Work Done/Remarks</td></tr><tr><td>PSD X08</td><td>Done and in good condition</td></tr><tr><td>PSD X09</td><td>Done and in good condition</td></tr><tr><td>PSD X10</td><td>Doneand in good condition</td></tr><tr><td>PSD X11</td><td>Done and in good condition</td></tr><tr><td>PSDX12</td><td>Done and in good condition</td></tr><tr><td>PSD X13</td><td>Done and in good condition</td></tr><tr><td>PSD X14</td><td>Done and in good condition</td></tr><tr><td>PSD X15</td><td>Done and in good condition</td></tr><tr><td>PSD X16</td><td>Done and in good condition</td></tr></table>
+
+# 5 Years Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td>DoorNo.</td><td>Work Done/Remarks</td></tr><tr><td>PSD X17</td><td>]Done and in good condition</td></tr><tr><td>PSD X18</td><td>Done and in goodcondition</td></tr><tr><td>PSD X19</td><td>Done and in good condition</td></tr><tr><td>PSD X20</td><td>Doneand in good condition</td></tr><tr><td>PSD X21</td><td>Done and in good condition</td></tr><tr><td>PSD X22</td><td>]Doneand in good condition</td></tr><tr><td>PSD X23</td><td>Done and in good condition</td></tr><tr><td>PSD X24</td><td>Done and in good condition</td></tr><tr><td>PSD X25</td><td>]Doneand in goodcondition</td></tr><tr><td>PSD X26</td><td>Doneand in good condition</td></tr><tr><td>PSD X27</td><td>Done and in good condition</td></tr><tr><td>PSD X28</td><td>]Done and in good condition</td></tr><tr><td>PSD X29</td><td>]Done and in good condition</td></tr></table>
+
+<table><tr><td>Door No.</td><td>Work Done/Remarks</td></tr><tr><td>PSD X30</td><td>Doneand in goodcondition</td></tr><tr><td>PSD X31</td><td>Done and in goodcondition</td></tr><tr><td>PSD X32</td><td>]Doneand in good condition</td></tr><tr><td>PSD X33</td><td>Done and in goodcondition</td></tr><tr><td>PSD X34</td><td>Doneand in good condition</td></tr><tr><td>PSDX35</td><td>Doneand ingood condition</td></tr><tr><td>PSD X36</td><td>Done and in good condition</td></tr><tr><td>PSD X37</td><td>]Done and in good condition</td></tr><tr><td>PSD X38</td><td>]Doneand in good condition</td></tr><tr><td>PSDX39</td><td>Doneand in good condition</td></tr><tr><td>EPSD X40</td><td>Done and in good condition</td></tr><tr><td>CAD X94</td><td>Done and in good condition</td></tr><tr><td>TAD X92</td><td>]Doneand in good condition</td></tr></table>
+
+<table><tr><td colspan="10">Push Bar Opening Force</td></tr><tr><td></td><td>M R</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td colspan="3">TADX91L</td><td>N CADX93L</td><td>M</td><td>R</td><td>N</td><td>EED</td><td>L</td><td>M</td><td>R N</td></tr><tr><td colspan="3">TADX92L M</td><td>N</td><td>CADX94L</td><td>M R</td><td>N</td><td>EED</td><td>L</td><td>M</td><td>R N</td></tr></table>
+
+<table><tr><td colspan="20">Parts Used</td></tr><tr><td>Part Name</td><td colspan="10"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1) ID Faulty Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1) ID Installed Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(1) Location</td><td></td><td></td><td></td><td></td><td>PSD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+
+<table><tr><td colspan="20">PartsUsed</td></tr><tr><td>Part Name</td><td colspan="10"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td> (2) ID Faulty Pat</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>/</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2)ID Installed Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) Location</td><td></td><td></td><td></td><td></td><td>PSD</td><td></td><td></td><td></td><td></td><td></td><td>=</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+
+<table><tr><td colspan="20">PartsUsed</td></tr><tr><td>Part Name</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Faulty Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Installed Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) Location</td><td></td><td></td><td></td><td></td><td>PSD</td><td></td><td></td><td></td><td></td><td>=</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+
+Remarks:
+
+![](images/d5094a20f0b4d3c1e504b1558358a5251b321bf3d42a57ad5b790c5b629e0106.jpg)
+
+# 5 Years Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td colspan="4">PowerDistribution Panel Change Over Test &amp; Insulation Test</td></tr><tr><td>Equipment</td><td></td><td>Work Done/Remarks</td><td></td></tr><tr><td>PDP</td><td>Change OverTst by DJsvAC Mains</td><td>Done and ingodcondtion</td><td></td></tr><tr><td>PDP</td><td>PhaseR MΩ，PhaseY</td><td>MΩ,PhaseB</td><td>MΩ (@1,000vdc)</td></tr></table>
+
+<table><tr><td colspan="2">Power Distribution Panel Discharge Start Time :</td><td colspan="4">：</td></tr><tr><td>Batry</td><td>Reading before Battery Discharge Test</td><td>Batery</td><td></td><td>Reading before Battery Discharge Test</td><td>Limit</td></tr><tr><td>1</td><td>_V，ElectrolyteChecked</td><td></td><td>11.</td><td>V，ElectrolyteChecked</td><td>1.340~1.480V</td></tr><tr><td>2</td><td></td><td>V，ElectrolyteChecked</td><td>12.</td><td>V，ElectrolyteChecked</td><td>1.340~ 1.480V</td></tr><tr><td>3</td><td></td><td>V，ElectrolyteChecked</td><td>13.</td><td>V，ElectrolyteChecked</td><td>1.340~1.480V</td></tr><tr><td>4.</td><td></td><td>V，ElectrolyteChecked</td><td>14.</td><td>_V,ElectrolyteChecked</td><td>1.340~1.480V</td></tr><tr><td>5.</td><td></td><td>_V，ElectrolyteChecked</td><td>15.</td><td>V，ElectrolyteChecked</td><td>1.340~1.480V</td></tr><tr><td>6</td><td></td><td>V，ElectrolyteChecked</td><td>16.</td><td>_V,ElectrolyteChecked</td><td>1.340~ 1.480V</td></tr><tr><td>7</td><td>V，ElectrolyteChecked</td><td></td><td>17.</td><td>V，ElectrolyteChecked</td><td>1.340~1.480V</td></tr><tr><td>8.</td><td>V，ElectrolyteChecked</td><td></td><td>18.</td><td>V，ElectrolyteChecked</td><td>1.340~1.480V</td></tr><tr><td>9.</td><td>V，ElectrolyteChecked</td><td></td><td>19.</td><td>V，ElectrolyteChecked</td><td>1.340~1.480V</td></tr><tr><td>10.</td><td>_V，ElectrolyteChecked</td><td></td><td>20.</td><td>_V,ElectrolyteChecked</td><td>1.340~1.480V</td></tr></table>
+
+<table><tr><td colspan="2">Power Distribution Panel</td><td colspan="4">Discharge End Time： ：</td></tr><tr><td>Batery</td><td colspan="2">Reading After Battery Discharge Test</td><td>Batery</td><td>Reading After Battery Discharge Test</td><td>Limit</td></tr><tr><td>1</td><td colspan="2"></td><td>11.</td><td>V</td><td>&gt; 1.0V</td></tr><tr><td>2</td><td colspan="2">V</td><td>12.</td><td>V</td><td>&gt; 1.0V</td></tr><tr><td>3</td><td colspan="2">V</td><td>13</td><td>V</td><td>&gt;10V</td></tr><tr><td>4</td><td colspan="2">V</td><td>14.</td><td></td><td>&gt; 1.0V</td></tr><tr><td>5</td><td colspan="2"></td><td>15.</td><td>V</td><td>&gt; 1.0V</td></tr><tr><td>6</td><td colspan="2">V</td><td>16</td><td>V</td><td>&gt; 1.0V</td></tr><tr><td>7</td><td colspan="2"></td><td>17.</td><td>V</td><td>&gt; 1.0V</td></tr><tr><td>8</td><td colspan="2">V</td><td>18.</td><td>V</td><td>&gt;1.0V</td></tr><tr><td>9</td><td colspan="2">V</td><td>19.</td><td>V</td><td>&gt;1.0V</td></tr><tr><td>10.</td><td colspan="2">V</td><td>20.</td><td>_V</td><td>&gt;1.0V</td></tr></table>
+
+<table><tr><td>Equipment</td><td>Battery Charging Current After Discharge Test</td><td>Limit</td></tr><tr><td>PDP</td><td>A</td><td>&lt;15A</td></tr></table>
+
+# 5 Years Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td colspan="5">Safety Modules (PSDC) Terminal Voltage when all doors closed and locked</td></tr><tr><td>Madetyo.</td><td>Terminal Voltage at A1/A2</td><td>MdueNo.</td><td>Terminal Voltage at A1/A2</td><td>Limit</td></tr><tr><td>90K3</td><td>_V</td><td>95K9</td><td>_V</td><td>&gt; 20V</td></tr><tr><td>90K6</td><td>V</td><td>95K12</td><td>_V</td><td>&gt; 20V</td></tr><tr><td>90K9</td><td>V</td><td>100K3</td><td>V</td><td>&gt;20V</td></tr><tr><td>90K12</td><td>_V</td><td>100K6</td><td>_V</td><td>&gt; 20V</td></tr><tr><td>95K3</td><td>_V</td><td>100K9</td><td>_V</td><td>&gt;20V</td></tr><tr><td>95K6</td><td>V</td><td>100K12</td><td>_V</td><td>&gt;20V</td></tr></table>
+
+<table><tr><td colspan="2">PIOS Signal PSDC</td></tr><tr><td>PIOS Headwall</td><td>Done and in good condition</td></tr><tr><td>PIOS Tailwall</td><td>Done and in good condition</td></tr></table>
+
+<table><tr><td colspan="4">SMIBP Alarms</td></tr><tr><td>Check</td><td>Testing Procedures</td><td>Effect</td><td></td></tr><tr><td rowspan="6">MutipleorsPplurt to simulate this alarm Reset switches each time before progressing to next test.</td><td>Trip MCB DJU1</td><td>Alarm Activated</td><td>Done and in good condition</td></tr><tr><td>Trip MCB DJU2</td><td>Alarm Activated</td><td>Done and in good condition</td></tr><tr><td>Trip MCB DJU3</td><td>Alarm Activated</td><td>Done and in good condition</td></tr><tr><td>Trip MCB DJU4</td><td>Alarm Activated</td><td>Done and in good condition</td></tr><tr><td>Trip IGU</td><td>Alarm Activated</td><td>Done and in good condition</td></tr><tr><td>Shut off 415V supply at LV SWB</td><td>Alarm Activated</td><td>Done and in good condition</td></tr><tr><td rowspan="5">Psto ATC iasee</td><td>Oalrate PLCSatHeadwallor</td><td>Alarm Activated</td><td>Done and in good condition</td></tr><tr><td>Valid&quot;Open&quot; Command orValid</td><td>A larm de-activ ated</td><td>Done and in good condition</td></tr><tr><td>&quot;Open andseeiama</td><td>AlAsivated</td><td>Done and in good condition</td></tr><tr><td>Only one“Open”or“Close&quot;signal</td><td>DrONored</td><td>Done and in good condition</td></tr><tr><td></td><td>Dr ot and e</td><td>Done and in good condition</td></tr><tr><td rowspan="2">Unauthorized Opening of a Door</td><td>Any EED or TAD are opened</td><td>Alarm Activated</td><td>Done and in good condition</td></tr><tr><td>Or“Op en” any PSD,EPSD,TAD orCAD door before avalid Open Command exists on the station</td><td>Alarm Activated</td><td>Done and in good condition</td></tr><tr><td>PSD Not Closed and Locked</td><td>Open any PSD or EPSD door</td><td>Alarm Activated</td><td>Done and in good condition</td></tr><tr><td rowspan="3">PSD Local Control are Operated</td><td>OairatePLCS Headwal or</td><td>Alarm Activated</td><td>Done and in good condition</td></tr><tr><td>Operate any DCU Test Switch</td><td>Alarm Activated</td><td>Done and in good condition</td></tr><tr><td>Reerate any DPIS orDIOS</td><td>Alarm Activated</td><td>Done and in good condition</td></tr><tr><td>PSD Edge/Gap Hazard (Where Applicable)</td><td>Actuateany Gap or Edge Hazard detectors (Reset alarm by DPIS Keyswitch)</td><td>Alarm Activated</td><td>Done and in good condition</td></tr></table>
+
+# 5 Years Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td colspan="6">DCU K1/K2 Terminal Voltage when all doors opened</td></tr><tr><td>Door No.</td><td>Terminal Voltage at K1/ K2</td><td>Door No.</td><td>Terminal Voltage at K1/K2</td><td>Limit</td></tr><tr><td>X01</td><td></td><td>X21</td><td></td><td>&gt; 17V</td></tr><tr><td>X02</td><td>/ V</td><td>X22</td><td>/ &gt;</td><td>&gt; 17V</td></tr><tr><td>X03</td><td>/</td><td>X23</td><td>V</td><td>&gt; 17V</td></tr><tr><td>X04</td><td></td><td>X24</td><td></td><td>&gt;17V</td></tr><tr><td>X05</td><td>V</td><td>X25</td><td>V</td><td>&gt;17V</td></tr><tr><td>X06</td><td>V</td><td>X26</td><td>1 V</td><td>&gt;17V</td></tr><tr><td>X07</td><td>V</td><td>X27</td><td></td><td>&gt; 17V</td></tr><tr><td>X08</td><td></td><td>X28</td><td></td><td>&gt;17V</td></tr><tr><td>X09</td><td></td><td>X29</td><td>/ V</td><td>&gt; 17V</td></tr><tr><td>X10</td><td>V</td><td>X30</td><td></td><td>&gt; 17V</td></tr><tr><td>X11</td><td></td><td>X31</td><td></td><td>&gt;17V</td></tr><tr><td>X12</td><td>V</td><td>X32</td><td>1 V</td><td>&gt; 17V</td></tr><tr><td>X13</td><td></td><td>X33</td><td></td><td>&gt; 17V</td></tr><tr><td>X14</td><td></td><td>X34</td><td>V</td><td>&gt;17V</td></tr><tr><td>X15</td><td>_V</td><td>X35</td><td>V</td><td>&gt;17V</td></tr><tr><td>X16</td><td></td><td>X36</td><td>1 V</td><td>&gt; 17V</td></tr><tr><td>X17</td><td>/</td><td>X37</td><td>V</td><td>&gt; 17V</td></tr><tr><td>X18</td><td>_V</td><td>X38</td><td>1</td><td>&gt; 17V</td></tr><tr><td>X19</td><td>V</td><td>x39</td><td>V</td><td>&gt; 17V</td></tr><tr><td>X20</td><td>V</td><td>X40</td><td>V</td><td>&gt; 17V</td></tr></table>
+
+![](images/76eb986fbf7e83e8d628ff4af3ef05ac4ad1fe9dde0b1d698a4afe9e46b8c50a.jpg)
+
+# 5 Years Check List for PSD-URL (Contract M912-99E)
+
+<table><tr><td colspan="20">PartsUsed</td></tr><tr><td>Part Name</td><td colspan="10"></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Faulty Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>/</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Installed Pat</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) Location</td><td></td><td></td><td></td><td>=</td><td>PSD</td><td></td><td>=</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table>
+
+<table><tr><td colspan="17">PartsUsed</td></tr><tr><td>Part Name</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Faulty Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) ID Installed Part</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>(2) Location</td><td></td><td></td><td></td><td>=</td><td>PSD</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="4"></td></tr></table>
+
+Remarks:
+
+![](images/21f514ef9ab9e2cb6d35a1dbf0c02b32a3ce1f34c447118f5c884d8903f03c41.jpg)
+
+I haveinspected the following works are carried out in satisfactory condition according to work instructions: AAll Sliding Guide Fixing Screws were tighten. (Safety Critical Item) B.PDP Change Ov er Test was carried out and function normal.
+
+# PSD Lighting Maintenance Record (Contract M912-99E)
+
+<table><tr><td>MTRC Work OrderNo.</td><td></td><td>Date&amp;Time</td><td>Scheduled</td><td>A ctual</td><td>Time</td></tr><tr><td>Station Name</td><td></td><td>Date Commence</td><td></td><td></td><td></td></tr><tr><td>Platfom</td><td></td><td>Completed Date</td><td></td><td></td><td></td></tr><tr><td></td><td colspan="3"></td><td>Ref.Manual</td><td>GI/OTH/065</td></tr></table>
+
+PartA:GeneralLightingandFascia PanelsAirGap Check   
+
+<table><tr><td>DoorNo.</td><td>Task tobedone</td><td>Work Done/Remarks</td></tr><tr><td>PSD X01-X40</td><td>Visual inspection for allfluorescent lamps are in normal working condition without black colour on both ends.Replace with new fluorescent lamp if necessary.</td><td>Done and in good condition</td></tr><tr><td>TADX91-X92</td><td>Visual inspection forallfluorescent lamps are in normal working condition without black colour on both ends.Replace with new fluorescent lamp if necessary.</td><td>Done andin good condition</td></tr><tr><td>Whole Platform</td><td>Visualinspectinandeashreth aigapbetsen PSD Header</td><td>Done and in good condition</td></tr></table>
+
+Spares used: 58W Fluorescent Tubes nos. 18W Fluorescent Tubes nos.
+
+<table><tr><td colspan="2">PartB:EmergencyLightingCheck</td></tr><tr><td colspan="2">Tasktobedone</td></tr><tr><td></td><td>Switch off emergency lighting power supply.</td></tr><tr><td></td><td>-Visualcheckeachemergencylightingwasmaintainedbybatery(Emergencylightingwillshowdimmerwhensupliedbybaery)</td></tr><tr><td></td><td>Visual check the LED indicator for each emergency lighting is extinguished.</td></tr><tr><td></td><td>Ensure allemergency lightings couldmaintainminimumoperationfor1hour,replace backup batery if necessary.</td></tr><tr><td></td><td>Switch on emergency lighting power supply.</td></tr><tr><td>power)</td><td>Visual checkeachemergencylighting wasresumedtonormal.(Emergencylightingwillshowbrighterwhensuppliedbymains</td></tr><tr><td></td><td>Visual check the LED indicator for each emergency lighting is luminant.</td></tr></table>
+
+<table><tr><td>Emergency Light No.</td><td>WorkDone</td><td>Emergency Light No.</td><td>Work Done</td></tr><tr><td>E01 at TAD X91</td><td>Done andin good condition</td><td>E08</td><td>Done and in good conditi on</td></tr><tr><td>E02</td><td>Done andin good condition</td><td>E09</td><td>Done and in good condition</td></tr><tr><td>E03</td><td>Done andin good condition</td><td>E10</td><td>Done and in good condition</td></tr><tr><td>E04</td><td>Done andin good condition</td><td>E11</td><td>Done and in good condition</td></tr><tr><td>E05</td><td>Done andin good condition</td><td>E12</td><td>Done and in good condition</td></tr><tr><td>E06</td><td>Done andin good condition</td><td>E13 at TAD X92</td><td>Done and in good condition</td></tr><tr><td>E07</td><td>]Done andin good condition</td><td></td><td>Done and in good condition</td></tr></table>
+
+Spares used: Backup Battery replaced in Emergency Light No.
+
+Remarks:
+
+Checked by: Signature: Date:
+
+Emergency Light List_Rev2.doc 21/7/2004
+
+# 6.8 10 Year Check
+
+Inspect the TAD Door Closer in accordance to the specifications of the manufacturer.
+
+Items to be replaced:
+
+• Electrolytic capacitor 100000 µF-63V • Electrolytic capacitor 47000 µF-40V
+
+<table><tr><td>DrawingMark</td><td>Part No.</td><td>Specification</td><td>Manufacturer</td></tr><tr><td>C1/2</td><td>45-6999-927</td><td>100000uF-63V</td><td>AEES</td></tr><tr><td>C3</td><td>45-6999-933</td><td>47000uF-40V</td><td>AEES</td></tr></table>
+
+# 6.9 20 Year Check
+
+Replace batteries after 20 years of use (The expected life time of the batteries is 20 years).
+
+<table><tr><td>Part No.</td><td>Specification</td><td>Manufacturer</td></tr><tr><td>45-0902-271</td><td>UItima Plus Type STL100 (Detail see attached data sheet)</td><td>SAFT</td></tr></table>
+
+# Ultima
+
+Nickel-Cadmium batteries Type SLM, STL   
+Installation and operating instructions
+
+# Important recommendations
+
+Never allowa flame or fire to come near the battery.The electrolyte is harmful to skin and to eyes in particular.In the event of contact with skin or eyes,wash immediately with running water.If eyes are affected,flood with water and obtain immediate medical attention.Wear goggles and gloves when handling electrolyte andcells.Never use sulphuricacid oracidified water (pHlower than5) to top-up electrolyte as acid can destroy the battery.Use tools with insulated handles.
+
+1. Receiving the shipment Unpack the battery immediately upon arrval. Do not overturn the package.
+
+# 2. Storage
+
+Store the battery indoors in a dry and clean location.   
+Ultima bateries are normally supplied filled with electrolyte and charged, they can be stored in this condition for up to 12 months.   
+If prolonged storage (beyond 12 months) is required,please consult Saft.
+
+Never drain the electrolyte from the cell.
+
+# 3. Installation
+
+# 3.1. Location
+
+Install the battery in a dry and clean room.Avoid direct sunlight,strong daylight and heat. The battery will give the best performance and maximum service life when the ambient temperature is between $1 0 ^ { \circ } \mathsf { C }$ to $3 0 ^ { \circ } \mathsf { C }$
+
+# 3.2. Ventilation
+
+At normal float-charge the gas evolution is very small but some ventilation is necessary. Note that special regulations for ventilation may be valid in your area depending on the application
+
+# 3.3. Mounting
+
+Verify that cells are correctly interconnected with the appropriate polarity.The battery connection to load should be with nickel platedcable lugs. Recommended torques for connecting screws are: $\bullet 1 1 6 = 1 1 \pm 1 . 1 N . \mathsf { m }$ $\bullet \ M \ 8 = 2 0 \pm 2 \ N . \mathsf { m }$ $\cdot \textsf { M } \log = \textsf { 3 0 } \pm \textsf { 3 } \Nu . \mathsf { m }$ The connectors and terminal screws should be corrosion-protected by coating with a thin layer of neutral vaseline or anti-corrosion oil. When checking the levels a fluctuation in level between adjacent cells is not abnormal and is due to the different levels of gas held in the separator of each cell.There is no need to adjust the levels of electrolyte.
+
+# 4. Commissioning charge
+
+# 4.1. Cells supplied charged
+
+■Stored for up to 6 months: they are ready for immediate use, they should not be given a commissioning charge before putting into service as this could cause an ejection of electrolyte through the vent.
+
+# ■ Stored more than 6 months:
+
+A commissioning charge is necessary · Constant current charge:   
+$\rceil 6 \mathrm { ~ h ~ }$ at $0 . 1 \mathsf C _ { s } \mathsf A$ maximum   
+(see current in the table)   
+· Constant potential charge:   
+1.65 V/cell for a maximum of $1 6 ~ \mathrm { h }$ with current limited to $0 . 1 \mathsf C _ { s } \mathsf A$   
+(see current in the table).   
+4.2. Cells supplied discharged   
+Cells supplied discharged should be treated as cells stored more than   
+6months.   
+If these methods are not available, then charging may be carried out at lower voltages.   
+If prolongated storage (beyond   
+12 months) is required,please   
+consult Saft.
+
+# 5. Charging in service
+
+■Continuous parallel operation,with occasional battery discharge.   
+Recommended charging voltage:   
+for two level charge:   
+·float leve $= 1 . 4 1 - 1 . 4 3 \lor / \mathrm { c e l l } ;$   
+·high level $= 1 . 4 5 \ \mathsf { V } / \mathsf { c e l l }$   
+A high voltage willincrease the speed andefficiencyoftherecharging.   
+forsingle level charge:   
+$1 . 4 1 \cdot 1 . 4 3 \lor / \mathsf { c e l }$   
+For use at temperatures outside   
+$+ 1 5 \textdegree$ to $+ 2 5 ^ { \circ } C$ , a voltage   
+temperature compensation is   
+recommended (see Ultima   
+technical manual).
+
+# 6. Periodic Maintenance
+
+Ultima is a maintenance free product and requires the minimum of   
+maintenance.Nevertheless,we   
+recommend as periodic maintenance the following:   
+■Keep the battery clean using only water.Do not use a wire brush or   
+solvents of any kind.   
+■Check visually the electrolyte level. Never let the level fall below the   
+lowermark   
+■Remove the cover at least once   
+yearly to check that all connectors   
+are tight.   
+The connectors and terminal screws should be corrosion protected by   
+coating with a thin layer of neutral   
+vaseline or anti-corrosion oil   
+■Check the charging voltage.   
+In parallel operation,it is of great   
+importance that the recommended   
+charging voltage remains unchanged. The charger should be checked at   
+least once yearly.   
+High water consumption of the battery is usually caused by improper voltage setting of the charger.
+
+<table><tr><td>Cell type</td><td>Capacity (Ah)</td><td>Initial charge current (A)</td><td>Cell connection bolt per pole</td></tr><tr><td>SLM 8-4</td><td>8</td><td>0.8</td><td>M6</td></tr><tr><td>SLM8-5</td><td>8</td><td>0.8</td><td>M6</td></tr><tr><td>SLM8-6</td><td>8</td><td>0.8</td><td>M6</td></tr><tr><td>SLM 16-4</td><td>16</td><td>1.6</td><td>M6</td></tr><tr><td>SLM 16-5</td><td>16</td><td>1.6</td><td>M6</td></tr><tr><td>SLM 16-6</td><td>16</td><td>1.6</td><td>M6</td></tr><tr><td>SLM 24-4</td><td>24</td><td>2.4</td><td>M6</td></tr><tr><td>SLM 24-5</td><td>24</td><td>2.4</td><td>M6</td></tr><tr><td>SLM 24-6</td><td>24</td><td>2.4</td><td>M6</td></tr><tr><td>SLM 32-4</td><td>32</td><td>3.2</td><td>M6</td></tr><tr><td>SLM 32-5</td><td>32</td><td>3.2</td><td>M6</td></tr><tr><td>SLM 32-6</td><td>32</td><td>3.2</td><td>M6</td></tr><tr><td>SLM 40-4</td><td>40</td><td>4.0</td><td>M6</td></tr><tr><td>SLM 40-5</td><td>40</td><td>4.0</td><td>M6</td></tr><tr><td>SLM40-6</td><td>40</td><td>4.0</td><td>M6</td></tr><tr><td>SLM 48-4</td><td>48</td><td>4.8</td><td>M6</td></tr><tr><td>SLM 48-5</td><td>48</td><td>4.8</td><td>M6</td></tr><tr><td>SLM48-6</td><td>48</td><td>4.8</td><td>M6</td></tr><tr><td>SLM 71-2</td><td>71</td><td>7.1</td><td>M8</td></tr><tr><td>SLM71-3</td><td>71</td><td>7.1</td><td>M8</td></tr><tr><td>SLM 95-2</td><td>95</td><td>9.5</td><td>M8</td></tr><tr><td>SLM 95-3</td><td>95</td><td>9.5</td><td>M8</td></tr><tr><td>SLM 119-2</td><td>119</td><td>11.9</td><td>M10</td></tr><tr><td>SLM119-3</td><td>119</td><td>11.9</td><td>M10</td></tr><tr><td>SLM 142-2</td><td>142</td><td>14.2</td><td>M10</td></tr><tr><td>SLM 142-3</td><td>142</td><td>14.2</td><td>M10</td></tr><tr><td>SLM 166-2</td><td>166</td><td>16.6</td><td>2xM8</td></tr><tr><td>SLM166-3</td><td>166</td><td>16.6</td><td>2xM8</td></tr><tr><td>SLM 190-2</td><td>190</td><td>19.0</td><td>2xM8</td></tr><tr><td>SLM190-3</td><td>190</td><td>19.0</td><td>2xM8</td></tr><tr><td>SLM 238-2</td><td>238</td><td>23.8</td><td>2xM10</td></tr><tr><td>SLM 238-3</td><td>238</td><td>23.8</td><td>2xM10</td></tr><tr><td>SLM 285-2</td><td>285</td><td>28.5</td><td>2xM10</td></tr><tr><td>SLM285-3 SLM 357-1</td><td>285</td><td>28.5</td><td>2xM10</td></tr><tr><td></td><td>357</td><td>35.7</td><td>3xM10</td></tr><tr><td>SLM 357-2</td><td>357</td><td>35.7</td><td>3xM10 3xM10</td></tr><tr><td>SLM 426-1 SLM 476-1</td><td>426</td><td>42.6 47.6</td><td>4xM10</td></tr><tr><td></td><td>476</td><td></td><td></td></tr><tr><td>STL55 STL 65</td><td>55</td><td>5.5</td><td>M6</td></tr><tr><td></td><td>65</td><td>6.5</td><td>M8</td></tr><tr><td>STL100</td><td>100</td><td>10.0</td><td>M10</td></tr><tr><td>STL130</td><td>130</td><td>13.0</td><td>M10</td></tr><tr><td>STL165 STL200</td><td>165 200</td><td>16.5 20.0</td><td>M10 M10</td></tr></table>
+
+# 6.10 PSD Earth Insulation Check
+
+# 6.10.1 General
+
+PSD Earth Insulation Check is a service task, checking period according to the trend of measured values as followings:
+
+# First 3 months – carried out monthly
+
+(If no indication to drop down of earth insulation resistance for the first 4 months)
+
+Next 3 quarters to the end of the year period – every 3 months
+
+(If no indication to drop down of earth insulation resistance)
+
+Once per year after this
+
+It bases on measure the insulation resistance between the whole PSD system (bonded to Track Earth) and the Station Earth with a 36VDC Voltage / Current Meter.
+
+The check list reports the actually condition of the system, any indication of drop down of Earth Insulation Resistance should be inspection and repair immediately.
+
+# Items to be checked with:
+
+• PSD Earth Insulation Resistance $> 1 5 0 \mathsf { h m } / \mathsf { K m } )$ )   
+
+<table><tr><td>Length / Km</td><td>Platform</td><td>Expected Result</td></tr><tr><td>0.18 Km</td><td>AlI URL platforms</td><td>V/I &gt; 83 Ohms</td></tr><tr><td>0.225 Km</td><td>AIR3/AWE1</td><td>V/I &gt; 67 Ohms</td></tr></table>
+
+![](images/d7d0816df6581b957ed4ba32b59dac02d3256e2ce35106e8bb208b6ab1462a00.jpg)
+
+<table><tr><td>-- NOTE-</td></tr><tr><td>Open Header Covers requires and only allows to be carried out at non-traffic hours! Report to Station Controller before carry out maintenance works!</td></tr><tr><td>!!!DANGER !! This task involves handling on power installations! Make sure that the POWER HAS</td></tr><tr><td>BEEN CUT OFF for the respective section successfully, while this task is performed!</td></tr><tr><td>!!!DANGER !!!</td></tr><tr><td>Get authorization from the Traffic Controller (TC) and finished all safety protection procedures before access to Track!</td></tr></table>
+
+![](images/c3b135f6c2470481d0d8049a6d0e0efefd9d4c3264badf87d375548b650bfb84.jpg)
+
+# Task:
+
+• Remove the track side Earth Link located at the middle of each platform   
+• Open any PSD header cover Connect Crocodile Clip to Station Earth (steel I-beam support structure) and the PSD header Switch on the V/I Meter and record the voltage and current readings (make sure voltage should be $\geq 3 6 \mathsf { V } \mathsf { d c }$ , otherwise the V/I meter need to recharge up) Calculate the Insulation Resistance per Km by: ${ \mathsf { R } } / { \mathsf { K } } { \mathsf { m } } = ( { \mathsf { V } } / { \mathsf { I } } ) \ )$ x length of platform in Km   
+• Close header cover   
+• Re-connect track side Earth Link
+
+# 6.11 Replacement of Fluorescent Lamp
+
+Replace all fluorescent lamps (58W and 18W) after 27 months of use.
+
+![](images/6cc4bea9551190054f5a622762dc5cf918412fe69ed7e655674f7d03d96939cf.jpg)
+
+# 7 First Line First Call and Second Call Procedures 7.1 One or more PSD/EPSD not open/close (First Line First Call)
+
+Kaba Gilgen AG Freiburgstrasse 34 CH-3150 Schwarzenburg
+
+MTRC Contract C4342-99E Platform Screen Doors in Urban Lines First and Second Call procedures
+
+# 1.One or more PSD/EPSD not open / close
+
+# 1.1 First Line, First Call Procedures (for maintenance staff reference only)
+
+![](images/fe0fdc37a10f26b17bb1783dc95f112777b76531fa45dafcb7fcf5950f209a5d.jpg)
+
+# 7.2 One or more PSD/EPSD not open/close (First Line Second Call)
+
+Kaba Gilgen AG Freiburgstrasse 34 CH-3150 Schwarzenburg
+
+# 1.2 First Line, Second Call Procedures (for maintenance staff reference only
+
+![](images/08b9a2672e55cd0486052b85f710a176db48942933ec1d503ecf5d657edd9e62.jpg)
+
+# 7.3 All PSDs/EPSDs not open / close (First Line First Call)
+
+# 2.All PSDs/EPSDs not open /close
+
+# 2.1 First Line, First Call Procedures (for maintenance staff reference only)
+
+![](images/c1fb81afe8cb3de85a2b0af20a5e437b9fc087d7d09abfc39e38b49e08b4b16d.jpg)
+
+# 7.4 All PSDs/EPSDs not open / close (First Line Second Call)
+
+Kaba Gilgen AG Freiburgstrasse 34 CH-3150 Schwarzenburg
+
+# 2.2 First Line, Second Call Procedures (for maintenance staffreference only)
+
+![](images/c85ddacb3478220dfedf9b2ea04ef70e2e86afdb40922d64cd0408af0ea213a3.jpg)
+
+![](images/07ad644b5c69589c02ad07a09e6692111502885947ad4ddcdb7a21065dcf3e0e.jpg)
+
+# 7.5 10,20,30 PSDs/EPSDs not open / close (First Line First Call)
+
+# 3.10,20, 30 PSDs/EPSDs not open / close
+
+# 3.1 First Line, First Call Procedures (for maintenance staff reference only)
+
+![](images/2e73c30cf74c2df0a4f08e7401afa94dc167a6a781cd7b1732bb53eabaaa208d.jpg)
+
+# 7.6 10,20,30 PSDs/EPSDs not open / close (First Line Second Call)
+
+Kaba Gilgen AG Freiburgstrasse 34 CH-3150 Schwarzenburg
+
+![](images/3c208b3a13494a600c7beeabeab1b02a828106fdd3d158d018c9345fe2bd91e1.jpg)  
+3.2 First Line, Second Call Procedures (for maintenance staff reference only)
+
+# 7.7 Missing “Closed and Locked” Signal (First Line First Call)
+
+Kaba Gilgen AG Freiburgstrasse 34 CH-3150 Schwarzenburg
+
+# 4.Missing “Closed and Locked" Siqnal
+
+# 4.1 First Line,First Call Procedures (for maintenance staff reference only)
+
+![](images/a0196bdb308bba253032f963e81335b912598f36699392326edc273fd227de1b.jpg)
+
+# 7.8 Missing “Closed and Locked” Signal (First Line Second Call)
+
+Kaba Gilgen AG Freiburgstrasse 34 CH-3150 Schwarzenburg
+
+MTRC Contract C4342-99E Platform Sereen Doors in Urban Lines First and Second Call procedures
+
+# 4.2 First Line, Second Call Procedures (for maintenance staff reference only)
+
+![](images/f6cc7f56cc904746f15ac22157ab6a9d30465f31ef5164556ed3a698dee8be72.jpg)
+
+# 5.Hazard Detector Alarm Activated
+
+# 5.1First Line, First Call Procedures (for maintenance staff reference only)
+
+![](images/50ab6f772239bd4722a8cc56e80048022ccbf40a9413024cbfca38968595332e.jpg)
+
+# 7.10 Hazard Detector Alarm Activated (First Line Second Call)
+
+![](images/c59e39c63b6466d26e8278e7134b2e3fb7878eead8f08bf5af6e1cc7a67afc41.jpg)  
+5.2 First Line, Second Call Procedures (for maintenance staff reference only)
+
+# 7.11 Simple Fault Diagnostic Flow Chart (First Line First Call)
+
+Kaba Gilgen AG Freiburgstrasse 34 CH-3150 Schwarzenburg
+
+MTRC Contract C4342-99E Platform Screen Doors in Urban Lines First and Second Call procedures
+
+# 6. Simple Fault Diaqnostic Flow Chart for PSD Problem
+
+# 6.1 First Line, First Call Procedures (for maintenance staff reference only)
+
+![](images/e981a019661d5c9fdad88b533033a49a9019bb988a6feae406ea44bb6df14ae5.jpg)
+
+# 8 Corrective Maintenance 8.1 Replace LCP
+
+# !!! DANGER !!!
+
+# This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!
+
+# LCP CLOSED AND OPEN
+
+See Drawings LCP Installation:
+
+0D1/905/000/16/0003 E   
+0D1/905/000/16/0004 E   
+0D1/905/000/012/0052 B
+
+![](images/73424dcfc52879b1b30a82f326caab25523e991722fff70041425765e7af5695.jpg)
+
+# Disassembly:
+
+# Assembly:
+
+• Open LCP cover   
+• Dismount the LCP panel, screws 3 to 6   
+Unplug the connector   
+• Dismount bolts 1&2   
+• Disconnect earthing cable   
+• Lift out the LC Panel   
+• Mount new LC Panel   
+• Connect earthing cable   
+Tighten the bolts 1&2   
+• Plug in the connector   
+• Tighten the screws 3 to 6   
+• Test function of a LCP (master / slave)   
+• Close LCP cover
+
+# 8.2 Replace FSP
+
+See Drawings FSP Installation:
+
+0D1/905/000/13/0000 B   
+0D1/905/000/13/0001 B   
+0D1/905/000/16/0000 F
+
+# FSP HEADER
+
+![](images/7b75846d94c6c302bf3c988a58af6f50bccf761989f40acd6dd88080575c6c00.jpg)
+
+# Disassembly:
+
+• Open header cover   
+Disconnect earthing cable from current bearing   
+• Dismount bolt from sealing handles   
+• Dismount the bolts from current bearing. Two of each side. “Caution; FSP could fall down!” Tilt the Fix Screen Panel Disconnect earthing cable from threshold   
+• Carry the Fix Screen Panel away
+
+# Assembly:
+
+• Assemble the new Fix Screen Panel   
+• Connect earthing cable to the threshold   
+• Mount current bearing bolts, two of each side   
+• Mount earthing cable onto current bearing   
+• Fix sealing handles   
+• Close header cover
+
+# 8.3 Replace PSD / EPSD panel
+
+# !!! DANGER !!!
+
+# This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!
+
+OVERVIEW PSD / EPSD / See Drawings PSD/EPSD Installation:
+
+0D1/905/000/13/0002 A  
+0D1/905/000/13/0003 A  
+0D1/905/000/13/0004 A  
+0D1/905/000/13/0005 A
+
+![](images/5f589965e004102f76d8544d815372fb9677ee9a9f10e2502fc0b78a86f53b90.jpg)
+
+# Disassembly:
+
+• Open header cover   
+• Switch power of DCU “OFF”: Turn Miniature Circuit Breakers F1 to “OFF” position   
+• Disconnect earthing connections from all panel’s   
+• Open door leaf and dismount bolts 1 to $^ { 8 }$ from travel carriages   
+• Tilt and lift out the PSD / EPSD panel
+
+# Assembly:
+
+• Before installing the door leafs bring the carriages in the open position   
+• Insert the new PSD / EPSD panel   
+• Mount PSD / EPSD with bolts 1 to 8 onto carriages and adjust door leaf   
+• Connect earthing connections from all panel’s   
+• Close door leaf   
+• Switch power of DCU “ON”: Turn Miniature Circuit Breakers F1 to “ON” position   
+• Close DCU Box Install “New Set up” from PTE; see data download   
+• Test functions of PSD / EPSD   
+• Close header cover
+
+# 8.4 Replace EED/CAD panel
+
+See Drawings EED Complete:
+
+0D1/905/000/12/0063 B   
+0D1/905/000/12/0064 B
+
+![](images/07eebc476a95030d852720dee7436e0839493e337954dc54488ef71401f95530.jpg)
+
+# Disassembly:
+
+Open header cover • Dismount bolts of hold open device • Dismount bolts of upper left pivot bearing • Lift out the door leaf
+
+# Assembly:
+
+• Insert the new door leaf • Mount bolts of upper left pivot bearing • Mount hold open device • Close header cover • Test functions of EED / CAD
+
+# 8.5 Replace TAD panel
+
+See Drawings TAD Complete:
+
+0D1/905/000/12/0069 B   
+0D1/905/000/12/0070 B
+
+![](images/e29efd6e4a710b3fb83befde1b6cec16fae6a8d47c1d9b1c981c4a8bbb25a422.jpg)
+
+# Disassembly:
+
+Open header cover   
+• Disconnect the lever joint from door closer   
+• Dismount bolts of upper left pivot bearing   
+• Lift out the door leaf
+
+# Assembly:
+
+Insert the new door leaf   
+• Fasten bolts of upper left pivot bearing   
+• Join the lever joint to door closer   
+• Close header cover   
+• Test functions of TAD
+
+# 8.6 Remove the 9m Section
+
+# !!! DANGER !!!
+
+This task has to be performed from trackside!   
+Remove the Section only during NON TRAFFIC HOURS.   
+Make sure that NO TRAIN CAN ENTER IN THE STATION while this task is performed!
+
+![](images/ada86ad4141c97e9428cfead7052012f50167415dad92cb61302c76ca84eebf6.jpg)  
+Removable 9M SECTION TYPICAL (CHOI HUNG PLATFORM 2)   
+KGS 041
+
+# Special tools and equipment needed:
+
+• Stand trackside
+
+# Description of procedure:
+
+# Disassembly:
+
+• Open header cover   
+• Open DCU Box   
+• Switch off door power   
+• Remove 4 sealing handles   
+• Loosen 2 bolts at each FSP mullion   
+• Lift out FSP and loose earth cable   
+• Tilt out mullion from top support bracket and move FSP to storing place   
+• Open door leaf   
+• Dismount bolts from carriages   
+. Lift out PSD panel   
+• Move PSD storing place
+
+# Assembly:
+
+• Insert PSD panel   
+• Mount PSD with bolts onto carriages and adjust door leaf   
+Close door leaf   
+• Tilt in mullion from top support bracket   
+• Mount earth cable and Lift in FSP   
+• Fasten 2 bolts at each FSP mullion   
+• Mount 4 sealing handles   
+• Switch door power “ON”   
+Close DCU Box   
+Test functions of PSD / EPSD   
+• Close header cover
+
+# 8.7 Replace door closer of TAD
+
+<table><tr><td>!CAUTION!</td></tr><tr><td>Follow the orders of disassembling the door closer. Door closer is under tension,it may cause injuries by not following the orders</td></tr></table>
+
+# DOOR CLOSER
+
+![](images/7174e8b56c8fde1c58c3610ef12eea72a5dace5446c72aae59e973717e3bd166.jpg)
+
+1 Lever joint   
+2 Screws   
+3 Screws   
+4 Door closer   
+5 Door leaf   
+6 Upper pivot
+
+Door closer
+
+# Disassembly:
+
+• Close the door leaf   
+. Open TAD header cover   
+. Disconnect lever joint 1 carefully by closed door, caution closer under tension   
+• Dismount screws 2 & 3 two of each   
+• Remove door closer
+
+# Assembly:
+
+• Insert the new door closer   
+• Screw down the door closer screws 2 & 3 two of each   
+• Close the door leaf   
+• Connect lever joint 1 to door closer, caution closer under tension   
+• Close header cover   
+• Test door closer
+
+# 8.8 Replace push bar EED/CAD/TAD track side
+
+!!! DANGER !!!
+
+This task has to be performed from trackside!   
+Remove the Section only during NON TRAFFIC HOURS.   
+Make sure that NO TRAIN CAN ENTER IN THE STATION while this task is performed!
+
+# PUSH BAR AND ITS MAJOR COMPONENTS
+
+![](images/481802bd12e683d50967d0dc0a4fee591b083c64534e0920786f5053e0c002f2.jpg)
+
+# Disassembly:
+
+• Open door leaf   
+• Dismount 4 bolts from push bar (2 on both sides of push bar)   
+• Remove push bar
+
+# Assembly:
+
+• Mount the new push bar at the same place   
+• Screw down the push bar   
+• Close door leaf   
+• Test function of EED/CAD/TAD
+
+# 8.9 Replace DCU LRU
+
+# !!! DANGER !!!
+
+# This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!
+
+1. Open Header Cover
+
+![](images/6f3c92e9f6dd7d05964bea2e7323198b3b4fe404ae9f58289f48ad671c2197b5.jpg)
+
+# 2. Open DCU Box
+
+![](images/765532e91776bf6d8d82f58cab354e38c4736c1277929b3d186af6ec156903d8.jpg)
+
+# 3. Switch Off MCB
+
+![](images/13450e32712a2053606554610287d0bb5d988f8b2446c8ce7c83c2e9680a85a1.jpg)
+
+# 5. Remove / Mount DCU
+
+![](images/eda5b3a3a08c30b0efae96833a73b28552308bfd884b5c05400320d5c59ea0c2.jpg)
+
+![](images/0bd33568b9a9b3d21553632df8c05015e6cc79b57bb20a7a7fbd32f4a04defac.jpg)  
+4. Release Mounting Bolt and Plugs
+
+# 6. Configure DCU with PTE
+
+![](images/4176b037c6447e0a028eded7a4d4b9929f0c3b04519a7bce97612b4c9f450b84.jpg)
+
+# 7. Carry out New Setup
+
+![](images/b028396c3a153287ab4e207be9ecd6c1022a158c802d3e083bb1bb533705cb0a.jpg)
+
+# 8. Test PSD Function with Test Switch
+
+![](images/d1ad91c21b23063b1db54a851d83845d928561873e0f636861c7a6f09844e8f0.jpg)
+
+# Disassembly:
+
+• Make sure the PSD is in “Closed and Locked” Position   
+• Open header cover Save data: Connect PTE cable to DCU and start PTE software, PTE will ask for confirm station name and DCU number, press “Enter” to confirm and PTE will read the data inside DCU, it will be saved at PTE database Note: It may not be possible to save data due to total failed of DCU. Open DCU Box Switch “OFF” PSD: Switch “OFF” Miniature Circuit Breakers F1 and F2 in DCU   
+. Unplug all connectors on DCU Line Replaceable Unit Release the 4 mounting bolts of DCU LRU to structure Remove DCU carefully
+
+# Assembly:
+
+• Mount new DCU LRU   
+Tighten the 4 DCU LRU mounting bolts to structure Plug all connectors back on DCU LRU Switch “ON” PSD: Switch “ON” Miniature Circuit Breakers F1 and F2 in DCU Configure DCU: Connect PTE to DCU, PTE will ask for station name, platform number and DCU number, select with correct station name and DCU number from the Pull-down menu, press “OK”. PTE will ask for overwrite the DCU with database setting, select “Yes” Release the “Lock Bar” of the lower “Auto/Manual” Test Switch, turn the Test Switch to “Manual” position Carry out New Setup with PTE: Select “New Setup” from “Task” Menu, select “Action” Looking at the red LED D55 of the DCU, the red LED will stop flash and will start to flash again after 3-4 seconds, counting for minimum 10 times of LED flash Close DCU Box Turn and hold the upper Test Switch to “Open” position, the PSD will open at slow speed, when the PSD at fully opened position and stopped by the door stopper, monitoring the DCU until you hear a “Click” sound, then release the Test Switch, the PSD will now close at normal speed
+
+• If the PSD is not close with normal speed but with slow speed, that means the New Setup procedure is not carried out successful, you need to repeat the New Setup steps again • Turn the upper Test Switch a few times to test the function of PSD if in normal condition • Turn the lower Test Switch to “Auto” position and close the “Lock Bar” • Close header cover
+
+# Test Serial Link to SMIBP signal:
+
+Ensure all doors are closed and locked   
+Ensure all door’s keyswitch (i.e. DPIS, DIOS, etc.,) are in normal position Turn DIOS keyswitch (PSD with replaced new DCU) to “RED”, Alarm “PSD LOCAL CONTROL ARE OPERATED” will be activated on SMIBP, resume DIOS keyswitch to normal and alarm on SMIBP will clear   
+Turn “Test Switch” from “NORMAL” to “TEST” position, Alarm “PSD LOCAL CONTROL ARE OPERATED” will be activated on SMIBP, resume Test Switch to NORMAL and alarm on SMIBP will clear
+
+# 8.10 Download New Version DCU Software
+
+<table><tr><td>- NOTE-</td></tr><tr><td>IFMAINS CONNECTION IS USED AS THE POWER SOURCE AN OPTICAL BARRIER IS REQUIRED TO PREVENT BRIDGING OF THE TRACK AND STATION EARTHS</td></tr></table>
+
+# Procedures:
+
+1. Connect yellow PTE cable to DCU   
+2. Connect the yellow PTE cable to the computer, using an optical bridge if necessary   
+3. Start Terminal Software   
+4. Select File/Open/Kaba.TRM   
+5. Press space bar   
+6. Press “S” (start of download menu)   
+7. Press “D” (download start)   
+8. Select Transfers/Send Text file/Logik\~1.txt (Make sure you have selected the correct   
+version of software). Wait until Software is downloaded.   
+9. Reset power by switching the DCU off and back on   
+10. Press space bar   
+11. Press “T” (transparent logic)   
+12. Press “D” (send download)   
+13. Wait for 10 seconds   
+14. Press “T” (transparent mode)   
+15. Select Transfers/Send Text file/Drive\~1.txt (Make sure you have selected the correct   
+version of software). Wait until Software is downloaded.   
+16. Reset power by switching the DCU off and back on   
+17. Close Terminal file   
+18. Open PTE file   
+19. Connect red PTE cable to the DCU   
+20. Select user DChan OR log-in with your user name if any   
+21. Check that the device setup shows the correct door and platform, if not correct the   
+information and the click OK   
+22. Select Task/Default parameter   
+23. Select “Action”   
+24. Wait until DCU disconnected   
+25. Select “connect” again   
+26. An icon will pop up indicating the door location, if this is correct press OK   
+27. Overwrite confirmation is required, select OK   
+28. Select “Identification/Statistics” page, and control the actual SW Version. LOGIC: Software   
+version, DRIVE: SW nr of Drive
+
+# \*\*\*BELOW PROCEDURE IS SUITABLE FOR NEW DCU SOFTWARE WITH OLD MODEL MOTOR ONLY\*\*\*
+
+29. Select Settings Page, click on the last item (Motor Type) second column and a $( \surd$ should appear, in the third column enter 1 (BML_10), press return
+
+30. Press confirm
+
+31. Select Task/New Setup and then Action
+
+32. Switch the DCU local panel to “Test” position
+
+33. Using the local control panel, open the door and hold the open position until there is a clicking sound (the doors should open slowly)
+
+34. When the open door command is released the door should automatically close (the door should close in normal speed, if not, please re-do default parameter again)
+
+35. Check visually that the doors have an extra closing force after the doors appear to be shut
+
+36. Re-open the doors locally and test that the doors open at the correct speed and hold the doors open until a clicking sound is heard
+
+37. Allow the doors to close and visually check for the extra closing force when the doors appear to be closed
+
+38. Re-open the doors and when the doors are closing check that if an object (e.g. arm) is placed in the path of the doors, that they cease trying to close and re-open slightly. Remove the obstruction and verify that after a short time span the doors automatically close
+
+39. If the doors operate correctly, repeat steps 34 and 35 ten to twelve times to confirm that the new software works properly
+
+40. If the doors do not operate correctly or stop moving, reset the power by switching the DCU off and back on and then repeating steps 4 to 41
+
+41. If the doors still do not work properly after downloading the new software, repeat steps 4- 41 but loading with the old DCU Logic and Drive software, the door should resume normal operation, take a note of the door location/ door number and inform maintenance.
+
+# 8.11 Replace Drive Unit
+
+# !!! DANGER !!!
+
+# This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!
+
+# Header AND ITS MAJOR COMPONENTS
+
+![](images/3e98b3fb6aaf75a3d8066216380ffa75c866b9228b8e63cd56ef0d3224000483.jpg)
+
+# Drive UNIT
+
+![](images/fe263b890bc9e0f445518ef87e84a55295338e53dcc915619a848da663567526.jpg)
+
+1 – 4 Bolts for Motor   
+5 & 6 Bolts for Tension plate   
+7 Tooth belt   
+8 Motor   
+9 Earthing cable   
+10 Drive pulley   
+11 Bolts for Drive pulley   
+12 Power connectors   
+13 Control connector
+
+# Disassembly:
+
+Open header cover   
+Mark the position of drive unit   
+• Switch power of DCU “OFF”: Turn Miniature Circuit Breakers F1 to “OFF” position   
+• Unplug motor & control connector $1 2 + 1 3$   
+• Dismount horizontal cover   
+. Dismount tension plate, bolts   
+• Loosen main belt at pulley for main belt   
+• Dismount drive unit
+
+# Assembly:
+
+• Mount the new drive unit at the same position and mount main belt   
+• Fasten main belt at pulley for main belt and check door leaf position Plug in connectors of drive unit Plug in motor & control connector   
+• Switch power of DCU “ON”: Turn Miniature Circuit Breakers F1 to “ON” position   
+• Mount horizontal cover   
+• Close header cover
+
+# 8.12 Tension the tooth belt
+
+![](images/6f6ad822f2754b43bd09d1370b9c881d2fe774d978aee6b544fc6158a3a47528.jpg)
+
+# Procedure:
+
+Open header cover Switch power of DCU “OFF”: Turn Miniature Circuit Breakers F1 to “OFF” position Loosen tension plate, bolts 1 & 2 see image 1 • Control the tension of tooth belt / image 3 Check the correct tension with the Tension Checker (45-0626-163) (see Tension Checker on next section) Push the tension roller towards the motor to REDUCE tension of the motor toothed belt, push the tension roller towards the gear box to INCREASE tension of the motor toothed belt / image 3 • Fasten tension roller, secure bolts with Loctite 243 / image 4 • Switch power of DCU “ON”: Turn Miniature Circuit Breakers F1 to “ON” position • Close header cover
+
+# Tension Checker – Drive Belt (45-0626-163)
+
+![](images/86797532cec942cdd3feaaab0d4e0c314b535b1560c863772bf7b045e304a2f5.jpg)
+
+Pushing the Tension Checker rests with its ends on the drive wheel of motor and gear box. The indication rod pushes the belt forward, thereby measuring its tension.
+
+![](images/4286f377d7f29e0e884e9e84daff75631c6d85c586c0fd2d803a5277aa16e2a6.jpg)
+
+• If 2 red markers appear on the upper edge of the Tension Checker, RELEASE the belt. • If red marker DOES NOT show, TIGHTEN the belt. • If 1 marker show on upper edge of the Tension Checker, tension of the belt is CORRECT
+
+![](images/48559aa83917d7c784b644b118b5550b20526776a9a448f30155eca65d68b719.jpg)
+
+# Tension Checker – Main Belt (45-0900-485/03)
+
+![](images/a971294f3dedc4e5e98dae3e5d22e1dc6d9390f64eb0c41285c761cf6bc6050a.jpg)
+
+Place the Tension Checker on the Main Belt in the position specify as per attached drawings, measure the distance between Header bottom and Tension Checker should be within the required limit as specify in the drawings.
+
+![](images/932139b4b9cb5b4304efae64ad5348ec84914535bcea322de229e0775caa35ad.jpg)
+
+Adjust the Main Belt tension by loosen the 2 fixing screws and the Lock Nut in Guiding Pulley, turn the Adjust Screw for desire tension, tighten the Lock Nut and 2 fixing screws after finished tension adjustment.
+
+![](images/dedd2bf226cea1ab271a0eb2b25a51ce23279a27f2d3552733cb0bbf5a62d1a4.jpg)
+
+![](images/056371117f57190dab68db6b4b803058151f2cc125f05232d9333531e2e342f3.jpg)
+
+![](images/830a0bb78092c2dee97da141eff133166a87838b8a833866a244bea85c6c7bc8.jpg)
+
+![](images/6dcaae0f2de2dcd100ab31d7d6d7ad59002c53cdfbd41699d47b3c271e47871f.jpg)
+
+# 8.13 Replace motor:
+
+# !!! DANGER !!!
+
+# This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!
+
+# Drive UNIT
+
+![](images/a71e95c6f84d31f0fbb89dbcb191493e33712e0ee5712622b554fc22e1295438.jpg)
+
+![](images/91c5ba6683281a71e618ae1b2e1870042bf43cc9b3f4148f92286acff4b40371.jpg)
+
+1 – 4 Bolts for motor   
+5 & 6 Bolts for tension plate   
+7 Tooth belt   
+8 Motor   
+9 Control connector   
+10 Power connector
+
+# Disassembly:
+
+. Open header cover Switch power of DCU “OFF”: Turn Miniature Circuit Breakers F1 to “OFF” position   
+Unplug motor & control connector $\pmb { \vartheta } + \pmb { 1 0 }$   
+• Dismount tension plate, bolts 5 and 6   
+• Remove tooth belt 7   
+• Disconnect earth cable   
+• Remove 4 bolts of motor 1 to 4   
+• Remove motor 8
+
+# Assembly:
+
+• Mount the new motor and secure bolts with Loctite 243   
+• Connect earth cable   
+• Mount tooth belt   
+• Tension the tooth belt   
+• Plug in motor & control connector Switch power of DCU “ON”: Turn Miniature Circuit Breakers F1 to “ON” position   
+• Test functions of a PSD or an EPSD   
+• Close header cover
+
+# 8.14 Replace tension plate
+
+# !!! DANGER !!!
+
+# This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!
+
+![](images/c7b1c19923567316b8a7fac8c216ba25c2c38e099522277ed6a30d41707aea32.jpg)
+
+1 & 2 Bolts for Tension plate   
+3 Tooth belt   
+4 Power connection   
+5 Control connection
+
+# DRIVE UNIT
+
+![](images/a67a3fcfd3730810f59c4e81641ff0cc7e51eaf670129fc229d6470dfdbcf031.jpg)
+
+Tension plate
+
+# Disassembly:
+
+# Assembly:
+
+. Open header cover Switch power of DCU “OFF”: Turn Miniature Circuit Breakers F1 to “OFF” position   
+Unplug motor & control connector 4 & 5   
+• Remove tooth belt 3   
+• Dismount tension plate, bolts 1 & 2   
+Assemble the new tension plate   
+Adjust tension plate, secure bolts with Loctite 243   
+Plug in motor & control connector Switch power of DCU “ON”: Turn Miniature Circuit Breakers F1 to “ON” position   
+• Test functions of a PSD or an EPSD   
+• Close header cover
+
+# 8.15 Replace drive unit tooth belt
+
+# !!! DANGER !!!
+
+# This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!
+
+# Drive Unit
+
+![](images/a684deb5ba0f6746f95b8aec90560efaf75fca425fa99ffc3acd87424c4a5658.jpg)
+
+1 & 2 Bolts for Tension plate   
+3 Tooth belt   
+4 Control connector   
+5 Power connector
+
+# Disassembly:
+
+Open header cover Switch power of DCU “OFF”: Turn Miniature Circuit Breakers F1 to “OFF” position Unplug motor & control connector $4 + 5$ • Loosen tension plate, bolts 1and 2 • Remove tooth belt 3
+
+# Assembly:
+
+Replace tooth belt   
+• Adjust tension plate   
+• Fasten tension plate, secure bolts with Loctite 243   
+. Plug in motor & control connector   
+Switch power of DCU “ON”: Turn Miniature Circuit Breakers F1 to “ON” position   
+• Test functions of a PSD or an EPSD   
+• Close header cover
+
+# 8.16 Replace drive pulley
+
+# !!! DANGER !!!
+
+# This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!
+
+# Drive Unit
+
+![](images/82a043a0ef82720cc643faa16169696fedf4930828fd2dff3482b560e157c927.jpg)
+
+1 & 2 Bolts for Tension plate   
+3 Tooth belt   
+4 Drive pulley   
+5 Bolt for drive pulley   
+6 Control connector   
+7 Power connector
+
+# Disassembly:
+
+Open header cover Switch power of DCU “OFF”: Turn Miniature Circuit Breakers F1 to “OFF” position   
+Unplug motor & control connector $\bullet + 7$   
+• Loosen bolts of tension roller $\mathbf { 1 } + \mathbf { 2 }$   
+• Remove tooth belt 3   
+• Dismount bolt of drive pulley 4   
+• Remove drive pulley 5
+
+# Assembly:
+
+Mount the new drive pulley, secure bolts with Loctite 243   
+• Assemble tooth belt Adjust tension plate, secure bolt with Loctite 243 Plug in motor & control connector   
+• Switch power of DCU “ON”: Turn Miniature Circuit Breakers F1 to “ON” position   
+• Test functions of a PSD or an EPSD   
+• Close header cover
+
+# 8.17 Replace safety module in PSD Controller
+
+!!! DANGER !!!
+
+# This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!
+
+![](images/840b2afbf53fb7f38c37a35b23105fa90050c82a3e4345403c309bf2ee2b9f89.jpg)
+
+PSD Controller including:
+
+1 Diode module   
+2 PLC   
+3 Fuse   
+4 Relay socket   
+5 Safety relay   
+6 Safe master   
+7 Safety relay   
+8 Relay
+
+# Description of procedure:
+
+# Disassembly:
+
+• Open the door of PSD Controller   
+• Switch the power of PSD Controller ”OFF”   
+• Dismount safety module   
+• Disconnect two connectors   
+• Remove safety module
+
+# Assembly:
+
+• Connect two connectors of the new safety module   
+• Mount the new safety module Switch power of PSD Controller ”ON”   
+. Close the door of PSD Controller Test functions of replaced module: Check if failed function is restored with next train and door open-close cycle
+
+# 8.18 Replace PLC in PSD Controller
+
+# !!! DANGER !!!
+
+# This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!
+
+![](images/5b79b377ff02aeca24ec557c84ef0698bb1d0eca554b8c0327510c884c879c1d.jpg)
+
+PSD Controller including:
+
+1 Diode module   
+2 PLC   
+3 Fuse   
+4 Relay socket   
+5 Safety relay   
+6 Safe master   
+7 Safety relay   
+8 Relay
+
+# Description of procedure:
+
+# Disassembly:
+
+• Open the door of PSD Controller   
+• Switch the power of PSD Controller “OFF”   
+• Dismount PLC   
+• Disconnect connectors   
+• Remove PLC
+
+# Assembly:
+
+• Connect connectors of the new PLC   
+• Mount the new PLC   
+• Switch the power of PSD Controller ”ON”   
+• Close the door of PSD Controller   
+• Test functions of replaced module: Check if failed function is restored with next train and door open-close cycle
+
+# 8.19 Replace Edge Hazard Detector
+
+<table><tr><td>!!!DANGER !!</td></tr><tr><td>This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!</td></tr></table>
+
+# !!! DANGER !!!
+
+# Get authorization from the Traffic Controller (TC) and finished all safety protection procedures before access to Track!
+
+# 1. Open Header Cover
+
+![](images/dd82588aee82206f69bf1ece7d95c40cbda49884deb0da5a86cf2fe010a59733.jpg)
+
+# 2. Remove Plug 018 / 019 from Hazard Connection Box
+
+![](images/8f7746436dae02f83bbfbefe37b773d93992790009f52710b0507e6587553f02.jpg)
+
+![](images/dbb8410e2aa2d311bdbaab66b5db6c2682d44a469421784834c5023f6e658646.jpg)  
+3. Locate Door Contact Bridge
+
+# 4. Dismount Contact Bridge Female (Cable No. 018 / 019)
+
+![](images/9ba3980245e0e3b4471b0bb0a13c86b37d685df86f236c81c3789c4647851f85.jpg)
+
+# 5. Dismount Contact Bridge Male (Cable No. 30)
+
+![](images/9139aa09eef64a48dbbf922214ed384561052c7d8eaf7cd4e604fc49a2edafef.jpg)
+
+# 7. Loosen Side Cover of Edge Hazard Detector Door Panel
+
+![](images/e38506fa3924a508e91a55c8fdd8e3a0a38bc30e8f8cbde1dab0be26c2bfb42d.jpg)  
+9. Remove Edge Hazard Detector Kick Plate
+
+![](images/e00c5d4026912b2edd630702e17ce39b333c1d721d1dc984d9bdd8f3a8040d08.jpg)
+
+# 6. Disconnect Plug of Cable No. 30 Connection to Door Panel
+
+![](images/1e82809e236ac65223dfeb736be4af0f8eecdd1369b75314f317387336bf57cc.jpg)
+
+# 8. Remove Side Cover
+
+![](images/ff5d26c80838664184d646114e73a4bbd5f2880633b17217fc72f0ae42b03531.jpg)
+
+# 10. Loosen Edge Hazard Detector Micro Switch
+
+![](images/4c412512aa6796a68a49b1408f26c5e36a446d59405550edd7268e79009bf85a.jpg)
+
+# 11. Disconnect Micro Switch Connector
+
+![](images/96ef729e9fce79bafebc4d5a25ed180e4479bba9a65dd733f7ef9f99de40d092.jpg)
+
+The complete Edge Hazard Detector including a Kick Plate on bottom of each PSD panel track side and Micro Switches (2 per each panel) connecting via 2 Door Contact Bridges (3 for EPSD); to replace Door Contact Bridge, carry out step 1-6 shown above; to replace Micro Switch, carry out step 7-11 shown above.
+
+# Description of procedure:
+
+# Disassembly Door Contact Bridge:
+
+• Open Header Cover   
+. Remove Plug 018 / 019 from Hazard Connection Box   
+• Locate the Door Contact Bridge installed at the Travelling Carriage   
+• Dismount Contact Bridge Female (Cable No. 018 / 019)   
+• Dismount Contact Bridge Male (Cable No. 30)   
+• Disconnect Plug of Cable No. 30 connecting to the top of door panel
+
+# Disassembly Micro Switch:
+
+• Go to track side   
+• Loosen Side Cover screw of Edge Hazard Detector on bottom of door panel   
+• Remove Side Cover   
+• Remove complete Edge Hazard Detector Kick Plate   
+• Loosen Edge Hazard Detector Micro Switch   
+• Disconnect Micro Switch Connector
+
+# Assembly Door Contact Bridge:
+
+• Open Header Cover   
+• Install Contact Bridge Female (Cable No. 018 / 019)   
+• Install Contact Bridge Male (Cable No. 30)   
+• Connect Plug of Cable No. 30 connecting to the top of door panel   
+• Connect Plug 018 / 019 to Hazard Connection Box
+
+• Fix all cable with cable ties • Function test the Edge Hazard Detector
+
+# Assembly Micro Switch:
+
+• Go to track side   
+• Loosen Side Cover screwed of Edge Hazard Detector on bottom of door panel   
+• Remove Side Cover   
+• Remove complete Edge Hazard Detector Kick Plate   
+• Connect Micro Switch Cable Connector Fix Edge Hazard Detector Micro Switch   
+• Install Edge Hazard Detector Kick Plate   
+• Install Side Cover   
+• Fix Side Cover screw   
+• Function test the Edge Hazard Detector
+
+# 8.20 Replace Gap Hazard Detector
+
+<table><tr><td>!!!DANGER !!</td></tr><tr><td>This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!</td></tr></table>
+
+# !!! DANGER !!!
+
+# Get authorization from the Traffic Controller (TC) and finished all safety protection procedures before access to Track!
+
+# 1. Go to track side, locate the Gap Hazard Detector
+
+![](images/113fae7d0aa12446d8010659c5205949d0af1da1bdec98b8b92ca5a03d0de3e6.jpg)
+
+# 2. Disconnect Plug of Gap Hazard Detector under Baseframe, remove the rubber Gap Hazard Detector by hand
+
+![](images/fbdd57d9a1127804882eadd7cbb4bf7f26081260593989cafab185e070210dac.jpg)
+
+# Description of procedure:
+
+# Disassembly Gap Hazard Detector:
+
+• Go to track side   
+• Locate the Gap Hazard Detector   
+• Disconnect the Plug of Gap Hazard Detector under Baseframe   
+• Pull out the Gap Hazard Detector by hand
+
+# Assembly Gap Hazard Detector:
+
+• Go to track side   
+• Install the Gap Hazard Detector by hand   
+• Connect the Plug of Gap Hazard Detector under Baseframe   
+• Fix cable with cable ties   
+• Function test Gap Hazard Detector
+
+# 8.21 Replace Coping Stone
+
+<table><tr><td></td><td>!CAUTION!</td></tr><tr><td colspan="2">Refer to the corresponding manufacturer&#x27;s Technical Data Sheets for information</td></tr><tr><td colspan="2">concerning general application and health precautions of the products used</td></tr></table>
+
+<table><tr><td></td><td>!CAUTION!</td></tr><tr><td></td><td>During installation process, cover joints around the blind plates with textile reinforced tape. Protect the sealant with metal cover to prevent damaged by passenger.</td></tr></table>
+
+# 1. Remove Coping Stone and clean the base frame surface
+
+![](images/a95d80a8a867c968ba725eb098e0b2b8dff3efd9d9b45a36849d4212f33c57f9.jpg)
+
+2. Fixing new stone on Baseframe with SK41 Ispo Concretin Adhesive
+
+![](images/14d3c5588ea1a42efecf867ccc2c3c3358601d4f78d74148f20bc8048e71472a.jpg)
+
+# 3. Apply masking tape
+
+![](images/62d5e0a46eb38464522a71062113d42bf74d2e74ba4c34c34af70ef90cc07492.jpg)
+
+# 4. Apply sealant
+
+![](images/6046f72a33b68ad214fe2674784d5a49905e13eee2ff42e0e09dba1679c300d7.jpg)
+
+# Description of procedure:
+
+# Remove Stone:
+
+• Ensure that the accurate dimensions of the shape and the size of the existing stone are taken Prior to removing the old stone. A new stone should be prepared prior to removal of the original stone.
+
+• Use wood cardboard to protect the Fixed Screen Panel side before remove the old stone, fully open the PSD/EPSD to prevent damage from old stone during removal.
+
+• Remove the old stone with electric power tools and prevent damage the baseframe steel structure or galvanised surface.
+
+Clean the baseframe surface, remove dust, cement, grease, curing compounds, waxes, foreign particles, disintegrated materials.
+
+# Fixing Stone:
+
+Before installation of the stone, place the new stone on to the baseframe to check the new stone has been cut to the correct size. Set the height of the new stone as close as possible to the same level as the threshold and the adjoining floor surfaces. Use shims placed only at each corner of the stone to set the level. (Tape may be used to fix the shims in position). Ensure no tripping hazard between stones. . Remove the stone (leaving the shims in place) and apply the mixed lspo Concretin SK41 onto the baseframe longerons with a trowel or spatula. Use electric mixer in original container. Apply the Epoxy thicker than the required gap, so that during the placement of the stone, the adhesive is forced out on both sides of the longerons. Place stone on baseframe and adjust its position. • Pot life of lspo Concretin is at least 40 minutes.
+
+# Priming of aluminium:
+
+• Priming of aluminium using “Scotchbrite” or very fine scouring pad. Wipe bond face with a clean lint-free cloth or absorbent paper towel moistened with “Alcohol based cleaner (coverage $\mathbf { 3 0 9 } / \mathbf { m 2 } ) ^ { \prime }$ ”. • Allow solvents to fully evaporate. Drying time at least 30 minutes. Apply single coat “Otto-Chemie Primer 1216” very thinly with clean cloth (coverage approximately $8 0 { \sf { g } } / { \sf { m } } 2 )$ . Ventilate for 30 Minutes but not longer than 24h.
+
+# Priming of reconstituted stone or MTR Terrazzo surface:
+
+Surface should be ground down to clean stone using an angle grinder and suitable grinding wheel. On MTR terrazzo stone up to 2mm may need to be ground back to achieve a completely clean surface.   
+. Remove dust from grinding with dry, clean cloth   
+Apply “OttoChemie 1215” very thinly with clean cloth Allow solvents to fully evaporate. Ventilate for 15 minutes. Sealant can be applied after 30 minutes to 5 hours.
+
+# 12mm Floor Joints:
+
+• Apply masking tape to joining flanks to ensure a tidy joint sealing operation. Insert Silicon Profile Backer Rod, so that the joint depth is approx. 12mm. The width of the backer rod is approximately 12mm and is applied by use of a special roller to fix the depth. Apply “Otto-Chemie S34’ “Anthracite” ” using a caulking gun, ensuring that no air is entrapped. If necessary, tool off sealant surface while still fresh using a dry spatula. Take great care that water does not penetrate down the sides of the sealant at the flanks and that there is no water in the joint when the sealant is applied (as this will affect adhesion). Remove the masking tape while the sealant is still fresh, to leave a neat joint detail. Any excess can be cut or sanded later after curing. Depending on humidity and temperature, the sealant should skin after several hours / overnight. Full Chemical and mechanical resistance is achieved in 14 days. To protect the sealant, cover the joint for three days with the aluminium wing shaped metal strip and tape.   
+• Full chemical and mechanical resistance is achieved in 14 days.   
+Protect the sealant by covering the joint for at least 14 days with a wing-shaped metal strip and tape.
+
+# 5mm Floor Joints:
+
+• The Procedure is exactly the same as for the 12mm joint.   
+• The Sealant used is Otto-Chemie S34’ “Smoke Grey” Tooling off should be done carefully and the sweep of the tool shall be made diagonal to the gap to ensure that the surface of the joint is completely flush with the adjacent surfaces.
+
+# 8.22 Replace Back up Battery
+
+<table><tr><td>-NOTE-</td></tr><tr><td>Used battery is achemical waste,please refer to Law of Hong Kong Chapter 354C “Waste Disposal (Chemical Waste) (General) Regulation&quot; for disposal.</td></tr></table>
+
+<table><tr><td>！CAUTION!</td></tr><tr><td>Always wear protective clothing, gloves and goggles when handling batteries and electrolyte.The electrolyte is a solution of alkaline and water, so skin contact should be avoided.</td></tr><tr><td>Never short circuit a cell or battery,al tools used should be properly insulated.</td></tr><tr><td>Do not smoke near batteries.</td></tr></table>
+
+# Description of procedure:
+
+# Remove Battery Bank:
+
+• After Battery Bank used for a period of time, it is not recommended to replace a cell in a battery bank due to difference in internal cell resistance and capacity of new and old cells.   
+• Before remove a battery bank, always wear protective clothing, gloves and goggles.   
+• Disconnect all loads from the battery by switch off PDP “DJB” Circuit Breaker.   
+• Remove the orange terminal covers.
+
+# Disconnect Terminal Link:
+
+• Carefully loosen the Positive Battery Terminal Cable, insulated it with tape.   
+• Carefully loosen the Negative Battery Terminal Cable, insulated it with tape.
+
+# Battery Disposal:
+
+• Remove all cell interconnection link, disposal the battery bank to licensed chemical waste collector.
+
+# Connect Terminal Link:
+
+• Carefully connect the Positive Battery Terminal Cable to the new battery bank’s positive terminal.   
+• Carefully connect the Negative Battery Terminal Cable to the new battery bank’s negative terminal.   
+• The connectors and terminal screws should be corrosion protected by coating with thin layer of neutral Vaseline or anti-corrosion oil. Do not over-tighten terminals. Use torque wrench tighten to $3 0 \pm 3 \mathsf { N } . \mathsf { m }$ (for M10 screw)   
+• Install orange terminal covers.   
+• Record all 20 nos. of cell voltage with voltmeter. Check the new battery bank terminal voltage and polarity is correct match with PDP DJB circuit breaker output with a voltmeter.
+
+# Charge Up New Battery Bank:
+
+• Switch on PDP “DJB” Circuit Breaker.   
+• Record the battery charging current.   
+• Allow new battery bank for 24 hours charge-up.   
+• After 24 hours, record all 20 nos. of cell voltage with voltmeter.
+
+# 8.23 Visual Check of the B&R PLC
+
+<table><tr><td colspan="2">Purpose:</td><td colspan="2">Visual check of the B&amp;RPLC located in PSDC</td></tr><tr><td colspan="2">HW requirements:</td><td colspan="2">Complete PLC</td></tr><tr><td colspan="2">SW requirements:</td><td colspan="2">PLC software installed (Operating system and application software)</td></tr><tr><td colspan="2">General inputs:</td><td colspan="2">Cabling is complete</td></tr><tr><td rowspan="2">Procedure Step 1:</td><td>Action</td><td></td><td>CheckthemechanicalstateofthePC(allconnections,tecabling,etc.)</td></tr><tr><td>Result</td><td>No damages</td><td>Thecabling shallbe correct according to the electrical sheme</td></tr><tr><td rowspan="2">Step2:</td><td>Action</td><td>·</td><td>Check the 24V power</td></tr><tr><td>Result</td><td>·</td><td>At leastone LEDof he whole PLCmust light (otherwisego to step 9)</td></tr><tr><td rowspan="2">Step 3:</td><td>Action</td><td></td><td>Check the rotary switches on the CPU</td></tr><tr><td>Result</td><td>：</td><td>They must be unequal to O-0 and F-F</td></tr><tr><td>Step 4</td><td>Action</td><td>·</td><td>Check the correct cable to use</td></tr><tr><td>Step 5</td><td>Action</td><td></td><td>Checkif the connector is plugged in at the correct interface (RS 232)</td></tr><tr><td rowspan="2">Step 6</td><td>Action</td><td></td><td>Check LED16 (the most rght handed LED in the lowerrow)of he second input module (Dl 439)</td></tr><tr><td>Result</td><td>.</td><td>It must light whena download cable is plugged in and must not light when a connection to PTE is established</td></tr><tr><td rowspan="2">Step7</td><td>Action</td><td>.</td><td>Check the LED of the IF 321 (module 1)</td></tr><tr><td>Result</td><td>·</td><td>It must light</td></tr><tr><td rowspan="2">Step 8</td><td>Action</td><td>·</td><td>Check the LED of the input (3)and output (1) modules</td></tr><tr><td>Result</td><td>：</td><td>The LED,ok&#x27;must light</td></tr><tr><td rowspan="4">Step9</td><td rowspan="2">Action</td><td>In case of problems:</td><td></td></tr><tr><td>： (power off and on again).</td><td>If one or more of the upper points are notok,a warm restart has been carried out</td></tr><tr><td>Result</td><td></td><td>·Afterwards the upper points have been checked again</td></tr><tr><td>Action</td><td></td><td>·A connection with PTE/B&amp;R tool shallbe possible</td></tr><tr><td rowspan="4">Step 10</td><td rowspan="2"></td><td>If stilnot ok:</td><td>If possible: The programs (OS and application software) have to be downloaded</td></tr><tr><td rowspan="2">： again</td><td></td></tr><tr><td>Complete it with anew warm restart</td><td></td></tr><tr><td>Result</td><td></td><td>·A connection with PTE/B&amp;R tool shallbe possible</td></tr><tr><td rowspan="2">Step 11</td><td rowspan="2">Action</td><td></td><td>If the PLC does stillnot run correctly:</td></tr><tr><td rowspan="2">·The PLC has to be sent to Kaba in Switzerland</td></tr><tr><td></td><td></td><td></td></tr></table>
+
+# 8.24 Adjustment of Door Panel Alignment
+
+<table><tr><td>-- NOTE--</td></tr><tr><td>Open Header Covers requires and only allows to be carried out at non-traffic hours!</td></tr><tr><td>Report to Station Controller before carry out maintenance works!</td></tr><tr><td> Safety Belt should be wear when working at more than 2 meters height!</td></tr></table>
+
+<table><tr><td>!!! DANGER !!</td></tr><tr><td>This task involves handling on power installations! Make sure that the POwER HAS BEEN CUT OFF for the respective section successfully,while this task is performed!</td></tr></table>
+
+![](images/0494dadfe9ed737ee651c9fb8824e156374cb550713284072222f6e8368bdf43.jpg)
+
+# Description of procedure:
+
+# Adjustment of Panel Alignment:
+
+• Loosen Panel Retaining Bolts (1 revolution only) on both travel carriages of PSD.   
+• Move door back or forth to correct alignment. Retighten all Panel Retaining Bolts. Test open and close PSD manually using DCU “TEST” Switch, observe correct position of PSD in the header and gap clearance between the Mullion Post and door panel during full door movement.
+
+# 8.25 Adjustment of Door Panel Level
+
+<table><tr><td>-- NOTE--</td></tr><tr><td>Open Header Covers requires and only allows to be carried out at non-traffic hours!</td></tr><tr><td>Report to Station Controller before carry out maintenance works!</td></tr><tr><td> Safety Belt should be wear when working at more than 2 meters height!</td></tr></table>
+
+<table><tr><td>!!!DANGER !!!</td></tr><tr><td>This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!</td></tr></table>
+
+![](images/c37a8fc4c131efa65e454c9502c293c7b88d46e903f3ad1e94b5fb83e5cac950.jpg)
+
+# Description of procedure:
+
+# Adjustment of Panel Level:
+
+Place shim plates below PSD on threshold profile to support the door weight. Move door back or forth to correct alignment.   
+. Slacken retaining bolts on both travel carriages of PSD. Adjust PSD level by means of Regulating Bolt at travel carriage.   
+• Retighten retaining bolts on both travel carriages.   
+. Check that all 4 rollers are rolling while moving the PSD.   
+• Screw and tight regulating bolt up to the limit stop after adjustment. Lock position of regulating bolt with counter nut.
+
+# 8.26 Adjustment of Counter Pressure Roller
+
+<table><tr><td>-- NOTE-</td></tr><tr><td>Open Header Covers requires and only allows to be carried out at non-trafic hours!</td></tr><tr><td>Report to Station Controller before carry out maintenance works!</td></tr><tr><td>Safety Belt should be wear when working at more than 2 meters height!</td></tr></table>
+
+<table><tr><td>DANGER !!</td></tr><tr><td>This task involves handling on power installations! Make sure that the POwER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!</td></tr></table>
+
+![](images/01383551870d8c06a420c332e0c06dfc3fff8267053599d287c7b21c5e2a13d2.jpg)
+
+# Description of procedure:
+
+# Adjustment of Counter Pressure Roller:
+
+• Loosen retaining bolts for counter pressure roller, adjustment and correct the gap of $0 . 8 \mathsf { m m }$ with the adjustment bolt.   
+. Tighten the retaining bolts.   
+Check the gap of $0 . 8 \mathsf { m m }$ between counter pressure roller and running rail with a feeler blade on several spots while performing a full door movement.
+
+# 8.27 Adjustment of Locking Pins of Locking Block
+
+<table><tr><td>-- NOTE-</td></tr><tr><td>Open Header Covers requires and only allows to be carried out at non-trafic hours!</td></tr><tr><td>Report to Station Controller before carry out maintenance works!</td></tr><tr><td> Safety Belt should be wear when working at more than 2 meters height!</td></tr></table>
+
+<table><tr><td>!!!DANGER !!!</td></tr><tr><td>This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!</td></tr></table>
+
+![](images/c58194e3ba38b52716467a708c6230e791465bb047998f6292ceb78d33bfd49b.jpg)
+
+<table><tr><td>1</td><td colspan="2">Traveling Carriage, left Sliding Door</td></tr><tr><td>2</td><td colspan="2">Locking Bolts</td></tr><tr><td>3</td><td colspan="2">Locking hooks</td></tr><tr><td>4</td><td colspan="2">Traveling Carriage, right Sliding Door</td></tr><tr><td>5</td><td colspan="2">Plate with Locking bolt, right Sliding Door</td></tr><tr><td>6</td><td>Setting Gauge (45-0900-448)</td><td>0900-448</td></tr></table>
+
+![](images/5aedd423b2c2d6494ace47728c4d40e6b872d472d0be5861045bb2b6d4f0af7a.jpg)
+
+<table><tr><td>7</td><td>Retaining bolts for plate with Locking Bolt</td></tr><tr><td>8</td><td>Locking Bolt</td></tr></table>
+
+# Description of procedure:
+
+# Adjustment of Locking Pins:
+
+Open PSD Header Cover. Open PSD by using the Test switch. Close PSD by using the Test switch. Apply setting gauges (6) onto the bolts(2) (curve of setting gauge fits solidly into the locking hook (3) of the locking plate). If the setting gauge does not fit correctly onto the bolts and into the locking hook of the locking plate, slacken the plates (5) ) with locking bolts (7) at both traveling carriages $( 1 + 4 )$ . Reposition the plates with locking bolts, so that the setting gauge now fits solidly into the locking hook of the locking plate. Tighten the plates with locking bolts again. Remove setting gauge (6).   
+. Open and close the door again. Check again with gauges if the locking bolts are now in a correct position.   
+• Close Header Cover
+
+# 8.28 Adjustment of PSD Locking Block Safety Switches
+
+<table><tr><td>-- NOTE --</td></tr><tr><td>Open Header Covers requires and only allows to be carried out at non-traffic hours!</td></tr><tr><td> Report to Station Controller before carry out maintenance works!</td></tr><tr><td> Safety Belt should be wear when working at more than 2 meters height!</td></tr></table>
+
+<table><tr><td>DANGER !!</td></tr><tr><td>This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!</td></tr></table>
+
+![](images/1d18c3f401a9333864c9747064228eab70bdd8c610df9d5d97b72299257f7546.jpg)
+
+# Description of procedure:
+
+# Adjustment of Safety Switches with gauge 45-0906-051:
+
+• Open PSD Header Cover.   
+• When Locking Block is fully engaged, gauge 45-0906-051(29mm) must fit in as shown in picture.   
+• If not, adjust the solenoid end lock nut.   
+• Push solenoid with gauge 45-0906-050 Red $( 2 6 . 5 \mathsf { m m } )$ ), both DOI and PSI should remains “OFF”.   
+• If not, adjust both left and right Safety Switch by loosen the 2 fixing screws and the end clamp.   
+• Push solenoid with gauge 45-0906-050 Green $( 2 4 \mathsf { m m } )$ ), both DOI and PSI should be “ON”.   
+• If not, adjust both left and right Safety Switch by loosen the 2 fixing screws and the end clamp.   
+• Go back to the Red $( 2 6 . 5 \mathsf { m m } )$ side again until both conditions could be meet.   
+• Close Header Cover.
+
+![](images/8de374eb70068cc65d185f3fb94a2bb00272c6e2615f10d1bdc76935d280c855.jpg)  
+Adjustment of Safety Switches with gauge 45-0906-050:
+
+![](images/62848aa22428a69cb5ed569046021b2d8aeab60ee282c1ae722e04765bb9b35d.jpg)
+
+# 8.29 Adjust Locking Block EED/CAD/TAD Safety Switches
+
+<table><tr><td>-- NOTE --</td></tr><tr><td>Open Header Covers requires and only allows to be carried out at non-traffic hours!</td></tr><tr><td> Report to Station Controller before carry out maintenance works!</td></tr><tr><td> Safety Belt should be wear when working at more than 2 meters height!</td></tr></table>
+
+<table><tr><td>!!!DANGER !!!</td></tr><tr><td>This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!</td></tr></table>
+
+![](images/88f97de7f6568f6e85354a89c1ba9c822ec26c0b544b49770bbc4da2fa9c62aa.jpg)
+
+# Description of procedure:
+
+Adjustment of Safety Switches with gauge 45-0906-053:
+
+Open the door (EED/CAD/TAD). With gauge 45-0906-053 (Red) push into the Locking Block as shown in picture.   
+• Both DOI and PSI should remains “ON”.   
+• If not, adjust the safety switch swing arm position. • With gauge 45-0906-054 (Green) push into the Locking Block as shown in picture.   
+Both DOI and PSI should be “OFF”.   
+• If not, adjust the safety switch swing arm position.   
+• Go back to the Red gauge again until both conditions could be meet.   
+• Close the door.
+
+![](images/b46ec298c59b47d504b723f01dd8576413444e2b49da06c735e97113dfbf8373.jpg)  
+Adjustment of Safety Switches with gauge 45-0906-054:
+
+# 8.30 Adjust the Pin on Switch Activating Balance of Locking Block
+
+<table><tr><td>-- NOTE--</td></tr><tr><td>Open Header Covers requires and only allows to be carried out at non-traffic hours!</td></tr><tr><td>Report to Station Controller before carry out maintenance works!</td></tr><tr><td> Safety Belt should be wear when working at more than 2 meters height!</td></tr></table>
+
+<table><tr><td>!!!DANGER !!</td></tr><tr><td>This task involves handling on power installations! Make sure that the POWER HAS BEEN CUT OFF for the respective section successfully, while this task is performed!</td></tr></table>
+
+![](images/b2ca8d9c9422418b89712d51aeea661233a1d847820ed386ebe1581596990f2f.jpg)
+
+# Description of procedure:
+
+Adjustment of Safety Switches with gauge 45-0906-058:
+
+• Open PSD Header Cover.   
+• With gauge 45-0906-058 “MIN” side push into the Pin on Switch Activating Balance of Locking Block as shown in picture.   
+• Template should rest on pin but not touch the bracket.   
+• If not, replace the complete Locking Block LRU.   
+• With gauge 45-0906-058 “MAX” side push into the Pin on Switch Activating Balance of Locking Block as shown in picture.   
+• Template should rest on bracket but not touch the pin. If not, replace the complete Locking Block LRU.   
+• Close Header Cover
+
+![](images/4a57feb43fb39de7a12c322ef995b250613fed4cc40f602635bf50ea59a93cc4.jpg)
+
+# 8.31 Installation of Temporary Replacement Cover Panel
+
+<table><tr><td>DANGER !!!</td></tr><tr><td>This task involves handling on broken glass door panel! Make sure that all broken glass has been removed and passengers could not enter the area. Safety eye protector and face shield should be wear!</td></tr></table>
+
+<table><tr><td>-- Tools &amp; Safety Protective Equipment --</td></tr><tr><td>Tools: Safety Protective Equipment</td></tr><tr><td>- Scraper - Face Shield</td></tr><tr><td>- Hammer - Hand Glove</td></tr><tr><td>- Adhesive Tape</td></tr></table>
+
+1. Smash Glass on Frame
+
+![](images/815e643352ba5e0b980e54a02c7b27c4a6d91c01cf643a6766ca9f550592fe90.jpg)
+
+3. Remove Glass with Scraper
+
+![](images/0c58a800bc6f26e97f393c12b16593c10072166df57efa611e639440bc50d1a0.jpg)
+
+# 2. Smash Glass on Frame
+
+![](images/3dd58009f36737862a9901c2fd72ff8244679708af97487575905d9f8c5ff3e3.jpg)
+
+4. Remove Glass with Scraper
+
+![](images/fc3890436b82ad9383d68186495416541350e7605783568605371392c5f87a63.jpg)
+
+# 5. Remove Glass on Top Frame
+
+![](images/831fabb46e11ac8a82000f51f1f00123594743e9cd9f2d5fe2f3f595cd4b3697.jpg)
+
+# 7. Shift H-Frame to Middle
+
+# 6. Erect H-Frame (Lower Part)
+
+![](images/9cba1be6d301e6f7fcf30b479700837942b69ba77c75af303dd3b3cbfc07f865.jpg)
+
+8. Shift H-Frame to Middle
+
+![](images/457e3d49bc45157bb32d799078d020ca643784e07da33e8c3931b3a82b02a2ec.jpg)
+
+![](images/9726ce475eb316ba7fc0934efb87c47b7f24ecadde7d391316ee436d33d2d0f9.jpg)
+
+![](images/a757063e438905c27f96f870045040ef5b0628cf232cc598d0a2b702d4c1a793.jpg)  
+9. Adjust Knob Height (Top & Bottom)
+
+![](images/abfc1cbdee37109470164b97f67e1a9f3f0f5714b803f1f1e7025b89deaae4cc.jpg)  
+10. Lock the Knob (Top & Bottom)
+
+# 11. Install Lower Cover into H-Frame
+
+![](images/840931c92f8ba3f66571381e29faf59dab642a91dd257a6af86b318fb7fa2d2a.jpg)  
+13. Install the Upper Cover
+
+![](images/477e9cdbcfce78ad191cdc611ae2c959a901d172c48991da35d55f6307f7e040.jpg)
+
+![](images/525511688b5c60e5388afd6f7e5f486103be7b213a9b84b64ec7d054a2bec3ff.jpg)  
+15. Adjust the Lock Position if necessary
+
+# 12. Lower Cover Installed
+
+![](images/39486b747ef9a141cce5ad6036d0099b462a08666902d26776717eff10e07a8e.jpg)
+
+# 14. Lock Upper Cover with Square Key
+
+![](images/54cd71c4f10d04530d967787750a83b5b1f9e36bf478eabe8ae8f39597cbe0dc.jpg)
+
+# 16. Finished Installation
+
+![](images/f94c1f91d1f33417046f5872050a76b203c777f152aab426bca2285d714195fe.jpg)
+
+# 17. Finished Installation
+
+![](images/b57c0151e4f1be0554f943a0ed5ae6390273933042f1e8f65623b7a2764a7166.jpg)
+
+# 18. Fix Warning Label
+
+![](images/4d5705fe9529b30fa07340b9a38d4ea42f0b025d2d3d8eaa8166ec9a1bc79100.jpg)
+
+# Assembly:
+
+Ensure all safety procedures are completed according to TC and Station Controller’s instructions before start to work Make sure the power was isolated if working for PSD / EPSD Smash the broken glass panel with hammer, remove all broken glass on the panel side silicon edge with Scraper • Clean all sharp edge and remove all glass particles Install the H-Frame (2 nos. for FSP) • Shift the H-Frame to middle position with the aid of the position arm Lock the upper and lower Knobs Install the Lower Temporary Cover (2 pieces for FSP) Install the Upper Temporary Cover (2 pieces for FSP) Locking the Upper Temporary Cover with Square Key • Finish
+
+# Disassembly:
+
+Ensure all safety procedures are completed according to TC and Station Controller’s instructions before start to work . Make sure the power was isolated if working for PSD / EPSD • Unlock the Upper Temporary Cover with Square Key • Remove the Upper Temporary Cover (2 pieces for FSP) • Remove the Lower Temporary Cover (2 pieces for FSP) • Unlock the upper and lower Knobs • Remove H-Frame (2 nos. for FSP) • Finish
+
+# 8.32 Installation of Temporary Cover for Non-Standard Panel
+
+!!! DANGER !!!
+
+This task involves handling on broken glass door panel!   
+Make sure that all broken glass has been removed and passengers could not enter the   
+area. Safety eye protector and face shield should be wear!
+
+# 1. Remove Broken Glass
+
+![](images/08add8e4835d0a997aa63096aa2f34eaaa4b2621bb59ba33eac28c4c38642c71.jpg)
+
+# 5. Install I-Shape Steel Frame
+
+# 6. Cut 8mm Wooden Board to size
+
+![](images/c69a7b541be8a33108411c5ccc926bb49cc0b42b4d0c65ee8a9b710311c57f50.jpg)  
+7. Drill hole for Mount Plate (4 pcs.)
+
+![](images/9c1c75849300762d4a94b03cc924861306ae3904c514cb5c288a26bb0cb7eca7.jpg)
+
+![](images/0544c93e0bbccb4b98de26c47a1989872dddde3ee6e3cf9c6220a293b6bbdb73.jpg)  
+9. Mount Wooden Board to Steel Frame
+
+# 8 Fix Mount Plate with screws
+
+![](images/8e372cd4e1720745c8249225782d88172a437e438919fd179466a104aebf0889.jpg)
+
+![](images/8cd99acd91e9a494060f14c7c7c55c499bb53db41c24c3e65ef15571c62ec2f8.jpg)
+
+# Assembly:
+
+Ensure all safety procedures are completed according to TC and Station Controller’s instructions before start to work • Make sure the power was isolated if working for PSD / EPSD Smash the broken glass panel with hammer, remove all broken glass on the panel side silicon edge with knife or cutter Clean all sharp edge and remove all glass particles • Change the H-Shape Steel Frame to I-Shape Steel Frame for any non-standard panel less than 600mm Install the I-Shape Steel Frame • Shift the Steel Frame to middle position Cut 2 pieces of wooden board to match width and height of the non-standard panel • Drill 4 holes and install the Mount Plate in the wooden board • Install the Lower wooden board Install the Upper wooden board Locking the mount plate with screws into the Steel Frame • Finish
