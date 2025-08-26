@@ -3,7 +3,6 @@ import streamlit as st
 
 sys.path.append(pathlib.Path(__file__).parents[1].as_posix())
 
-from gui import *
 from utils.get_model import get_prompted_model
 from utils.functions import encode_image
 from backend.backend import get_knowledge, form_context_info

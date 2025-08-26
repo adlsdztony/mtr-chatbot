@@ -8,7 +8,7 @@ from typing import Union
 from logging import getLogger
 
 logger = getLogger(__name__)
-sys.path.append(pathlib.Path(__file__).parents[1].as_posix())
+sys.path.append(pathlib.Path(__file__).parents[2].as_posix())
 
 from utils import functions, get_database, get_model, settings, metadata
 
@@ -76,12 +76,34 @@ Q4 = """What is a DCU-Box?
 The DCU-Box contains circuit breakers for the main power and printed circuit boards for control and drive. Two test switches allow manual operation for each single PSD. All electrical connections are plugged, except for the main power +/- 48VDC.
 The DCU-Box is further equipped with an interface to the PTE for local observation or software download. The DCU controls the motor movement and speed, the solenoid in the locking block and keeps track of the sliding panel position by an encoder in the motor. Obstacle detection, edge/gap hazard detection and DOI are also connected to and controlled by the DCU. A CAN BUS-Connection (RS485) to the PSDC in the PSD Equipment Room enables the exchange of various signals for indication and Error Log. All safety relevant signals and commands are hard wired."""
 
-Qs = [Q3, Q4]
+Qs = [Q1, Q2, Q3, Q4]
 
 # Insert Q1~Q4 directly into the database
-result = textdb.query(
-    query_texts=[Q4],
-    n_results=1,
+# textdb.add(
+#     documents=Qs,
+#     metadatas=[
+#         {
+#             "type": "text",
+#             "path": "",
+#             "summary": q,
+#             "page_idx": 41
+#         }
+#         for q in Qs
+#     ], # type: ignore
+#     ids=["Q1", "Q2", "Q3", "Q4"],
+# )
+results = textdb.query(
+    query_texts=[Q1],
+    n_results=5,
+    include=["documents", "metadatas"],
 )
 
-print(result["metadatas"])  # Should print the context of Q1
+for i in range(len(results["documents"][0])):
+    print(results["documents"][0][i])
+    print(results["metadatas"][0][i])
+    print(results["ids"][0][i])
+    print("=" * 80)
+
+
+# NOTE - modified chunks for Q2
+# textdb.delete(ids=["text_155_0", "text_155_1"])

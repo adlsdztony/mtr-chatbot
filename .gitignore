@@ -1,1 +1,5 @@
-./database/storage/
+database/storage/
+
+.data/
+
+__pycache__/
