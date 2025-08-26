@@ -1,0 +1,46 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: mtr-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+      - NVIDIA_VISIBLE_DEVICES=all
+    networks:
+      - mtr-network
+    restart: unless-stopped
+
+  chatbot:
+    build: .
+    container_name: mtr-chatbot
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+      - pip_cache:/root/.cache/pip
+      - chroma_cache:/root/.cache/chroma
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - PYTHONPATH=/app
+      - OLLAMA_CHAT_MODEL=deepseek-r1:8b
+    depends_on:
+      - ollama
+    networks:
+      - mtr-network
+    restart: unless-stopped
+    command: >
+      bash -c "
+        streamlit run frontend/frontend.py --server.address 0.0.0.0 --server.port 8501
+      "
+
+volumes:
+  ollama_data:
+  pip_cache:
+  chroma_cache:
+
+networks:
+  mtr-network:
+    driver: bridge

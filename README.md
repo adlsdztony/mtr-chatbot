@@ -9,9 +9,23 @@ These prerequisites are already installed if you are using innowing's computer.
   - Docker configured for GPU access
 
 ### Build and Run
+#### Run with gpu
 ```bash
 # Run in detached mode
 docker compose up -d --build
+
+# Pull necessary Ollama models (example)
+docker exec -it mtr-ollama ollama pull deepseek-r1:8b
+```
+Verify GPU Usage in Ollama:
+```bash
+# Check if Ollama is using nvidia GPU
+docker exec mtr-ollama nvidia-smi
+```
+#### Or run with cpu only
+```bash
+# Run in detached mode
+docker compose up -f docker-compose.cpu.yml -d --build
 
 # Pull necessary Ollama models (example)
 docker exec -it mtr-ollama ollama pull deepseek-r1:8b
@@ -25,18 +39,12 @@ No need if the processed data `database\storage\<id>` already exists
 uv run tests\run_embedding.py
 ```
 
-### Verify GPU Usage in Ollama:
-```bash
-# Check if Ollama is using nvidia GPU
-docker exec mtr-ollama nvidia-smi
-```
-
 ### View the logs
 ```bash
 # view the logs
 docker compose logs -f
 # view the chatbot logs only
-docker compose logs -f mtr-chatbot
+docker compose logs -f chatbot
 ```
 
 ### Access the Application
