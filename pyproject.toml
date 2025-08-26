@@ -1,0 +1,14 @@
+[project]
+name = "mtr-chatbot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "chromadb>=1.0.20",
+    "langchain>=0.3.27",
+    "langchain-ollama>=0.3.7",
+    "loguru>=0.7.3",
+    "regex>=2025.7.34",
+    "streamlit>=1.48.1",
+]

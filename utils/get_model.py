@@ -6,7 +6,7 @@ from .settings import *
 
 
 def get_base_model(use_model: str = CHAT_MODEL) -> ChatOllama:
-    llm = ChatOllama(model=use_model)
+    llm = ChatOllama(model=use_model, base_url=CHAT_API_URL)
     return llm
 
 
@@ -34,5 +34,5 @@ Read the context first. Then solve the user's question step by step. Also follow
 """
     )
 
-    llm = prompt | ChatOllama(model=use_model) | StrOutputParser()
+    llm = prompt | ChatOllama(model=use_model, base_url=CHAT_API_URL) | StrOutputParser()
     return llm

@@ -1,0 +1,7 @@
+streamlit
+loguru
+python-dotenv
+langchain_ollama
+langchain
+chromadb
+regex
