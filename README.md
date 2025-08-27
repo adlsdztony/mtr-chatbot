@@ -60,7 +60,8 @@ Now you can access the application at http://localhost:8501
 # Check if Ollama is using nvidia GPU
 docker exec mtr-ollama nvidia-smi
 ```
-
+If you see the GPU usage information, it means Ollama is successfully utilizing the GPU.
+![nvidia-smi output](docs/imgs/nvidia-smi-output.png)
 ### Or run with cpu only (not recommended)
 For testing purposes only, we will use a much smaller model, which is more suitable for CPU usage but the performance will be significantly lower.
 ```bash
