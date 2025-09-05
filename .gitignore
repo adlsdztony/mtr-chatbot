@@ -3,3 +3,5 @@ database/storage/
 .data/
 
 __pycache__/
+
+.qoder/
