@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chunk Viewer - Document Debugging Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Controls -->
+        <div class="controls">
+            <div class="control-group">
+                <label for="collection-select">Collection:</label>
+                <select id="collection-select">
+                    <option value="">Select a collection...</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <input type="text" id="search-input" placeholder="Search chunks...">
+                <button id="search-btn">Search</button>
+            </div>
+            <div class="control-group">
+                <button id="refresh-btn">Refresh</button>
+                <button id="clear-highlights-btn">Clear Highlights</button>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-container">
+            <!-- Left Panel: Original Document -->
+            <div class="panel document-panel">
+                <div class="panel-header">
+                    <h2>Original Document</h2>
+                    <span class="document-path" id="document-path"></span>
+                </div>
+                <div class="panel-content">
+                    <div id="document-container" class="markdown-body">
+                        <div class="loading">Loading document...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Chunks -->
+            <div class="panel chunks-panel">
+                <div class="panel-header">
+                    <h2>Document Chunks</h2>
+                    <span class="chunk-count" id="chunk-count">0 chunks</span>
+                </div>
+                <div class="panel-content">
+                    <div id="chunks-container">
+                        <div class="loading">Select a collection to view chunks</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chunk Detail Modal -->
+        <div id="chunk-detail-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">Chunk Details</h3>
+                    <span class="modal-close">&times;</span>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <!-- Chunk details will be inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span id="status-message">Ready</span>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
