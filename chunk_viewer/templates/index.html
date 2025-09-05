@@ -3,41 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chunk Viewer - Document Debugging Tool</title>
+    <title>Chunk Viewer - PDF Document Debugging Tool</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf_viewer.min.css">
 </head>
 <body>
     <div id="app">
-        <!-- Controls -->
-        <div class="controls">
-            <div class="control-group">
-                <label for="collection-select">Collection:</label>
-                <select id="collection-select">
-                    <option value="">Select a collection...</option>
-                </select>
-            </div>
-            <div class="control-group">
-                <input type="text" id="search-input" placeholder="Search chunks...">
-                <button id="search-btn">Search</button>
-            </div>
-            <div class="control-group">
-                <button id="refresh-btn">Refresh</button>
-                <button id="clear-highlights-btn">Clear Highlights</button>
-            </div>
-        </div>
-
         <!-- Main Content Area -->
         <div class="main-container">
             <!-- Left Panel: Original Document -->
             <div class="panel document-panel">
                 <div class="panel-header">
                     <h2>Original Document</h2>
-                    <span class="document-path" id="document-path"></span>
+                    <div class="header-controls">
+                        <button id="zoom-out" class="pdf-zoom-btn">−</button>
+                        <span id="zoom-level" class="zoom-info">100%</span>
+                        <button id="zoom-in" class="pdf-zoom-btn">+</button>
+                        <button id="fit-width" class="pdf-nav-btn">Fit Width</button>
+                    </div>
                 </div>
-                <div class="panel-content">
-                    <div id="document-container" class="markdown-body">
-                        <div class="loading">Loading document...</div>
+                <div class="panel-content" id="pdf-container">
+                    <div id="pdf-viewer" class="pdf-viewer">
+                        <div id="pdf-pages-container" class="pdf-pages-container"></div>
+                        <div id="pdf-loading" class="loading">Loading PDF...</div>
                     </div>
                 </div>
             </div>
@@ -67,11 +57,6 @@
                     <!-- Chunk details will be inserted here -->
                 </div>
             </div>
-        </div>
-
-        <!-- Status Bar -->
-        <div class="status-bar">
-            <span id="status-message">Ready</span>
         </div>
     </div>
 

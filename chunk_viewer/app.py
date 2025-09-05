@@ -26,154 +26,66 @@ def index():
     """Render the main chunk viewer page"""
     return render_template('index.html')
 
-@app.route('/api/document')
-def get_document():
-    """Get the original markdown document"""
-    markdown_path = PROJECT_ROOT / ".data" / "result" / "manual" / "manual.md"
-    try:
-        with open(markdown_path, 'r', encoding='utf-8') as f:
-            content = f.read()
-        return jsonify({
-            'success': True,
-            'content': content,
-            'path': str(markdown_path.relative_to(PROJECT_ROOT))
-        })
-    except FileNotFoundError:
-        return jsonify({
-            'success': False,
-            'error': f'Document not found: {markdown_path}'
-        }), 404
-    except Exception as e:
-        return jsonify({
-            'success': False,
-            'error': str(e)
-        }), 500
 
-@app.route('/api/chunks/<collection_name>')
-def get_chunks(collection_name):
-    """Get all chunks from a specific collection"""
+@app.route('/api/chunks')
+def get_all_chunks():
+    """Get all chunks from both textdb and imgdb collections"""
     try:
-        # Get the collection
-        collection = storage.get_collection(name=collection_name)
+        all_chunks = []
         
-        # Retrieve all documents
-        result = collection.get(
-            include=['documents', 'metadatas']
-        )
-        
-        # Format the response
-        chunks = []
-        for i in range(len(result['ids'])):
-            chunk = {
-                'id': result['ids'][i],
-                'document': result['documents'][i] if result['documents'] else None,
-                'metadata': result['metadatas'][i] if result['metadatas'] else None
-            }
-            chunks.append(chunk)
-        
-        return jsonify({
-            'success': True,
-            'collection': collection_name,
-            'count': len(chunks),
-            'chunks': chunks
-        })
-    except Exception as e:
-        return jsonify({
-            'success': False,
-            'error': str(e)
-        }), 500
-
-@app.route('/api/collections')
-def get_collections():
-    """Get all available collections"""
-    try:
-        collections = storage.list_collections()
-        collection_names = [col.name for col in collections]
-        return jsonify({
-            'success': True,
-            'collections': collection_names
-        })
-    except Exception as e:
-        return jsonify({
-            'success': False,
-            'error': str(e)
-        }), 500
-
-@app.route('/api/chunk/<collection_name>/<chunk_id>')
-def get_chunk_detail(collection_name, chunk_id):
-    """Get detailed information about a specific chunk"""
-    try:
-        collection = storage.get_collection(name=collection_name)
-        result = collection.get(
-            ids=[chunk_id],
-            include=['documents', 'metadatas', 'embeddings']
-        )
-        
-        if not result['ids']:
-            return jsonify({
-                'success': False,
-                'error': 'Chunk not found'
-            }), 404
-        
-        chunk = {
-            'id': result['ids'][0],
-            'document': result['documents'][0] if result['documents'] else None,
-            'metadata': result['metadatas'][0] if result['metadatas'] else None,
-            'embedding_size': len(result['embeddings'][0]) if result['embeddings'] and result['embeddings'][0] else 0
-        }
-        
-        return jsonify({
-            'success': True,
-            'chunk': chunk
-        })
-    except Exception as e:
-        return jsonify({
-            'success': False,
-            'error': str(e)
-        }), 500
-
-@app.route('/api/search/<collection_name>')
-def search_chunks(collection_name):
-    """Search for chunks containing specific text"""
-    from flask import request
-    query = request.args.get('q', '')
-    
-    if not query:
-        return jsonify({
-            'success': False,
-            'error': 'Query parameter is required'
-        }), 400
-    
-    try:
-        collection = storage.get_collection(name=collection_name)
-        
-        # Get all chunks and filter by query
-        result = collection.get(
-            include=['documents', 'metadatas']
-        )
-        
-        matching_chunks = []
-        for i in range(len(result['ids'])):
-            doc = result['documents'][i] if result['documents'] else ''
-            if query.lower() in str(doc).lower():
+        # Get chunks from textdb
+        try:
+            textdb = storage.get_collection(name='textdb')
+            text_result = textdb.get(
+                include=['documents', 'metadatas']
+            )
+            
+            for i in range(len(text_result['ids'])):
                 chunk = {
-                    'id': result['ids'][i],
-                    'document': doc,
-                    'metadata': result['metadatas'][i] if result['metadatas'] else None
+                    'id': text_result['ids'][i],
+                    'document': text_result['documents'][i] if text_result['documents'] else None,
+                    'metadata': text_result['metadatas'][i] if text_result['metadatas'] else None,
+                    'source': 'textdb'
                 }
-                matching_chunks.append(chunk)
+                all_chunks.append(chunk)
+        except Exception as e:
+            print(f"Error loading textdb: {e}")
+        
+        # Get chunks from imgdb
+        try:
+            imgdb = storage.get_collection(name='imgdb')
+            img_result = imgdb.get(
+                include=['documents', 'metadatas']
+            )
+            
+            for i in range(len(img_result['ids'])):
+                chunk = {
+                    'id': img_result['ids'][i],
+                    'document': img_result['documents'][i] if img_result['documents'] else None,
+                    'metadata': img_result['metadatas'][i] if img_result['metadatas'] else None,
+                    'source': 'imgdb'
+                }
+                all_chunks.append(chunk)
+        except Exception as e:
+            print(f"Error loading imgdb: {e}")
+        
+        # Sort chunks by page_idx
+        all_chunks.sort(key=lambda x: (
+            x.get('metadata', {}).get('page_idx', 999999),
+            x.get('id', '')
+        ))
         
         return jsonify({
             'success': True,
-            'query': query,
-            'count': len(matching_chunks),
-            'chunks': matching_chunks
+            'count': len(all_chunks),
+            'chunks': all_chunks
         })
     except Exception as e:
         return jsonify({
             'success': False,
             'error': str(e)
         }), 500
+
 
 @app.route('/images/<path:filename>')
 def serve_image(filename):
@@ -195,6 +107,25 @@ def serve_image(filename):
         return send_file(str(image_path), mimetype='image/jpeg')
     except Exception as e:
         abort(500, description=str(e))
+
+@app.route('/api/pdf')
+def serve_pdf():
+    """Serve the PDF document"""
+    pdf_path = PROJECT_ROOT / ".data" / "original" / "manual.pdf"
+    
+    if not pdf_path.exists():
+        return jsonify({
+            'success': False,
+            'error': f'PDF not found at: {pdf_path}'
+        }), 404
+    
+    try:
+        return send_file(str(pdf_path), mimetype='application/pdf')
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
