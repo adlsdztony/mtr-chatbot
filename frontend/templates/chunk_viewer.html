@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Chunk Viewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-file-text"></i> Document Chunk Viewer</h1>
+            <p>Visualize original documents alongside their stored database chunks</p>
+        </header>
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="input-group">
+                <label for="markdownPath">
+                    <i class="fas fa-file-code"></i> Markdown File Path:
+                </label>
+                <input 
+                    type="text" 
+                    id="markdownPath" 
+                    value=".data/result/manual/manual.md"
+                    placeholder="Path to markdown file"
+                >
+            </div>
+            
+            <button id="loadBtn" class="btn btn-primary">
+                <i class="fas fa-download"></i> Load Data
+            </button>
+            
+            <button id="refreshBtn" class="btn btn-secondary">
+                <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+        </div>
+
+        <!-- Loading indicator -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <span>Loading data...</span>
+        </div>
+
+        <!-- Error display -->
+        <div id="error" class="error hidden">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span id="errorText"></span>
+        </div>
+
+        <!-- Statistics -->
+        <div id="stats" class="stats hidden">
+            <div class="stat-item">
+                <span class="stat-label">Document Length:</span>
+                <span id="docLength" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Total Chunks:</span>
+                <span id="totalChunks" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Text Chunks:</span>
+                <span id="textChunks" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Mapped:</span>
+                <span id="mappedChunks" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Unmapped:</span>
+                <span id="unmappedChunks" class="stat-value">0</span>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div id="mainContent" class="main-content hidden">
+            <div class="viewer-container">
+                <!-- Original document panel -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>
+                            <i class="fas fa-file-alt"></i> 
+                            Original Document with Chunk Boundaries
+                        </h3>
+                        <div class="panel-controls">
+                            <button id="scrollToTop" class="btn btn-small">
+                                <i class="fas fa-arrow-up"></i> Top
+                            </button>
+                        </div>
+                    </div>
+                    <div id="documentPanel" class="panel-content document-panel">
+                        <!-- Document content will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Chunks panel -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>
+                            <i class="fas fa-cubes"></i> 
+                            Stored Database Chunks
+                        </h3>
+                        <div class="panel-controls">
+                            <button id="filterText" class="btn btn-small filter-active">
+                                <i class="fas fa-font"></i> Text
+                            </button>
+                            <button id="filterImages" class="btn btn-small">
+                                <i class="fas fa-image"></i> Images
+                            </button>
+                            <button id="filterTables" class="btn btn-small">
+                                <i class="fas fa-table"></i> Tables
+                            </button>
+                        </div>
+                    </div>
+                    <div id="chunksPanel" class="panel-content chunks-panel">
+                        <!-- Chunks will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chunk detail modal -->
+        <div id="chunkModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Chunk Details</h3>
+                    <button id="closeModal" class="btn btn-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="chunk-meta">
+                        <div class="meta-item">
+                            <strong>ID:</strong> <span id="modalChunkId"></span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>Type:</strong> <span id="modalChunkType"></span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>Page:</strong> <span id="modalPageIdx"></span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>Position:</strong> <span id="modalPosition"></span>
+                        </div>
+                        <div class="meta-item">
+                            <strong>Match Score:</strong> <span id="modalMatchScore"></span>
+                        </div>
+                        <div class="meta-item" id="modalPathContainer">
+                            <strong>Path:</strong> <span id="modalPath"></span>
+                        </div>
+                    </div>
+                    <div class="chunk-content">
+                        <h4>Content:</h4>
+                        <pre id="modalContent"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
