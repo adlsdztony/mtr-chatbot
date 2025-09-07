@@ -12,7 +12,9 @@ const app = {
     fitWidth: true, // Default to fit width
     isRendering: false,
     renderedPages: new Set(),
-    pageObserver: null
+    pageObserver: null,
+    availableFiles: [],
+    currentFilename: null
 };
 
 // DOM Elements
@@ -20,6 +22,7 @@ const elements = {
     documentPath: document.getElementById('document-path'),
     chunksContainer: document.getElementById('chunks-container'),
     chunkCount: document.getElementById('chunk-count'),
+    fileSelector: document.getElementById('file-selector'),
     modal: document.getElementById('chunk-detail-modal'),
     modalBody: document.getElementById('modal-body'),
     modalTitle: document.getElementById('modal-title'),
@@ -38,21 +41,30 @@ async function init() {
     // Setup event listeners
     setupEventListeners();
     
-    // Load PDF
-    await loadPDF();
+    // Load available files first
+    await loadAvailableFiles();
     
-    // Load all chunks automatically
-    await loadAllChunks();
+    // If files are available, load the first one
+    if (app.availableFiles.length > 0) {
+        app.currentFilename = app.availableFiles[0];
+        elements.fileSelector.value = app.currentFilename;
+        await loadPDF();
+        await loadChunks();
+    } else {
+        elements.chunksContainer.innerHTML = '<div class="no-data">No documents found in database</div>';
+    }
 }
 
 // Load PDF document
 async function loadPDF() {
+    const pdfUrl = `/api/pdf?filename=${encodeURIComponent(app.currentFilename || 'manual')}`;
+    
     try {
         elements.pdfLoading.style.display = 'block';
         elements.pdfPagesContainer.style.display = 'none';
         
         // Load the PDF document
-        const loadingTask = pdfjsLib.getDocument('/api/pdf');
+        const loadingTask = pdfjsLib.getDocument(pdfUrl);
         app.pdfDoc = await loadingTask.promise;
         
         // Setup lazy loading
@@ -63,7 +75,7 @@ async function loadPDF() {
         
     } catch (error) {
         console.error('Error loading PDF:', error);
-        elements.pdfLoading.textContent = 'Error loading PDF';
+        elements.pdfLoading.textContent = `Error loading PDF for ${app.currentFilename}: ${error.message}`;
     }
 }
 
@@ -279,12 +291,49 @@ async function onFitWidth() {
     await rerenderAllPages();
 }
 
-// Load all chunks from both collections
-async function loadAllChunks() {
+// Load available files from database
+async function loadAvailableFiles() {
+    try {
+        const response = await fetch('/api/files');
+        const data = await response.json();
+        
+        if (data.success) {
+            app.availableFiles = data.files;
+            
+            // Populate file selector
+            elements.fileSelector.innerHTML = '';
+            
+            if (app.availableFiles.length === 0) {
+                elements.fileSelector.innerHTML = '<option value="">No files available</option>';
+            } else {
+                app.availableFiles.forEach(filename => {
+                    const option = document.createElement('option');
+                    option.value = filename;
+                    option.textContent = filename;
+                    elements.fileSelector.appendChild(option);
+                });
+            }
+        } else {
+            console.error('Failed to load available files:', data.error);
+            elements.fileSelector.innerHTML = '<option value="">Error loading files</option>';
+        }
+    } catch (error) {
+        console.error('Failed to fetch available files:', error);
+        elements.fileSelector.innerHTML = '<option value="">Error loading files</option>';
+    }
+}
+
+// Load chunks from both collections for selected file
+async function loadChunks() {
+    if (!app.currentFilename) {
+        elements.chunksContainer.innerHTML = '<div class="no-data">Please select a file</div>';
+        return;
+    }
+    
     try {
         elements.chunksContainer.innerHTML = '<div class="loading">Loading chunks...</div>';
         
-        const response = await fetch('/api/chunks');
+        const response = await fetch(`/api/chunks?filename=${encodeURIComponent(app.currentFilename)}`);
         const data = await response.json();
         
         if (data.success) {
@@ -327,6 +376,7 @@ function createChunkElement(chunk) {
     const chunkType = metadata.type || 'unknown';
     const pageIdx = metadata.page_idx !== undefined ? metadata.page_idx : '?';
     const source = chunk.source || 'unknown';
+    const filename = metadata.filename || 'unknown';
     
     // Extract chunk text (first part of document for display)
     const chunkText = chunk.document ? chunk.document.substring(0, 200) : 'No content';
@@ -338,7 +388,9 @@ function createChunkElement(chunk) {
         </div>
         <div class="chunk-content">${escapeHtml(chunkText)}${chunkText.length > 200 ? '...' : ''}</div>
         <div class="chunk-metadata">
+            <span>File: ${filename}</span>
             <span>Page: ${pageIdx}</span>
+            <span>Source: ${source}</span>
         </div>
     `;
     
@@ -386,6 +438,16 @@ function setupEventListeners() {
     elements.zoomOut.addEventListener('click', onZoomOut);
     elements.fitWidth.addEventListener('click', onFitWidth);
     
+    // File selector change
+    elements.fileSelector.addEventListener('change', async (e) => {
+        const selectedFile = e.target.value;
+        if (selectedFile && selectedFile !== app.currentFilename) {
+            app.currentFilename = selectedFile;
+            await loadPDF();
+            await loadChunks();
+        }
+    });
+    
     // Modal close events
     elements.modalClose.addEventListener('click', closeModal);
     elements.modal.addEventListener('click', (e) => {
@@ -426,12 +488,20 @@ function showChunkDetailsModal(chunk) {
                     <span class="info-value">${chunk.id}</span>
                 </div>
                 <div class="info-item">
+                    <span class="info-label">File:</span>
+                    <span class="info-value">${metadata.filename || 'unknown'}</span>
+                </div>
+                <div class="info-item">
                     <span class="info-label">Type:</span>
                     <span class="info-value"><span class="chunk-type ${metadata.type || 'unknown'}">${metadata.type || 'unknown'}</span></span>
                 </div>
                 <div class="info-item">
                     <span class="info-label">Page Index:</span>
                     <span class="info-value">${metadata.page_idx !== undefined ? metadata.page_idx : 'N/A'}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Source Collection:</span>
+                    <span class="info-value">${chunk.source || 'unknown'}</span>
                 </div>
             </div>
         </div>

@@ -79,6 +79,23 @@ button:active {
     font-weight: 600;
 }
 
+/* File selector styling */
+.file-selector {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    font-size: 0.9rem;
+    margin-right: 1rem;
+    min-width: 180px;
+}
+
+.file-selector:focus {
+    outline: none;
+    border-color: #0066cc;
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
 .document-path, .chunk-count {
     font-size: 0.85rem;
     color: #666;

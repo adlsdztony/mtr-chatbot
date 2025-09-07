@@ -16,9 +16,10 @@ TEXT_LENGTH_FILTER = 200
 
 
 class MarkdownEmbedding:
-    def __init__(self, json_path: str, markdown_path: str):
+    def __init__(self, json_path: str, markdown_path: str, filename: str = None):
         self.json_path = json_path
         self.markdown_path = markdown_path
+        self.filename = filename or pathlib.Path(json_path).stem
 
         # Initialize base model using gemma3:27b
         self.base_model = get_model.get_base_model(use_model=settings.VISION_MODEL)
@@ -122,6 +123,7 @@ class MarkdownEmbedding:
                         "summary": context,  # Include context as summary
                         "path": "",
                         "type": "text",
+                        "filename": self.filename,
                     }
 
                     # Insert into textdb
@@ -160,6 +162,7 @@ class MarkdownEmbedding:
             "summary": summary,
             "path": img_path,
             "type": "image",
+            "filename": self.filename,
         }
 
         # Insert into imgdb
@@ -240,6 +243,7 @@ class MarkdownEmbedding:
                 "summary": summary,
                 "path": path,
                 "type": "table",
+                "filename": self.filename,
             }
 
             # Insert into imgdb (as requested)

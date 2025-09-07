@@ -1,7 +1,7 @@
 import sys
 import pathlib
 import chromadb
-from flask import Flask, render_template, jsonify, send_file, abort
+from flask import Flask, render_template, jsonify, send_file, abort, request
 from flask_cors import CORS
 import os
 
@@ -27,24 +27,60 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/api/files')
+def get_available_files():
+    """Get list of available files from database"""
+    try:
+        available_files = set()
+
+        available_files.add("manual")  # Always include 'manual' as a default option
+        
+        # Check both textdb and imgdb for filenames
+        for collection_name in ['textdb', 'imgdb']:
+            try:
+                collection = storage.get_collection(name=collection_name)
+                result = collection.get(include=['metadatas'])
+                
+                for metadata in result['metadatas']:
+                    if metadata and 'filename' in metadata:
+                        available_files.add(metadata['filename'])
+            except Exception as e:
+                print(f"Error checking {collection_name}: {e}")
+        
+        return jsonify({
+            'success': True,
+            'files': sorted(list(available_files))
+        })
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
 @app.route('/api/chunks')
-def get_all_chunks():
-    """Get all chunks from both textdb and imgdb collections"""
+def get_chunks():
+    """Get chunks from both collections, optionally filtered by filename"""
+    filename = request.args.get('filename')
+    
     try:
         all_chunks = []
         
         # Get chunks from textdb
         try:
             textdb = storage.get_collection(name='textdb')
-            text_result = textdb.get(
-                include=['documents', 'metadatas']
-            )
+            text_result = textdb.get(include=['documents', 'metadatas'])
             
             for i in range(len(text_result['ids'])):
+                metadata = text_result['metadatas'][i] if text_result['metadatas'] else {}
+                
+                # Filter by filename if specified
+                if filename and metadata.get('filename') != filename:
+                    continue
+                
                 chunk = {
                     'id': text_result['ids'][i],
                     'document': text_result['documents'][i] if text_result['documents'] else None,
-                    'metadata': text_result['metadatas'][i] if text_result['metadatas'] else None,
+                    'metadata': metadata,
                     'source': 'textdb'
                 }
                 all_chunks.append(chunk)
@@ -54,15 +90,19 @@ def get_all_chunks():
         # Get chunks from imgdb
         try:
             imgdb = storage.get_collection(name='imgdb')
-            img_result = imgdb.get(
-                include=['documents', 'metadatas']
-            )
+            img_result = imgdb.get(include=['documents', 'metadatas'])
             
             for i in range(len(img_result['ids'])):
+                metadata = img_result['metadatas'][i] if img_result['metadatas'] else {}
+                
+                # Filter by filename if specified
+                if filename and metadata.get('filename') != filename:
+                    continue
+                
                 chunk = {
                     'id': img_result['ids'][i],
                     'document': img_result['documents'][i] if img_result['documents'] else None,
-                    'metadata': img_result['metadatas'][i] if img_result['metadatas'] else None,
+                    'metadata': metadata,
                     'source': 'imgdb'
                 }
                 all_chunks.append(chunk)
@@ -78,7 +118,8 @@ def get_all_chunks():
         return jsonify({
             'success': True,
             'count': len(all_chunks),
-            'chunks': all_chunks
+            'chunks': all_chunks,
+            'filename': filename
         })
     except Exception as e:
         return jsonify({
@@ -90,17 +131,24 @@ def get_all_chunks():
 @app.route('/images/<path:filename>')
 def serve_image(filename):
     """Serve images from the data directory"""
-    # Construct the full path to the image - relative to main project
-    image_path = PROJECT_ROOT / ".data" / "result" / "manual" / "images" / filename
+    doc_name = request.args.get('doc', 'manual')
     
-    # Check if file exists
-    if not image_path.exists():
-        # Try without the images prefix if it's already in the filename
-        alt_path = PROJECT_ROOT / ".data" / "result" / "manual" / filename
-        if alt_path.exists():
-            image_path = alt_path
-        else:
-            abort(404, description="Image not found")
+    # Try multiple possible locations for the image
+    possible_paths = [
+        PROJECT_ROOT / ".data" / "result" / doc_name / "images" / filename,
+        PROJECT_ROOT / ".data" / "result" / doc_name / filename,
+        PROJECT_ROOT / ".data" / "result" / "manual" / "images" / filename,  # fallback to manual
+        PROJECT_ROOT / ".data" / "result" / "manual" / filename
+    ]
+    
+    image_path = None
+    for path in possible_paths:
+        if path.exists():
+            image_path = path
+            break
+    
+    if not image_path:
+        abort(404, description=f"Image not found: {filename} for document: {doc_name}")
     
     # Serve the file
     try:
@@ -110,13 +158,26 @@ def serve_image(filename):
 
 @app.route('/api/pdf')
 def serve_pdf():
-    """Serve the PDF document"""
-    pdf_path = PROJECT_ROOT / ".data" / "original" / "manual.pdf"
+    """Serve the PDF document based on filename parameter"""
+    filename = request.args.get('filename', 'manual')
     
-    if not pdf_path.exists():
+    # Try multiple possible locations for the PDF
+    possible_paths = [
+        PROJECT_ROOT / ".data" / "original" / f"{filename}.pdf",
+        PROJECT_ROOT / ".data" / "result" / filename / f"{filename}.pdf", 
+        PROJECT_ROOT / ".data" / "result" / filename / f"{filename}_origin.pdf"
+    ]
+    
+    pdf_path = None
+    for path in possible_paths:
+        if path.exists():
+            pdf_path = path
+            break
+    
+    if not pdf_path:
         return jsonify({
             'success': False,
-            'error': f'PDF not found at: {pdf_path}'
+            'error': f'PDF not found for filename: {filename}. Tried: {[str(p) for p in possible_paths]}'
         }), 404
     
     try:

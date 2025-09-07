@@ -36,7 +36,12 @@
             <div class="panel chunks-panel">
                 <div class="panel-header">
                     <h2>Document Chunks</h2>
-                    <span class="chunk-count" id="chunk-count">0 chunks</span>
+                    <div class="header-controls">
+                        <select id="file-selector" class="file-selector">
+                            <option value="">Loading files...</option>
+                        </select>
+                        <span class="chunk-count" id="chunk-count">0 chunks</span>
+                    </div>
                 </div>
                 <div class="panel-content">
                     <div id="chunks-container">
