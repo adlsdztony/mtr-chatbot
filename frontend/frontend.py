@@ -463,7 +463,7 @@ if user_input := st.chat_input("Ask something *w*"):
         # Handle images with proper path resolution
         for image in images:
             image_path = image.get("path", "")
-            if image_path:
+            if image_path and image.get("filename"):
                 # Try to determine the correct document path
                 filename = image.get("filename", selected_file)
                 code = encode_image(f'.data/result/{filename}/{image_path}', prefix=True)
