@@ -24,6 +24,7 @@ Prepare your environment:
     ```
 
 3. pull required models:
+    We assume you have ollama server running in docker.
     ```bash
     docker exec -it mtr-ollama ollama pull qwen2.5vl:7b # smaller version just for test
     docker exec -it mtr-ollama ollama pull bge-m3:latest
