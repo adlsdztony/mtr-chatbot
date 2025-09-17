@@ -118,11 +118,11 @@ def process_multiple_documents(data_dir: str = ".data/result", force: bool = Fal
     
     # Process each document
     for doc_dir in document_dirs:
+        doc_name = doc_dir.name
         # if there is a auto dir inside, use it as the doc_dir
         auto_dir = doc_dir / "auto"
         if auto_dir.exists() and auto_dir.is_dir():
             doc_dir = auto_dir
-        doc_name = doc_dir.name
         print(f"\n=== Processing document: {doc_name} ===")
         
         doc_processed = check_if_document_processed(doc_name)

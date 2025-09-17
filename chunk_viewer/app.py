@@ -33,7 +33,7 @@ def get_available_files():
     try:
         available_files = set()
 
-        available_files.add("manual")  # Always include 'manual' as a default option
+        # available_files.add("manual")  # Always include 'manual' as a default option
         
         # Check both textdb and imgdb for filenames
         for collection_name in ['textdb', 'imgdb']:
@@ -136,6 +136,7 @@ def serve_image(filename):
     # Try multiple possible locations for the image
     possible_paths = [
         PROJECT_ROOT / ".data" / "result" / doc_name / "images" / filename,
+        PROJECT_ROOT / ".data" / "result" / doc_name / "auto" / "images" / filename,
         PROJECT_ROOT / ".data" / "result" / doc_name / filename,
         PROJECT_ROOT / ".data" / "result" / "manual" / "images" / filename,  # fallback to manual
         PROJECT_ROOT / ".data" / "result" / "manual" / filename
@@ -165,7 +166,8 @@ def serve_pdf():
     possible_paths = [
         PROJECT_ROOT / ".data" / "original" / f"{filename}.pdf",
         PROJECT_ROOT / ".data" / "result" / filename / f"{filename}.pdf", 
-        PROJECT_ROOT / ".data" / "result" / filename / f"{filename}_origin.pdf"
+        PROJECT_ROOT / ".data" / "result" / filename / f"{filename}_origin.pdf",
+        PROJECT_ROOT / ".data" / "result" / filename / "auto" / f"{filename}_origin.pdf"
     ]
     
     pdf_path = None

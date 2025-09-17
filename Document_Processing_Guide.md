@@ -22,7 +22,7 @@ Prepare your environment:
     ```bash
     source .venv/bin/activate
     ```
-    or on Windows:
+    or on Windows cmd:
     ```bash
     .venv\Scripts\activate
     ```
@@ -55,16 +55,19 @@ For a minimal processing workflow, you need to execute these operations in seque
     ```
 
 3. **Verify the outputs**: 
+
+    You can check the processed text chunks using the chunk viewer:
     ```bash
     python chunk_viewer/run.py
     ```
     and check the results in your browser at `http://localhost:5000`
 
 4. **Restart the chatbot**:
+    
+    After processing new documents, restart the chatbot service to load the updated database:
     ```bash
     docker compose restart chatbot
     ```
-
 
 ## Data Structure
 The output from mineru is a set of JSON files and markdown files organized as follows:
