@@ -466,7 +466,11 @@ if user_input := st.chat_input("Ask something *w*"):
             if image_path and image.get("filename"):
                 # Try to determine the correct document path
                 filename = image.get("filename", selected_file)
-                code = encode_image(f'.data/result/{filename}/{image_path}', prefix=True)
+                full_image_path = f'.data/result/{filename}/{image_path}'
+                if not pathlib.Path(full_image_path).exists():
+                    # Fallback to 'all' directory if specific file path doesn't exist
+                    full_image_path = f'.data/result/{filename}/auto/{image_path}'
+                code = encode_image(full_image_path, prefix=True)
                 full_response += f"\n![Image]({code})"
 
         # Final content for message history (uses simple format for history)
