@@ -32,9 +32,59 @@ Prepare your environment:
 
 For a minimal processing workflow, you need to execute these operations in sequence:
 
-1. **Prepare the document data**: Run mineru `mineru -p /path/to/pdf -o .data/result/` directory
-2. **Run the embedding script**: Execute `python tests/run_embedding.py`
-3. **Verify the outputs**: Run `python chunk_viewer/run.py` and check the results in your browser at `http://localhost:5000`
+1. **Prepare the document data**: 
+    ```bash
+    # Run mineru 
+    mineru -p /path/to/pdf -o .data/result/
+    ``` 
+2. **Run the embedding script**: 
+
+   This will automatically process all documents in `.data/result/` and store results in ChromaDB in `database/storage/`
+    ```bash
+    python tests/run_multi_embedding.py
+    ```
+    The script will skip already processed files, so you can re-run it after adding new documents. To force re-processing of all files, use:
+    ```bash
+    python tests/run_multi_embedding.py --force
+    ```
+
+3. **Verify the outputs**: 
+    ```bash
+    python chunk_viewer/run.py
+    ```
+    and check the results in your browser at `http://localhost:5000`
+
+4. **Restart the chatbot**:
+    ```bash
+    docker compose restart chatbot
+    ```
+
+
+## Data Structure
+The output from mineru is a set of JSON files and markdown files organized as follows:
+```bash
+.data/result/
+├── document1/
+│   ├── images/
+│   │   ├── image1.png
+│   ├── document1_content_list.json
+│   └── document1.md
+├── document2/
+│   ├── images/
+│   │   ├── image1.png
+│   ├── document2_content_list.json
+│   └── document2.md
+└── ...
+```
+The data processing script will read these files, extract and chunk text, generate image descriptions, and create embeddings for storage in ChromaDB in `database/storage/`.
+```bash
+database/
+└── storage/
+    ├── ID1/
+    ├── ID2/
+    └── chroma.sqlite3
+```
+If you want to start fresh, simply delete the `database/storage/` directory and re-run the embedding script.
 
 ## System Requirements
 

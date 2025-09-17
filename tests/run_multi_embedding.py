@@ -125,8 +125,9 @@ def process_multiple_documents(data_dir: str = ".data/result", force: bool = Fal
         doc_name = doc_dir.name
         print(f"\n=== Processing document: {doc_name} ===")
         
+        doc_processed = check_if_document_processed(doc_name)
         # Check if already processed (unless force mode is on)
-        if not force and check_if_document_processed(doc_name):
+        if not force and doc_processed:
             chunk_counts = get_document_chunk_count(doc_name)
             print(f"  [SKIP] Document already processed:")
             print(f"    - Text chunks: {chunk_counts['textdb']}")
@@ -135,6 +136,27 @@ def process_multiple_documents(data_dir: str = ".data/result", force: bool = Fal
             print(f"    Use --force to reprocess")
             skipped_count += 1
             continue
+
+        if force and doc_processed:
+            # delete existing chunks for this document
+            print(f"  [FORCE] Reprocessing document, deleting existing chunks...")
+            try:
+                storage = chromadb.PersistentClient("database/storage")
+                for collection_name in ['textdb', 'imgdb']:
+                    try:
+                        collection = storage.get_collection(name=collection_name)
+                        result = collection.get(include=['ids', 'metadatas'])
+                        ids_to_delete = [result['ids'][i] for i, metadata in enumerate(result['metadatas'])
+                                         if metadata and metadata.get('filename') == doc_name]
+                        if ids_to_delete:
+                            collection.delete(ids=ids_to_delete)
+                            print(f"    - Deleted {len(ids_to_delete)} chunks from {collection_name}")
+                    except Exception:
+                        continue
+            except Exception as e:
+                print(f"  [ERROR] Failed to delete existing chunks: {e}")
+                error_count += 1
+                continue
         
         # Look for JSON and markdown files
         json_files = list(doc_dir.glob("*_content_list.json"))
