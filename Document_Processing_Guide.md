@@ -2,17 +2,21 @@
 
 Prepare your environment:
 1. Create venv and install dependencies with uv:
-    ```bash
-    uv sync
-    uv pip install -U "mineru[core]"
-    ```
-    or manually:
-    ```bash
-    python3 -m venv .venv
-    source .venv/bin/activate
-    pip install -r requirements.txt
-    pip install -U "mineru[core]"
-    ```
+    - install uv (if not installed):
+    
+      on windows:
+      ```bash
+      powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+      ```
+      on Linux/Mac:
+      ```bash
+      wget -qO- https://astral.sh/uv/install.sh | sh
+      ```
+    - then create venv and install dependencies:
+      ```bash
+      uv sync
+      uv pip install -U "mineru[core]"
+      ```
 
 2. activate the venv in Linux/Mac:
     ```bash
@@ -37,6 +41,8 @@ For a minimal processing workflow, you need to execute these operations in seque
     # Run mineru 
     mineru -p /path/to/pdf -o .data/result/
     ``` 
+    It is normal longer time for the first run as it needs to download models.
+
 2. **Run the embedding script**: 
 
    This will automatically process all documents in `.data/result/` and store results in ChromaDB in `database/storage/`
