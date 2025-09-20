@@ -5,6 +5,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs
 const app = {
     currentChunks: [],
     selectedChunkId: null,
+    editingChunk: null,
     pdfDoc: null,
     scale: 1.0,
     pageCanvases: [],
@@ -507,12 +508,17 @@ function showChunkDetailsModal(chunk) {
         </div>
     `;
     
-    // Add full content
+    // Add editable full content
     contentHTML += `
         <div class="chunk-detail-section">
             <h4>Full Content</h4>
-            <div class="chunk-full-content">
-                <pre>${escapeHtml(chunk.document || 'No content available')}</pre>
+            <div class="chunk-editor">
+                <textarea id="chunk-editor-textarea" class="chunk-editor-textarea" rows="14" spellcheck="false">${chunk.document ? chunk.document.replace(/</g, '&lt;').replace(/>/g, '&gt;') : ''}</textarea>
+                <div class="editor-actions">
+                    <button id="chunk-save-btn" class="primary">Save</button>
+                    <button id="chunk-cancel-btn" class="secondary">Cancel</button>
+                    <span id="chunk-save-status" class="save-status" style="display:none;">Saving...</span>
+                </div>
             </div>
         </div>
     `;
@@ -520,6 +526,68 @@ function showChunkDetailsModal(chunk) {
     // Set modal content
     elements.modalBody.innerHTML = contentHTML;
     
+    // Attach action handlers
+    app.editingChunk = chunk;
+    const saveBtn = document.getElementById('chunk-save-btn');
+    const cancelBtn = document.getElementById('chunk-cancel-btn');
+    const textarea = document.getElementById('chunk-editor-textarea');
+    const statusEl = document.getElementById('chunk-save-status');
+
+    cancelBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeModal();
+    });
+
+    saveBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        // Guard
+        if (!app.editingChunk) return;
+
+        // Disable UI during save
+        saveBtn.disabled = true;
+        cancelBtn.disabled = true;
+        statusEl.style.display = 'inline-block';
+        statusEl.textContent = 'Saving...';
+
+        try {
+            const updatedText = textarea.value;
+            const { id, source } = app.editingChunk;
+            const res = await fetch(`/api/chunks/${encodeURIComponent(source)}/${encodeURIComponent(id)}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ document: updatedText })
+            });
+            const data = await res.json();
+            if (!data.success) throw new Error(data.error || 'Failed to save');
+
+            // Update local state
+            const updated = data.chunk;
+            const idx = app.currentChunks.findIndex(c => c.id === updated.id && (c.source || '') === (updated.source || ''));
+            if (idx !== -1) {
+                app.currentChunks[idx] = updated;
+            }
+
+            // Re-render chunks list to reflect preview text
+            const prevSelected = app.selectedChunkId;
+            renderChunks(app.currentChunks);
+            app.selectedChunkId = prevSelected;
+            // Re-apply active class to selected item if present
+            if (prevSelected) {
+                const el = document.querySelector(`[data-chunk-id="${prevSelected}"]`);
+                if (el) el.classList.add('active');
+            }
+
+            statusEl.textContent = 'Saved';
+            setTimeout(() => closeModal(), 400);
+        } catch (err) {
+            console.error('Save failed:', err);
+            statusEl.textContent = `Error: ${err.message}`;
+        } finally {
+            saveBtn.disabled = false;
+            cancelBtn.disabled = false;
+        }
+    });
+
     // Show modal
     elements.modal.classList.add('show');
 }
@@ -527,6 +595,7 @@ function showChunkDetailsModal(chunk) {
 // Close modal
 function closeModal() {
     elements.modal.classList.remove('show');
+    app.editingChunk = null;
 }
 
 // Style additions

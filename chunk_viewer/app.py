@@ -128,6 +128,69 @@ def get_chunks():
         }), 500
 
 
+@app.route('/api/chunks/<source>/<chunk_id>', methods=['PUT'])
+def update_chunk(source, chunk_id):
+    """Update a single chunk's document and/or metadata in the specified collection.
+
+    Path params:
+      - source: collection name, must be 'textdb' or 'imgdb'
+      - chunk_id: the id of the chunk to update
+
+    Request JSON body:
+      {
+        "document": "new text...",           # optional
+        "metadata": { ... }                   # optional
+      }
+    """
+    try:
+        if source not in ['textdb', 'imgdb']:
+            return jsonify({'success': False, 'error': f"Invalid source '{source}'. Must be 'textdb' or 'imgdb'."}), 400
+
+        payload = request.get_json(silent=True) or {}
+        new_doc = payload.get('document', None)
+        new_metadata = payload.get('metadata', None)
+
+        if new_doc is None and new_metadata is None:
+            return jsonify({'success': False, 'error': 'Nothing to update. Provide document and/or metadata.'}), 400
+
+        collection = storage.get_collection(name=source)
+
+        # Validate the chunk exists
+        try:
+            existing = collection.get(ids=[chunk_id], include=['documents', 'metadatas'])
+        except Exception:
+            existing = None
+
+        if not existing or not existing.get('ids'):
+            return jsonify({'success': False, 'error': f"Chunk id '{chunk_id}' not found in {source}."}), 404
+
+        # Perform update in one call if possible
+        update_kwargs = {'ids': [chunk_id]}
+        if new_doc is not None:
+            update_kwargs['documents'] = [new_doc]
+        if new_metadata is not None:
+            # Merge metadata over existing metadata (shallow merge)
+            current_meta = existing.get('metadatas', [{}])[0] or {}
+            merged_meta = {**current_meta, **new_metadata}
+            update_kwargs['metadatas'] = [merged_meta]
+
+        collection.update(**update_kwargs)
+
+        # Return the updated record
+        updated = collection.get(ids=[chunk_id], include=['documents', 'metadatas'])
+        result = {
+            'id': updated['ids'][0],
+            'document': (updated['documents'][0] if updated.get('documents') else None),
+            'metadata': (updated['metadatas'][0] if updated.get('metadatas') else {}),
+            'source': source,
+        }
+
+        return jsonify({'success': True, 'chunk': result})
+
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
 @app.route('/images/<path:filename>')
 def serve_image(filename):
     """Serve images from the data directory"""
