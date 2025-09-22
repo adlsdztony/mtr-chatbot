@@ -2,7 +2,7 @@
 
 Prepare your environment:
 
-1. You need follow the instructions in the [README](./README.md) to set up the chatbot before going further.
+1. You need follow the instructions in the previous doc [README](./README.md) to set up the chatbot before going further.
 2. Create venv and install dependencies with uv:
     - install uv (if not installed):
     
