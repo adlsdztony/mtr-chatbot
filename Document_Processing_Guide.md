@@ -1,7 +1,9 @@
 ## Quick Start
 
 Prepare your environment:
-1. Create venv and install dependencies with uv:
+
+1. You need follow the instructions in the [README](./README.md) to set up the chatbot before going further.
+2. Create venv and install dependencies with uv:
     - install uv (if not installed):
     
       on windows:
@@ -18,7 +20,7 @@ Prepare your environment:
       uv pip install -U "mineru[core]"
       ```
 
-2. activate the venv in Linux/Mac:
+3. activate the venv in Linux/Mac:
     ```bash
     source .venv/bin/activate
     ```
@@ -27,7 +29,7 @@ Prepare your environment:
     .venv\Scripts\activate
     ```
 
-3. pull required models:
+4. pull required models:
     We assume you have ollama server running in docker.
     ```bash
     docker exec -it mtr-ollama ollama pull qwen2.5vl:7b # smaller version just for test
@@ -136,7 +138,7 @@ mineru -p /path/to/pdf -o .data/result/
 ]
 ```
 
-**Key Implementation**: The [`MarkdownEmbedding`](database/scripts/strategy/markdown.py) class processes these files:
+**Key Implementation**: The [`database/scripts/strategy/markdown.py (MarkdownEmbedding)`](database/scripts/strategy/markdown.py) class processes these files:
 - Loads JSON metadata and markdown content
 - Groups content by type (text, image, table) and page number
 - Maintains page-level organization for context preservation
@@ -153,17 +155,17 @@ mineru -p /path/to/pdf -o .data/result/
 **Process**:
 1. **Page Grouping**: Text items are grouped by `page_idx`
 2. **Text Combination**: All text from the same page is concatenated
-3. **Chunking**: The [`text_splitter`](utils/get_database.py) breaks text into overlapping segments
+3. **Chunking**: The [`utils/get_database.py (text_splitter)`](utils/get_database.py) breaks text into overlapping segments
 4. **Context Extraction**: For each chunk, the system extracts 500 characters of surrounding context from the original markdown
 
-**Code Reference**: [`_process_text_by_page`](database/scripts/strategy/markdown.py) method handles the chunking workflow.
+**Code Reference**: [`database/scripts/strategy/markdown.py (_process_text_by_page)`](database/scripts/strategy/markdown.py) method handles the chunking workflow.
 
 ### 3. Image Description Generation (qwen-vl)
 
 **Purpose**: Generate detailed descriptions of images using the Qwen vision model for semantic search.
 
 **Model Configuration**:
-- **Vision Model**: `qwen2.5vl:7b` (configurable in [`settings.py`](utils/settings.py))
+- **Vision Model**: `qwen2.5vl:7b` (configurable in [`utils/settings.py`](utils/settings.py))
 - **Context Integration**: Combines image content with surrounding markdown text
 
 **Process**:
@@ -172,7 +174,7 @@ mineru -p /path/to/pdf -o .data/result/
 3. **Description Generation**: The vision model analyzes the image along with contextual information
 4. **Summary Creation**: Generates a detailed description capturing key visual elements and document relevance
 
-**Implementation**: [`_process_image`](database/scripts/strategy/markdown.py) and [`_generate_summary_with_context`](database/scripts/strategy/markdown.py) methods.
+**Implementation**: [`database/scripts/strategy/markdown.py (_process_image)`](database/scripts/strategy/markdown.py) and [`database/scripts/strategy/markdown.py (_generate_summary_with_context)`](database/scripts/strategy/markdown.py) methods.
 
 ### 4. Output Checking
 
@@ -197,4 +199,4 @@ You can then access the viewer at `http://localhost:5000` in your web browser.
 2. **Image Embedding**: Image descriptions are embedded using the same model for unified search
 3. **Storage**: Vectors are stored in ChromaDB with associated metadata for retrieval
 
-**Configuration**: Embedding settings are managed in [`get_database.py`](utils/get_database.py) via the `MultiModalEmbedding` class.
+**Configuration**: Embedding settings are managed in [`utils/get_database.py`](utils/get_database.py) via the `MultiModalEmbedding` class.
