@@ -8,10 +8,11 @@ Prepare your environment:
       ```bash
       powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
       ```
-      on Linux/Mac:
+      on Linux/Mac/WSL:
       ```bash
       wget -qO- https://astral.sh/uv/install.sh | sh
       ```
+    - make sure restart your terminal to have `uv` command available
     - then create venv and install dependencies:
       ```bash
       uv sync
