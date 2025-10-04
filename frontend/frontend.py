@@ -115,7 +115,7 @@ def switch_tab(switch_to: int):
     # Save current selected file
     st.session_state.chat_sessions[current_index][
         "selected_file"
-    ] = st.session_state.get('current_selected_file', 'manual')
+    ] = st.session_state.current_selected_file
 
     # load selected session
     st.session_state.current_chat_index = switch_to
@@ -136,7 +136,7 @@ def switch_tab(switch_to: int):
     if "selected_file" not in target_session:
         target_session["selected_file"] = st.session_state.get('available_files', ['all'])[0] if st.session_state.get('available_files') else 'all'
     
-    st.session_state.current_selected_file = target_session["selected_file"]
+    st.session_state.current_selected_file = target_session.get("selected_file", st.session_state.get('available_files', ['all'])[0] if st.session_state.get('available_files') else 'all')
     
     # Update model with new parameters
     update_model_with_current_parameters()
