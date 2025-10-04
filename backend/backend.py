@@ -1,5 +1,6 @@
 import sys, pathlib
 import chromadb
+from typing import Optional
 
 sys.path.append(pathlib.Path(__file__).parents[1].as_posix())
 
@@ -34,7 +35,7 @@ def get_available_files():
         logger.error(f"Error getting available files: {e}")
         return ['all', 'manual']  # Fallback to all and manual
 
-def get_knowledge(question: str, filename: str = None):
+def get_knowledge(question: str, filename: Optional[str] = None):
     """Get knowledge with detailed chunk information for citations"""
     logger.info(f"Getting knowledge for question: {question}, filename: {filename}")
 
@@ -110,7 +111,7 @@ def get_knowledge(question: str, filename: str = None):
     return text_chunks_with_meta, image_chunks_with_meta
 
 
-def form_context_info(question: str, filename: str = None):
+def form_context_info(question: str, filename: Optional[str] = None):
     """Form context info with detailed chunk metadata for citations"""
     text_chunks, image_chunks = get_knowledge(question, filename)
 
