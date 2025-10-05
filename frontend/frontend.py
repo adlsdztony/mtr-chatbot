@@ -3,34 +3,18 @@ import streamlit as st
 
 sys.path.append(pathlib.Path(__file__).parents[1].as_posix())
 
-from utils.get_model import get_prompted_model, get_prompted_model_with_params, DEFAULT_PARAMETERS, validate_parameters
+from utils.get_model import get_prompted_model, get_prompted_model_with_params, DEFAULT_PARAMETERS, validate_parameters, get_session_history
 from utils.functions import encode_image
 from backend.backend import get_knowledge, form_context_info, get_available_files
 from loguru import logger
 
-
-class ChatBackend:
-    """
-    Simple backend class to manage chat history.
-    """
-    def __init__(self):
-        self.history = []
-    
-    def set_history(self, history: list):
-        """
-        Set the chat history.
-        
-        Args:
-            history: List of historical chat data
-        """
-        self.history = history if history is not None else []
-
 def create_session():
     st.session_state.current_chat_index += 1
+    session_id = f"session_{st.session_state.current_chat_index}"
     chat = {
         "name": f"default chat session {st.session_state.current_chat_index}",
         "messages": [],
-        "history": [],
+        "session_id": session_id,  # Use LangChain session ID
         "parameters": DEFAULT_PARAMETERS.copy(),  # Add default parameters for new session
         "selected_file": st.session_state.get('available_files', ['all'])[0] if st.session_state.get('available_files') else 'all'
     }
@@ -102,10 +86,6 @@ def switch_tab(switch_to: int):
     st.session_state.chat_sessions[current_index][
         "messages"
     ] = st.session_state.messages
-
-    st.session_state.chat_sessions[current_index][
-        "history"
-    ] = st.session_state.backend.history
     
     # Save current parameters to the session
     st.session_state.chat_sessions[current_index][
@@ -120,15 +100,16 @@ def switch_tab(switch_to: int):
     # load selected session
     st.session_state.current_chat_index = switch_to
     st.session_state.messages = st.session_state.chat_sessions[switch_to]["messages"]
-    st.session_state.backend.set_history(
-        st.session_state.chat_sessions[switch_to]["history"]
-    )
     
     # Load parameters from the new session (with backward compatibility)
     target_session = st.session_state.chat_sessions[switch_to]
     if "parameters" not in target_session:
         # Add default parameters for backward compatibility
         target_session["parameters"] = DEFAULT_PARAMETERS.copy()
+    
+    # Add session_id for backward compatibility
+    if "session_id" not in target_session:
+        target_session["session_id"] = f"session_{switch_to}"
     
     st.session_state.current_parameters = target_session["parameters"].copy()
     
@@ -318,7 +299,6 @@ if "has_init" not in st.session_state:
     st.session_state.chat_sessions = {}
     st.session_state.messages = []
     st.session_state.current_parameters = DEFAULT_PARAMETERS.copy()  # Initialize current parameters
-    st.session_state.backend = ChatBackend()  # Initialize backend instance
     
     # Load available files
     st.session_state.available_files = get_available_files()
@@ -442,7 +422,19 @@ if user_input := st.chat_input("Ask something *w*"):
     # Pass None to backend if "all" is selected to use all documents
     backend_filename = None if selected_file == 'all' else selected_file
     texts, images, text_chunks, image_chunks = form_context_info(user_input, backend_filename)
-    args = {"context_info": texts, "question": user_input}
+    
+    # Get current session ID
+    current_session = st.session_state.chat_sessions[st.session_state.current_chat_index]
+    session_id = current_session.get("session_id", f"session_{st.session_state.current_chat_index}")
+    
+    # Prepare arguments for the model
+    args = {
+        "context_info": texts, 
+        "question": user_input
+    }
+    
+    # Configuration for session history
+    config = {"configurable": {"session_id": session_id}}
 
     logger.debug("Starting model streaming...")
     with st.chat_message("assistant"):
@@ -456,7 +448,9 @@ if user_input := st.chat_input("Ask something *w*"):
         st.markdown("## 🤖 Answer\n")
         placeholder = st.empty()
         full_response = ""
-        for chunk in st.session_state.model.stream(args):
+        
+        # Stream the response with session history
+        for chunk in st.session_state.model.stream(args, config=config):
             full_response += chunk
             placeholder.markdown(full_response + "|")
 

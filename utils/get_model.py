@@ -1,7 +1,11 @@
 from langchain_ollama.chat_models import ChatOllama
-from langchain_core.runnables import Runnable
-from langchain_core.prompts import PromptTemplate
+from langchain_core.runnables import Runnable, RunnableWithMessageHistory
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.output_parsers import StrOutputParser
+from langchain_core.chat_history import BaseChatMessageHistory
+from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
+from pydantic import BaseModel, Field
+from typing import List
 from .settings import *
 
 # Default parameter values for LLM configuration
@@ -10,6 +14,41 @@ DEFAULT_PARAMETERS = {
     "top_p": 0.9,         # Range: 0.0 - 1.0, nucleus sampling parameter
     "top_k": 40           # Range: 1 - 100, top-k sampling parameter
 }
+
+
+class InMemoryChatMessageHistory(BaseChatMessageHistory, BaseModel):
+    """
+    In-memory implementation of chat message history.
+    Stores messages for a conversation session.
+    """
+    messages: List[BaseMessage] = Field(default_factory=list)
+
+    def add_message(self, message: BaseMessage) -> None:
+        """Add a message to the store"""
+        self.messages.append(message)
+
+    def clear(self) -> None:
+        """Clear all messages"""
+        self.messages = []
+
+
+# Global store for all session histories
+_session_store = {}
+
+
+def get_session_history(session_id: str) -> BaseChatMessageHistory:
+    """
+    Retrieve or create chat history for a given session ID.
+    
+    Args:
+        session_id: Unique identifier for the chat session
+    
+    Returns:
+        Chat message history for the session
+    """
+    if session_id not in _session_store:
+        _session_store[session_id] = InMemoryChatMessageHistory()
+    return _session_store[session_id]
 
 
 def get_base_model(
@@ -46,31 +85,8 @@ def get_prompted_model(
     top_p: float = DEFAULT_PARAMETERS["top_p"],
     top_k: int = DEFAULT_PARAMETERS["top_k"]
 ) -> Runnable:
-    prompt = PromptTemplate.from_template(
-        """
-# Context Information
-{context_info}
-
------
-
-# Instructions
-
-Read the context first. Then solve the user's question step by step. Also follow these rules:
-
-1. Evaluate the style of your answer based on the type of question. For example, if the question is about listing steps, then you should be faithful to the original text and avoid summarizing. For example, if the question is about summarizing a text, then you should summarize the text and avoid listing steps.
-2. If the context is not sufficient to answer the question or is not relevant to the question, please say "I don't know" or "I cannot answer this question based on the provided context." DO NOT make up answers. But if you can answer the question based on the provided context, please answer it.
-3. Use the provided context only to answer the question. Do not make up assumptions or guesses.
-4. Ensure clarity, conciseness, and factual accuracy. You must not guess or suggest any technical steps.
-
------
-
-# User Question
-{question}
-"""
-    )
-
     """
-    Create a prompted model chain with configurable parameters.
+    Create a prompted model chain with configurable parameters and conversation history support.
     
     Args:
         use_model: Model name to use
@@ -79,16 +95,43 @@ Read the context first. Then solve the user's question step by step. Also follow
         top_k: Top-k sampling parameter (1-100)
     
     Returns:
-        Configured Runnable model chain
+        Configured Runnable model chain with message history support
     """
-    llm = prompt | ChatOllama(
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", """You are a helpful RAG assistant. Follow these rules:
+
+1. Evaluate the style of your answer based on the type of question. For example, if the question is about listing steps, then you should be faithful to the original text and avoid summarizing. For example, if the question is about summarizing a text, then you should summarize the text and avoid listing steps.
+2. If the context is not sufficient to answer the question or is not relevant to the question, please say "I don't know" or "I cannot answer this question based on the provided context." DO NOT make up answers. But if you can answer the question based on the provided context, please answer it.
+3. Use the provided context only to answer the question. Do not make up assumptions or guesses.
+4. Use the conversation history to understand the context of follow-up questions and maintain continuity in the conversation.
+5. Ensure clarity, conciseness, and factual accuracy. You must not guess or suggest any technical steps.
+
+# Context Information
+{context_info}"""),
+        MessagesPlaceholder(variable_name="history"),
+        ("human", "{question}")
+    ])
+
+    
+    llm = ChatOllama(
         model=use_model, 
         base_url=CHAT_API_URL,
         temperature=temperature,
         top_p=top_p,
         top_k=top_k
-    ) | StrOutputParser()
-    return llm
+    )
+    
+    chain = prompt | llm | StrOutputParser()
+    
+    # Wrap the chain with message history support
+    chain_with_history = RunnableWithMessageHistory(
+        chain,
+        get_session_history,
+        input_messages_key="question",
+        history_messages_key="history",
+    )
+    
+    return chain_with_history
 
 
 def validate_parameters(
