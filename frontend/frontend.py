@@ -1,11 +1,18 @@
 import sys, pathlib
 import streamlit as st
+import re
 
 sys.path.append(pathlib.Path(__file__).parents[1].as_posix())
 
 from utils.get_model import get_prompted_model, get_prompted_model_with_params, DEFAULT_PARAMETERS, validate_parameters, get_session_history
 from utils.functions import encode_image
-from backend.backend import get_knowledge, form_context_info, get_available_files
+from backend.backend import (
+    get_knowledge, 
+    form_context_info, 
+    get_available_files,
+    build_prompt_with_citations,
+    extract_citations_from_response
+)
 from loguru import logger
 
 def create_session():
@@ -14,13 +21,12 @@ def create_session():
     chat = {
         "name": f"default chat session {st.session_state.current_chat_index}",
         "messages": [],
-        "session_id": session_id,  # Use LangChain session ID
-        "parameters": DEFAULT_PARAMETERS.copy(),  # Add default parameters for new session
+        "session_id": session_id,
+        "parameters": DEFAULT_PARAMETERS.copy(),
         "selected_file": st.session_state.get('available_files', ['all'])[0] if st.session_state.get('available_files') else 'all'
     }
     st.session_state.chat_sessions[st.session_state.current_chat_index] = chat
     st.session_state.messages = chat["messages"]
-    # Update current parameters to match new session
     st.session_state.current_parameters = chat["parameters"].copy()
 
 
@@ -41,11 +47,11 @@ def update_chat_index(index: int):
 def load_components():
     st.sidebar.title("Chat Sessions")
     with st.sidebar:
-        with st.container(height=400, border=False):  # Reduced height to make room for parameters
+        with st.container(height=400, border=False):
             for index, chat in st.session_state.chat_sessions.items():
                 col1, col2, col3 = st.columns([0.5, 0.25, 0.25])
 
-                with col3:  # delete button
+                with col3:
                     st.button(
                         ":wastebasket:",
                         type="primary",
@@ -54,11 +60,11 @@ def load_components():
                         args=(index,),
                     )
 
-                with col2:  # rename button
+                with col2:
                     with st.popover(":gear:"):
                         rename_session(index)
 
-                with col1:  # display name and switch tab
+                with col1:
                     st.button(
                         chat["name"],
                         type=(
@@ -73,58 +79,38 @@ def load_components():
                     )
         st.button("create new chat", on_click=create_session, type="primary")
         
-        # Add file selection
         render_file_selection()
-        
-        # Add parameter control panel
         render_parameter_controls()
 
 
 def switch_tab(switch_to: int):
-    # save current chat session parameters
     current_index = st.session_state.current_chat_index
-    st.session_state.chat_sessions[current_index][
-        "messages"
-    ] = st.session_state.messages
+    st.session_state.chat_sessions[current_index]["messages"] = st.session_state.messages
     
-    # Save current parameters to the session
-    st.session_state.chat_sessions[current_index][
-        "parameters"
-    ] = st.session_state.current_parameters.copy()
-    
-    # Save current selected file
-    st.session_state.chat_sessions[current_index][
-        "selected_file"
-    ] = st.session_state.current_selected_file
+    st.session_state.chat_sessions[current_index]["parameters"] = st.session_state.current_parameters.copy()
+    st.session_state.chat_sessions[current_index]["selected_file"] = st.session_state.current_selected_file
 
-    # load selected session
     st.session_state.current_chat_index = switch_to
     st.session_state.messages = st.session_state.chat_sessions[switch_to]["messages"]
     
-    # Load parameters from the new session (with backward compatibility)
     target_session = st.session_state.chat_sessions[switch_to]
     if "parameters" not in target_session:
-        # Add default parameters for backward compatibility
         target_session["parameters"] = DEFAULT_PARAMETERS.copy()
-    
-    # Add session_id for backward compatibility
     if "session_id" not in target_session:
         target_session["session_id"] = f"session_{switch_to}"
     
     st.session_state.current_parameters = target_session["parameters"].copy()
     
-    # Load selected file from the new session (with backward compatibility)
     if "selected_file" not in target_session:
         target_session["selected_file"] = st.session_state.get('available_files', ['all'])[0] if st.session_state.get('available_files') else 'all'
     
     st.session_state.current_selected_file = target_session.get("selected_file", st.session_state.get('available_files', ['all'])[0] if st.session_state.get('available_files') else 'all')
     
-    # Update model with new parameters
     update_model_with_current_parameters()
 
 
 def rename_session(renamed_session_index: int):
-    st.markdown("Rename this sessioin to ...")
+    st.markdown("Rename this session to ...")
     new_name = st.text_input(
         "New name",
         value=st.session_state.chat_sessions[renamed_session_index]["name"],
@@ -138,7 +124,6 @@ def delete_session(deleted_session_index: int):
         st.session_state.pop(deleted_session_index)
         create_session()
     else:
-        # first switch tab
         next_session = next(
             filter(
                 lambda chat: chat != deleted_session_index,
@@ -146,20 +131,14 @@ def delete_session(deleted_session_index: int):
             )
         )
         switch_tab(next_session)
-        # then remove
         st.session_state.chat_sessions.pop(deleted_session_index)
 
 
 def render_parameter_controls():
-    """
-    Render the parameter control panel in the sidebar.
-    """
     st.sidebar.markdown("---")
     st.sidebar.subheader("🎛️ Model Parameters")
     
-    # Use expander to save space
     with st.sidebar.expander("Adjust Parameters", expanded=True):
-        # Temperature slider
         new_temperature = st.slider(
             "Temperature",
             min_value=0.0,
@@ -171,7 +150,6 @@ def render_parameter_controls():
             key="temperature_slider"
         )
         
-        # Top-p slider
         new_top_p = st.slider(
             "Top-p (Nucleus Sampling)",
             min_value=0.0,
@@ -183,7 +161,6 @@ def render_parameter_controls():
             key="top_p_slider"
         )
         
-        # Top-k slider
         new_top_k = st.slider(
             "Top-k",
             min_value=1,
@@ -194,7 +171,6 @@ def render_parameter_controls():
             key="top_k_slider"
         )
         
-        # Check if parameters have changed
         parameters_changed = (
             new_temperature != st.session_state.current_parameters["temperature"] or
             new_top_p != st.session_state.current_parameters["top_p"] or
@@ -202,22 +178,18 @@ def render_parameter_controls():
         )
         
         if parameters_changed:
-            # Validate new parameters
             is_valid, error_msg = validate_parameters(new_temperature, new_top_p, new_top_k)
             
             if is_valid:
-                # Update parameters
                 st.session_state.current_parameters = {
                     "temperature": new_temperature,
                     "top_p": new_top_p,
                     "top_k": new_top_k
                 }
                 
-                # Update current session parameters
                 current_index = st.session_state.current_chat_index
                 st.session_state.chat_sessions[current_index]["parameters"] = st.session_state.current_parameters.copy()
                 
-                # Update model with new parameters
                 update_model_with_current_parameters()
                 
                 st.sidebar.success("✅ Parameters updated!")
@@ -226,16 +198,12 @@ def render_parameter_controls():
 
 
 def render_file_selection():
-    """
-    Render the file selection dropdown in the sidebar.
-    """
     st.sidebar.markdown("---")
     st.sidebar.subheader("📁 Document Selection")
     
     available_files = st.session_state.get('available_files', ['all', 'manual'])
     current_file = st.session_state.get('current_selected_file', available_files[0] if available_files else 'all')
     
-    # Create display options with descriptions
     file_options = []
     file_display_map = {}
     
@@ -248,7 +216,6 @@ def render_file_selection():
             file_display_map[display_name] = file
         file_options.append(display_name)
     
-    # Find current selection display name
     current_display = None
     for display_name, file_name in file_display_map.items():
         if file_name == current_file:
@@ -263,13 +230,10 @@ def render_file_selection():
         key="file_selector"
     )
     
-    # Get actual filename from display name
     selected_file = file_display_map[selected_display]
     
-    # Update current selected file if changed
     if selected_file != st.session_state.get('current_selected_file'):
         st.session_state.current_selected_file = selected_file
-        # Update current session
         current_index = st.session_state.current_chat_index
         st.session_state.chat_sessions[current_index]["selected_file"] = selected_file
         
@@ -279,9 +243,6 @@ def render_file_selection():
             st.sidebar.success(f"✅ Switched to: {selected_file}")
 
 def update_model_with_current_parameters():
-    """
-    Update the model instance with current parameters.
-    """
     try:
         st.session_state.model = get_prompted_model_with_params(
             temperature=st.session_state.current_parameters["temperature"],
@@ -293,32 +254,6 @@ def update_model_with_current_parameters():
         logger.error(f"Failed to update model parameters: {e}")
         st.sidebar.error(f"Failed to update model: {e}")
 
-# NOTE - set for session change
-if "has_init" not in st.session_state:
-    st.session_state.current_chat_index = 0
-    st.session_state.chat_sessions = {}
-    st.session_state.messages = []
-    st.session_state.current_parameters = DEFAULT_PARAMETERS.copy()  # Initialize current parameters
-    
-    # Load available files
-    st.session_state.available_files = get_available_files()
-    st.session_state.current_selected_file = st.session_state.available_files[0] if st.session_state.available_files else 'all'
-    
-    st.session_state.has_init = True
-    st.session_state.model = get_prompted_model_with_params(**st.session_state.current_parameters)
-    logger.info("Streamlit session initialized with default parameters.")
-    logger.info(f"Available files: {st.session_state.available_files}")
-    
-    # Create initial session if no sessions exist
-    if not st.session_state.chat_sessions:
-        create_session()
-    
-load_components()
-
-# NOTE - construct chatting session
-construct_chatting_session()
-
-# NOTE - load models
 
 def render_text_chunk_with_expander(chunk, chunk_index):
     """Render a single text chunk with expandable full content"""
@@ -351,8 +286,9 @@ def render_text_chunk_with_expander(chunk, chunk_index):
     
     st.markdown("")  # Add spacing
 
+
 def format_citations_interactive(text_chunks, image_chunks):
-    """Format citations with interactive expandable content"""
+    """Format citations with interactive expandable content - shows chunk metadata"""
     if text_chunks:
         st.markdown("### 📄 Text References:")
         for i, chunk in enumerate(text_chunks, 1):
@@ -371,6 +307,7 @@ def format_citations_interactive(text_chunks, image_chunks):
             if path:
                 st.markdown(f"> Path: {path}")
             st.markdown("")  # Add spacing
+
 
 def format_citations_for_history(text_chunks, image_chunks):
     """Format citations for chat history (simple text format)"""
@@ -408,6 +345,78 @@ def format_citations_for_history(text_chunks, image_chunks):
     
     return citations_content
 
+
+def style_citations_in_text(text: str, citations_list: list) -> str:
+    """
+    Replace [1], [2] etc. in text with styled, clickable citations.
+    Returns HTML with styled citations.
+    """
+    # Create a mapping of citation numbers to their data
+    citation_map = {c['num']: c for c in citations_list}
+    
+    def replace_citation(match):
+        num = int(match.group(1))
+        if num in citation_map:
+            citation = citation_map[num]
+            # Create a styled span for the citation
+            return f'<span style="color: #1f77b4; text-decoration: underline; cursor: pointer; font-weight: 500;" title="Page {citation["page_idx"]}">[{num}]</span>'
+        return match.group(0)
+    
+    # Replace all [1], [2], etc. with styled versions
+    styled_text = re.sub(r'\[(\d+)\]', replace_citation, text)
+    return styled_text
+
+
+def display_citations_in_response(citations_list):
+    """Display extracted citations that were actually used in the response"""
+    if not citations_list:
+        return
+    
+    st.markdown("---")
+    st.markdown("**📚 References Used:**")
+    
+    for citation in citations_list:
+        col1, col2 = st.columns([0.1, 0.9])
+        
+        with col1:
+            st.markdown(f'<span style="color: #1f77b4; font-weight: bold; font-size: 1.1em;">[{citation["num"]}]</span>', unsafe_allow_html=True)
+        
+        with col2:
+            filename = citation['filename']
+            page = citation['page_idx']
+            cite_type = citation['type']
+            preview = citation['preview']
+            
+            # Citation text with page number (ready for PDF viewer integration)
+            st.markdown(f"*{filename}* - **Page {page}** ({cite_type})")
+            
+            # Show preview in expander
+            with st.expander("Preview", expanded=False):
+                st.text(preview)
+
+
+# Initialize session state
+if "has_init" not in st.session_state:
+    st.session_state.current_chat_index = 0
+    st.session_state.chat_sessions = {}
+    st.session_state.messages = []
+    st.session_state.current_parameters = DEFAULT_PARAMETERS.copy()
+    
+    st.session_state.available_files = get_available_files()
+    st.session_state.current_selected_file = st.session_state.available_files[0] if st.session_state.available_files else 'all'
+    
+    st.session_state.has_init = True
+    st.session_state.model = get_prompted_model_with_params(**st.session_state.current_parameters)
+    logger.info("Streamlit session initialized with default parameters.")
+    logger.info(f"Available files: {st.session_state.available_files}")
+    
+    if not st.session_state.chat_sessions:
+        create_session()
+    
+load_components()
+construct_chatting_session()
+
+# Chat input handling
 if user_input := st.chat_input("Ask something *w*"):
     with st.chat_message("user"):
         st.markdown(user_input)
@@ -419,7 +428,6 @@ if user_input := st.chat_input("Ask something *w*"):
     selected_file = st.session_state.get('current_selected_file', 'all')
     
     # Get context info with detailed chunk metadata
-    # Pass None to backend if "all" is selected to use all documents
     backend_filename = None if selected_file == 'all' else selected_file
     texts, images, text_chunks, image_chunks = form_context_info(user_input, backend_filename)
     
@@ -427,60 +435,133 @@ if user_input := st.chat_input("Ask something *w*"):
     current_session = st.session_state.chat_sessions[st.session_state.current_chat_index]
     session_id = current_session.get("session_id", f"session_{st.session_state.current_chat_index}")
     
+    # Build prompt with citations
+    complete_prompt, citation_context = build_prompt_with_citations(user_input, text_chunks, image_chunks)
+    
     # Prepare arguments for the model
     args = {
-        "context_info": texts, 
-        "question": user_input
+        "context_info": complete_prompt,
+        "question": "" # question already in complete prompt
     }
     
     # Configuration for session history
     config = {"configurable": {"session_id": session_id}}
 
-    logger.debug("Starting model streaming...")
+    logger.debug("Starting model streaming with citations...")
+    logger.debug(f"Complete prompt preview: {complete_prompt[:500]}...") 
+
     with st.chat_message("assistant"):
-        # Show citations in a collapsible expander with interactive content
+        # Show all retrieved sources in collapsible expander (existing functionality)
         total_sources = len(text_chunks) + len(image_chunks)
         
-        with st.expander(f"📚 Sources ({total_sources} references)", expanded=False):
+        with st.expander(f"📚 All Retrieved Sources ({total_sources} references)", expanded=False):
             format_citations_interactive(text_chunks, image_chunks)
         
         # Show the answer
         st.markdown("## 🤖 Answer\n")
-        placeholder = st.empty()
+
+        # Create two placeholders - one for thinking, one for answer
+        thinking_placeholder = st.empty()
+        answer_placeholder = st.empty()
+
         full_response = ""
-        
+        in_thinking = False
+        thinking_content = ""
+        answer_content = ""
+
         # Stream the response with session history
         for chunk in st.session_state.model.stream(args, config=config):
             full_response += chunk
-            placeholder.markdown(full_response + "|")
+            
+            # Check if we're in a thinking block
+            if "<think>" in full_response and "</think>" not in full_response:
+                in_thinking = True
+            elif "</think>" in full_response:
+                in_thinking = False
+                # Extract answer part after </think>
+                import re
+                match = re.search(r'</think>\s*(.*)', full_response, re.DOTALL)
+                if match:
+                    answer_content = match.group(1)
+            
+            if in_thinking:
+                # Show thinking in collapsed expander
+                with thinking_placeholder:
+                    with st.expander("🧠 Model Thinking Process", expanded=False):
+                        thinking_match = re.search(r'<think>(.*?)(?:</think>|$)', full_response, re.DOTALL)
+                        if thinking_match:
+                            st.text(thinking_match.group(1).strip())
+            else:
+                # Show answer in main area
+                if "</think>" in full_response:
+                    answer_placeholder.markdown(answer_content + "|")
+                else:
+                    # No thinking tags, show everything
+                    answer_placeholder.markdown(full_response + "|")
 
-        # Handle images with proper path resolution
-        for image in images:
-            image_path = image.get("path", "")
-            if image_path and image.get("filename"):
-                # Try to determine the correct document path
-                filename = image.get("filename", selected_file)
-                full_image_path = f'.data/result/{filename}/{image_path}'
-                if not pathlib.Path(full_image_path).exists():
-                    # Fallback to 'all' directory if specific file path doesn't exist
-                    full_image_path = f'.data/result/{filename}/auto/{image_path}'
-                code = encode_image(full_image_path, prefix=True)
-                full_response += f"\n![Image]({code})"
+        # Extract the answer part (after thinking) for display and citation extraction
+        display_response = full_response
 
-        # Final content for message history (uses simple format for history)
-        citations_content_for_history = format_citations_for_history(text_chunks, image_chunks)
-        sources_section = f"📚 **Sources ({total_sources} references)** - Click to expand\n\n" + citations_content_for_history + "\n---\n\n"
-        final_content = sources_section + "## 🤖 Answer\n\n" + full_response
-        placeholder.markdown(full_response)
+        # If model used extended thinking, extract only the answer part
+        if "<think>" in full_response and "</think>" in full_response:
+            import re
+            # The answer is everything AFTER </think>
+            match = re.search(r'</think>\s*(.*)', full_response, re.DOTALL)
+            if match:
+                display_response = match.group(1).strip()
+                logger.debug(f"Extracted answer from thinking: {display_response[:200]}")
+            else:
+                # Fallback: remove think tags completely
+                display_response = re.sub(r'<think>.*?</think>', '', full_response, flags=re.DOTALL).strip()
+
+        # Extract citations from the display response (not the thinking part)
+        citations_used = extract_citations_from_response(display_response, text_chunks, image_chunks)
+
+        # If no citations found, log warning
+        if not citations_used:
+            logger.warning(f"No citations found in response. Response preview: {display_response[:200]}")
+            logger.warning(f"Text chunks available: {[c.get('citation_num') for c in text_chunks]}")
+
+        # Style the citations in the response text
+        styled_response = style_citations_in_text(full_response, citations_used)
         
+        # Display final styled response
+        answer_placeholder.markdown(styled_response, unsafe_allow_html=True)
+        
+        # Display citations that were actually used
+        display_citations_in_response(citations_used)
+        
+        # NOW handle images separately (after response text, below citations)
+        if images:
+            st.markdown("---")
+            st.markdown("**🖼️ Referenced Images:**")
+            for image in images:
+                image_path = image.get("path", "")
+                if image_path and image.get("filename"):
+                    filename = image.get("filename", selected_file)
+                    full_image_path = f'.data/result/{filename}/{image_path}'
+                    if not pathlib.Path(full_image_path).exists():
+                        full_image_path = f'.data/result/{filename}/auto/{image_path}'
+                    
+                    if pathlib.Path(full_image_path).exists():
+                        try:
+                            st.image(full_image_path, caption=f"From {filename}, page {image.get('page_idx', '?')}")
+                        except Exception as e:
+                            logger.error(f"Failed to display image: {e}")
+        
+        # Prepare content for message history (without base64 images)
+        citations_content_for_history = format_citations_for_history(text_chunks, image_chunks)
+        sources_section = f"📚 **All Retrieved Sources ({total_sources} references)**\n\n{citations_content_for_history}\n---\n\n"
+        final_content = sources_section + "## 🤖 Answer\n\n" + styled_response
+        
+        # Save message with both original chunks and extracted citations
         st.session_state.messages.append(
             {
                 "role": "assistant", 
                 "content": final_content,
-                "citations": {
-                    "text_chunks": text_chunks,
-                    "image_chunks": image_chunks,
-                    "selected_file": selected_file
-                }
+                "citations": citations_used,  # Citations actually used in response
+                "text_chunks": text_chunks,   # All retrieved text chunks
+                "image_chunks": image_chunks, # All retrieved image chunks
+                "selected_file": selected_file
             }
         )

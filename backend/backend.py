@@ -1,6 +1,6 @@
 import sys, pathlib
 import chromadb
-from typing import Optional
+from typing import Optional, List, Dict, Tuple
 
 sys.path.append(pathlib.Path(__file__).parents[1].as_posix())
 
@@ -85,6 +85,7 @@ def get_knowledge(question: str, filename: Optional[str] = None):
                 "chunk_id": text_results["ids"][0][i]
                 if i < len(text_results["ids"][0])
                 else f"unknown_{i}",
+                "citation_num": i + 1, 
             }
         )
 
@@ -97,6 +98,7 @@ def get_knowledge(question: str, filename: Optional[str] = None):
                     "chunk_id": image_results["ids"][0][i]
                     if i < len(image_results["ids"][0])
                     else f"img_unknown_{i}",
+                    "citation_num": len(text_chunks_with_meta) + i + 1,
                 }
             )
 
@@ -127,3 +129,119 @@ def form_context_info(question: str, filename: Optional[str] = None):
         text_chunks,
         image_chunks,
     )  # Return both legacy and new format
+
+def create_citation_context(text_chunks: List[Dict], image_chunks: List[Dict]) -> str:
+    """
+    Create context with citation markers for the LLM.
+    Each chunk is tagged with [Source N] to help LLM know which source to cite.
+    
+    Returns:
+        Context string with embedded citation markers
+    """
+    context_parts = []
+    
+    # Add text chunks with citation markers
+    for chunk in text_chunks:
+        citation_num = chunk.get("citation_num", "?")
+        content = chunk.get("content", "")
+        meta = chunk.get("metadata", {})
+        filename = meta.get("filename", "unknown")
+        page = meta.get("page_idx", "?")
+        
+        # Format: [Source N: filename, page X] content
+        context_parts.append(
+            f"[{citation_num}] (from {filename}, page {page}):\n{content}"
+        )
+    
+    # Add image/table information
+    for chunk in image_chunks:
+        citation_num = chunk.get("citation_num", "?")
+        meta = chunk.get("metadata", {})
+        filename = meta.get("filename", "unknown")
+        page = meta.get("page_idx", "?")
+        img_type = meta.get("type", "image")
+        
+        context_parts.append(
+            f"[Source {citation_num}: {filename}, page {page}]\n{img_type.capitalize()} available for reference."
+        )
+    
+    return "\n\n---\n\n".join(context_parts)
+
+
+def build_prompt_with_citations(question: str, text_chunks: List[Dict], image_chunks: List[Dict]) -> Tuple[str, str]:
+    """
+    Build system prompt and context with citations for the LLM.
+    Generic version that works with any document type.
+    
+    Returns:
+        Tuple of (complete_prompt, citation_context)
+    """
+    citation_context = create_citation_context(text_chunks, image_chunks)
+    
+    # Create a prompt that works with extended thinking models
+    complete_prompt = f"""Answer the following question based on the provided reference sources.
+
+Reference sources available:
+{citation_context}
+
+Question: {question}
+
+CRITICAL INSTRUCTION FOR YOUR ANSWER:
+When you write your answer, you MUST add citation numbers [1], [2], [3] at the END of each sentence that uses information from the sources above.
+
+Example answer format:
+"This is a fact from the document [1]. Here is another relevant detail [2]."
+
+You can think through the problem, but when you provide your final answer, EVERY relevant sentence must end with a citation like [1], [2], etc.
+
+Now provide your answer with proper citations:"""
+    
+    return complete_prompt, citation_context
+    
+
+def extract_citations_from_response(response_text: str, text_chunks: List[Dict], image_chunks: List[Dict]) -> List[Dict]:
+    """
+    Extract which citations were actually used in the response.
+    
+    Returns:
+        List of citation dictionaries that were referenced in the response
+    """
+    import re
+    
+    # Find all citation numbers like [1], [2], etc.
+    citation_pattern = r'\[(\d+)\]'
+    cited_numbers = set(int(match) for match in re.findall(citation_pattern, response_text))
+    
+    # Build full citations list
+    all_citations = []
+    
+    for chunk in text_chunks:
+        citation_num = chunk.get("citation_num", 0)
+        if citation_num in cited_numbers:
+            meta = chunk.get("metadata", {})
+            all_citations.append({
+                "num": citation_num,
+                "type": "text",
+                "filename": meta.get("filename", "unknown"),
+                "page_idx": meta.get("page_idx", 0),
+                "chunk_id": chunk.get("chunk_id", ""),
+                "preview": chunk.get("content", "")[:200] 
+            })
+    
+    for chunk in image_chunks:
+        citation_num = chunk.get("citation_num", 0)
+        if citation_num in cited_numbers:
+            meta = chunk.get("metadata", {})
+            all_citations.append({
+                "num": citation_num,
+                "type": meta.get("type", "image"),
+                "filename": meta.get("filename", "unknown"),
+                "page_idx": meta.get("page_idx", 0),
+                "chunk_id": chunk.get("chunk_id", ""),
+                "preview": f"{meta.get('type', 'image')} on page {meta.get('page_idx', '?')}" 
+            })
+    
+    # Sort by citation number
+    all_citations.sort(key=lambda x: x["num"])
+    
+    return all_citations
