@@ -32,7 +32,7 @@ services:
     environment:
       - OLLAMA_BASE_URL=http://ollama:11434
       - PYTHONPATH=/app
-      - OLLAMA_CHAT_MODEL=deepseek-r1:8b
+      - OLLAMA_CHAT_MODEL=qwen3:30b
     depends_on:
       - ollama
     networks:
