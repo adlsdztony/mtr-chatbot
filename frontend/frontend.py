@@ -4,7 +4,14 @@ import re
 
 sys.path.append(pathlib.Path(__file__).parents[1].as_posix())
 
-from utils.get_model import get_prompted_model, get_prompted_model_with_params, DEFAULT_PARAMETERS, validate_parameters, get_session_history
+from utils.get_model import (
+    get_prompted_model, 
+    get_prompted_model_with_params, 
+    DEFAULT_PARAMETERS, 
+    validate_parameters, 
+    get_session_history,
+    add_referenced_context_to_history
+)
 from utils.functions import encode_image
 from backend.backend import (
     get_knowledge, 
@@ -522,6 +529,11 @@ if user_input := st.chat_input("Ask something *w*"):
             logger.warning(f"No citations found in response. Response preview: {display_response[:200]}")
             logger.warning(f"Text chunks available: {[c.get('citation_num') for c in text_chunks]}")
 
+        # Add the referenced RAG context to the chat history (Solution A: Full context, no length limit)
+        # This allows the model to refer back to previously retrieved content in follow-up questions
+        logger.info(f"Adding {len(text_chunks)} text chunks and {len(image_chunks)} image chunks to session history")
+        add_referenced_context_to_history(session_id, text_chunks, image_chunks)
+        
         # Style the citations in the response text
         styled_response = style_citations_in_text(full_response, citations_used)
         

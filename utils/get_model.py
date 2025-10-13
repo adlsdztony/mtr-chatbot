@@ -3,9 +3,9 @@ from langchain_core.runnables import Runnable, RunnableWithMessageHistory
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.chat_history import BaseChatMessageHistory
-from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
+from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, SystemMessage
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Dict
 from .settings import *
 
 # Default parameter values for LLM configuration
@@ -49,6 +49,82 @@ def get_session_history(session_id: str) -> BaseChatMessageHistory:
     if session_id not in _session_store:
         _session_store[session_id] = InMemoryChatMessageHistory()
     return _session_store[session_id]
+
+
+def add_referenced_context_to_history(
+    session_id: str,
+    text_chunks: List[Dict],
+    image_chunks: List[Dict]
+) -> None:
+    """
+    Add the RAG-retrieved context that AI referenced to the chat history.
+    This allows the model to refer back to previously retrieved content in follow-up questions.
+    
+    Solution A: Save full referenced context without length limit.
+    The context is saved as a system message to distinguish it from user/AI messages.
+    
+    Args:
+        session_id: Session identifier for the chat history
+        text_chunks: List of text chunks retrieved from RAG (with metadata)
+        image_chunks: List of image chunks retrieved from RAG (with metadata)
+    """
+    history = get_session_history(session_id)
+    
+    # Build a formatted context string with all retrieved sources
+    context_parts = []
+    
+    context_parts.append("=" * 50)
+    context_parts.append("REFERENCED CONTEXT FROM RAG RETRIEVAL")
+    context_parts.append("=" * 50)
+    context_parts.append("")
+    
+    # Add text chunks
+    if text_chunks:
+        context_parts.append("📄 TEXT SOURCES:")
+        context_parts.append("-" * 50)
+        for chunk in text_chunks:
+            citation_num = chunk.get("citation_num", "?")
+            content = chunk.get("content", "")
+            meta = chunk.get("metadata", {})
+            filename = meta.get("filename", "unknown")
+            page = meta.get("page_idx", "?")
+            chunk_type = meta.get("type", "text")
+            
+            context_parts.append(f"\n[Source {citation_num}]")
+            context_parts.append(f"File: {filename} | Page: {page} | Type: {chunk_type}")
+            context_parts.append(f"Content:\n{content}")
+            context_parts.append("-" * 50)
+    
+    # Add image/table chunks
+    if image_chunks:
+        context_parts.append("\n🖼️ IMAGE/TABLE SOURCES:")
+        context_parts.append("-" * 50)
+        for chunk in image_chunks:
+            citation_num = chunk.get("citation_num", "?")
+            meta = chunk.get("metadata", {})
+            filename = meta.get("filename", "unknown")
+            page = meta.get("page_idx", "?")
+            chunk_type = meta.get("type", "image")
+            path = meta.get("path", "")
+            
+            context_parts.append(f"\n[Source {citation_num}]")
+            context_parts.append(f"File: {filename} | Page: {page} | Type: {chunk_type}")
+            if path:
+                context_parts.append(f"Path: {path}")
+            context_parts.append("-" * 50)
+    
+    context_parts.append("")
+    context_parts.append("=" * 50)
+    context_parts.append("END OF REFERENCED CONTEXT")
+    context_parts.append("=" * 50)
+    
+    # Combine all parts into a single context string
+    full_context = "\n".join(context_parts)
+    
+    # Add as a system message to preserve it in history
+    context_message = SystemMessage(content=full_context)
+    history.add_message(context_message)
+
 
 
 def get_base_model(
@@ -118,7 +194,8 @@ def get_prompted_model(
         base_url=CHAT_API_URL,
         temperature=temperature,
         top_p=top_p,
-        top_k=top_k
+        top_k=top_k,
+        reasoning=True
     )
     
     chain = prompt | llm | StrOutputParser()
