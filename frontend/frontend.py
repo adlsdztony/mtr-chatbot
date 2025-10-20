@@ -356,6 +356,7 @@ def format_citations_for_history(text_chunks, image_chunks):
 def style_citations_in_text(text: str, citations_list: list) -> str:
     """
     Replace [1], [2] etc. in text with styled, clickable citations.
+    Returns HTML with clickable links that open PDF at specific page.
     Returns HTML with styled citations.
     """
     # Create a mapping of citation numbers to their data
@@ -365,8 +366,16 @@ def style_citations_in_text(text: str, citations_list: list) -> str:
         num = int(match.group(1))
         if num in citation_map:
             citation = citation_map[num]
-            # Create a styled span for the citation
-            return f'<span style="color: #1f77b4; text-decoration: underline; cursor: pointer; font-weight: 500;" title="Page {citation["page_idx"]}">[{num}]</span>'
+            filename = citation['filename']
+            page_idx = citation['page_idx']
+
+            # use the chunk viewer's PDF endpoint with page parameter
+            pdf_url = f"http://localhost:5000/pdf-viewer?filename={filename}&page={page_idx}"
+
+            # create actual HTML link 
+            return f'<a href="{pdf_url}" target="_blank" ' \
+                   f'style="color: #1f77b4; text-decoration: underline; cursor: pointer; font-weight: 500;" ' \
+                   f'title="View {filename}, page {page_idx}">[{num}]</a>'
         return match.group(0)
     
     # Replace all [1], [2], etc. with styled versions
