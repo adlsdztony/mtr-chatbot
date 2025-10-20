@@ -369,8 +369,7 @@ def style_citations_in_text(text: str, citations_list: list) -> str:
             filename = citation['filename']
             page_idx = citation['page_idx']
 
-            # use the chunk viewer's PDF endpoint with page parameter
-            pdf_url = f"http://localhost:5000/pdf-viewer?filename={filename}&page={page_idx}"
+            pdf_url = f"/pdf-viewer?filename={filename}&page={page_idx}"
 
             # create actual HTML link 
             return f'<a href="{pdf_url}" target="_blank" ' \
