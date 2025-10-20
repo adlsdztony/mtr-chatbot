@@ -1,6 +1,6 @@
 import os
 
-PORT = 11435
+PORT = 11436
 CHAT_API_URL = os.getenv("OLLAMA_BASE_URL", f"http://localhost:{PORT}")
 
 CHAT_MODEL = os.getenv("OLLAMA_CHAT_MODEL", "qwen3:30b")  

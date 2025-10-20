@@ -448,7 +448,7 @@ if user_input := st.chat_input("Ask something *w*"):
     # Prepare arguments for the model
     args = {
         "context_info": complete_prompt,
-        "question": "" # question already in complete prompt
+        "question": user_input,
     }
     
     # Configuration for session history
@@ -471,7 +471,7 @@ if user_input := st.chat_input("Ask something *w*"):
         thinking_placeholder = st.empty()
         answer_placeholder = st.empty()
 
-        full_response = ""
+        full_response = "<think>"
         in_thinking = False
         thinking_content = ""
         answer_content = ""
@@ -535,7 +535,7 @@ if user_input := st.chat_input("Ask something *w*"):
         add_referenced_context_to_history(session_id, text_chunks, image_chunks)
         
         # Style the citations in the response text
-        styled_response = style_citations_in_text(full_response, citations_used)
+        styled_response = style_citations_in_text(display_response, citations_used)
         
         # Display final styled response
         answer_placeholder.markdown(styled_response, unsafe_allow_html=True)
