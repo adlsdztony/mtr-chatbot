@@ -1,7 +1,7 @@
 services:
   ollama:
     image: ollama/ollama:latest
-    container_name: mtr-ollama-test
+    container_name: mtr-ollama
     ports:
       - "11434:11434"
     volumes:
@@ -18,7 +18,7 @@ services:
           devices:
             - driver: nvidia
               count: all
-              capabilities: [gpu]
+              capabilities: [ gpu ]
 
   chatbot:
     build: .
@@ -47,6 +47,7 @@ volumes:
   ollama_data:
   pip_cache:
   chroma_cache:
+
 
 networks:
   mtr-network:

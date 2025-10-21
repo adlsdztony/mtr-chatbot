@@ -361,7 +361,7 @@ def style_citations_in_text(text: str, citations_list: list) -> str:
     Works for any file size (no base64 encoding).
     """
     from urllib.parse import quote
-    PDF_SERVER_URL = Config.PDF_SERVER_URL 
+    PDF_SERVER_URL = "http://localhost:8502/pdfs"
     logger.info(f"🔍 PROJECT_ROOT is: {PROJECT_ROOT}")  
     logger.info(f"🔍 Processing {len(citations_list)} citations") 
     citation_map = {c['num']: c for c in citations_list}
@@ -371,7 +371,7 @@ def style_citations_in_text(text: str, citations_list: list) -> str:
         if num in citation_map:
             citation = citation_map[num]
             filename = citation['filename']
-            page_idx = citation['page_idx']
+            page_idx = citation['page_idx'] + 1
             
             pdf_path = PROJECT_ROOT / ".data" / "original" / f"{filename}.pdf"
             if pdf_path.exists():
@@ -441,7 +441,7 @@ def display_citations_in_response(citations_list):
         with col1:
             # Make the citation number clickable!
             filename = citation['filename']
-            page_idx = citation['page_idx']
+            page_idx = citation['page_idx'] + 1
             
             # Check if PDF exists
             pdf_path = PROJECT_ROOT / ".data" / "original" / f"{filename}.pdf"
