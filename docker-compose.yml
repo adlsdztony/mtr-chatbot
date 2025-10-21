@@ -1,7 +1,7 @@
 services:
   ollama:
     image: ollama/ollama:latest
-    container_name: mtr-ollama
+    container_name: mtr-ollama-test
     ports:
       - "11434:11434"
     volumes:

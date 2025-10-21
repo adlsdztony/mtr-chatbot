@@ -131,16 +131,10 @@ def form_context_info(question: str, filename: Optional[str] = None):
     )  # Return both legacy and new format
 
 def create_citation_context(text_chunks: List[Dict], image_chunks: List[Dict]) -> str:
-    """
-    Create context with citation markers for the LLM.
-    Each chunk is tagged with [Source N] to help LLM know which source to cite.
-    
-    Returns:
-        Context string with embedded citation markers
-    """
+    """Create context with citation markers for the LLM."""
     context_parts = []
     
-    # Add text chunks with citation markers
+    # Add text chunks - use simple [1], [2] format
     for chunk in text_chunks:
         citation_num = chunk.get("citation_num", "?")
         content = chunk.get("content", "")
@@ -148,9 +142,8 @@ def create_citation_context(text_chunks: List[Dict], image_chunks: List[Dict]) -
         filename = meta.get("filename", "unknown")
         page = meta.get("page_idx", "?")
         
-        # Format: [Source N: filename, page X] content
         context_parts.append(
-            f"[{citation_num}] (from {filename}, page {page}):\n{content}"
+            f"[{citation_num}]\n{content[:500]}...\n(from {filename}, page {page})"
         )
     
     # Add image/table information
@@ -162,39 +155,41 @@ def create_citation_context(text_chunks: List[Dict], image_chunks: List[Dict]) -
         img_type = meta.get("type", "image")
         
         context_parts.append(
-            f"[Source {citation_num}: {filename}, page {page}]\n{img_type.capitalize()} available for reference."
+            f"[{citation_num}]\n{img_type.capitalize()} content\n(from {filename}, page {page})"
         )
     
-    return "\n\n---\n\n".join(context_parts)
+    return "\n\n".join(context_parts)
 
 
 def build_prompt_with_citations(question: str, text_chunks: List[Dict], image_chunks: List[Dict]) -> Tuple[str, str]:
-    """
-    Build system prompt and context with citations for the LLM.
-    Generic version that works with any document type.
-    
-    Returns:
-        Tuple of (complete_prompt, citation_context)
-    """
+    """Build system prompt and context with citations for the LLM."""
     citation_context = create_citation_context(text_chunks, image_chunks)
     
-    # Create a prompt that works with extended thinking models
-    complete_prompt = f"""Answer the following question based on the provided reference sources.
+    complete_prompt = f"""Answer the following question using the reference sources below.
 
-Reference sources available:
+REFERENCE SOURCES:
 {citation_context}
 
-Question: {question}
+QUESTION: {question}
 
-CRITICAL INSTRUCTION FOR YOUR ANSWER:
-When you write your answer, you MUST add citation numbers [1], [2], [3] at the END of each sentence that uses information from the sources above.
+CITATION RULES:
+- When you use information from a source, add its number in brackets at the end of the sentence
+- Use ONLY the format [1] or [2] or [3] - nothing else!
+- Do NOT write "Reference 1" or "Source 1" or "from [1]"
+- Just add the bracket number at the end: [1]
 
-Example answer format:
-"This is a fact from the document [1]. Here is another relevant detail [2]."
+EXAMPLES OF CORRECT CITATIONS:
+✓ "The blue cable provides read-only access [1]."
+✓ "It is used for downloads [2]."
+✓ "Synchronization is required before use [3]."
 
-You can think through the problem, but when you provide your final answer, EVERY relevant sentence must end with a citation like [1], [2], etc.
+EXAMPLES OF WRONG CITATIONS:
+✗ "Reference 1 states that..."
+✗ "According to Source [1]..."
+✗ "From [1] (page 16)..."
+✗ "...as described in [N]"
 
-Now provide your answer with proper citations:"""
+Now write your answer with correct [number] citations:"""
     
     return complete_prompt, citation_context
     
