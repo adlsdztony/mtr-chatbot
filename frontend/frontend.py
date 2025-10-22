@@ -1,6 +1,7 @@
 import sys, pathlib
 import streamlit as st
 import re
+from config import Config
 
 sys.path.append(pathlib.Path(__file__).parents[1].as_posix())
 
@@ -21,6 +22,7 @@ from backend.backend import (
     extract_citations_from_response
 )
 from loguru import logger
+PROJECT_ROOT = pathlib.Path(__file__).parents[1]
 
 def create_session():
     st.session_state.current_chat_index += 1
@@ -355,11 +357,13 @@ def format_citations_for_history(text_chunks, image_chunks):
 
 def style_citations_in_text(text: str, citations_list: list) -> str:
     """
-    Replace [1], [2] etc. in text with styled, clickable citations.
-    Returns HTML with clickable links that open PDF at specific page.
-    Returns HTML with styled citations.
+    Opens PDF at specific page using direct file URL + PDF.js viewer.
+    Works for any file size (no base64 encoding).
     """
-    # Create a mapping of citation numbers to their data
+    from urllib.parse import quote
+    PDF_SERVER_URL = "http://localhost:8502/pdfs"
+    logger.info(f"🔍 PROJECT_ROOT is: {PROJECT_ROOT}")  
+    logger.info(f"🔍 Processing {len(citations_list)} citations") 
     citation_map = {c['num']: c for c in citations_list}
     
     def replace_citation(match):
@@ -367,25 +371,66 @@ def style_citations_in_text(text: str, citations_list: list) -> str:
         if num in citation_map:
             citation = citation_map[num]
             filename = citation['filename']
-            page_idx = citation['page_idx']
-
-            pdf_url = f"/pdf-viewer?filename={filename}&page={page_idx}"
-
-            # create actual HTML link 
-            return f'<a href="{pdf_url}" target="_blank" ' \
-                   f'style="color: #1f77b4; text-decoration: underline; cursor: pointer; font-weight: 500;" ' \
-                   f'title="View {filename}, page {page_idx}">[{num}]</a>'
+            page_idx = citation['page_idx'] + 1
+            
+            pdf_path = PROJECT_ROOT / ".data" / "original" / f"{filename}.pdf"
+            if pdf_path.exists():
+                # Direct URL to PDF on nginx server
+                logger.info(f"[{num}] Creating clickable link!")  
+                pdf_url = f"{PDF_SERVER_URL}/{filename}.pdf"
+                
+                # Mozilla PDF.js viewer with direct file URL
+                viewer_url = f"https://mozilla.github.io/pdf.js/web/viewer.html?file={pdf_url}#page={page_idx}"
+                
+                return f'<a href="{viewer_url}" target="_blank" ' \
+                       f'style="color: #1f77b4; text-decoration: none; font-weight: 600; ' \
+                       f'border-bottom: 2px solid #1f77b4; cursor: pointer; ' \
+                       f'transition: all 0.2s ease;" ' \
+                       f'onmouseover="this.style.color=\'#0d5aa7\'" ' \
+                       f'onmouseout="this.style.color=\'#1f77b4\'" ' \
+                       f'title="📄 Click to open {filename} at page {page_idx}">[{num}]</a>'
+            else:
+                # Fallback if PDF not found
+                logger.warning(f" [{num}] PDF not found, creating span")  
+                logger.warning(f"PDF not found: {pdf_path}")
+                return f'<span style="color: #999; font-weight: 600;" ' \
+                       f'title="PDF not found: {filename}, page {page_idx}">[{num}]</span>'
+        
         return match.group(0)
     
-    # Replace all [1], [2], etc. with styled versions
     styled_text = re.sub(r'\[(\d+)\]', replace_citation, text)
     return styled_text
+
+def clean_response_citations(response: str) -> str:
+    """
+    Remove verbose citation text like 'From [1] (page X):' 
+    Keep only the citation numbers [1], [2], [3]
+    """
+    # Remove patterns like: From [4.1] (page 16), manual, page 4.1:
+    response = re.sub(r'From \[[^\]]+\] \([^)]+\)[^:]*:\s*', '', response)
+    
+    # Remove patterns like: [Source 1] or [Reference 1]
+    response = re.sub(r'\[(Source|Reference|Ref)\s+\d+\]\s*', '', response)
+    
+    # Remove quoted text after citations: "text in quotes"
+    response = re.sub(r'\[(\d+)\]\s*[""""][^""""]+"[""""]', r'[\1]', response)
+    
+    # Clean up multiple spaces
+    response = re.sub(r'\s+', ' ', response)
+    
+    # Clean up numbered lists that start with "From"
+    response = re.sub(r'\d+\.\s*From', '', response)
+    
+    return response.strip()
 
 
 def display_citations_in_response(citations_list):
     """Display extracted citations that were actually used in the response"""
     if not citations_list:
         return
+    
+    from urllib.parse import quote
+    PDF_SERVER_URL = "http://localhost:8502/pdfs"
     
     st.markdown("---")
     st.markdown("**📚 References Used:**")
@@ -394,15 +439,35 @@ def display_citations_in_response(citations_list):
         col1, col2 = st.columns([0.1, 0.9])
         
         with col1:
-            st.markdown(f'<span style="color: #1f77b4; font-weight: bold; font-size: 1.1em;">[{citation["num"]}]</span>', unsafe_allow_html=True)
+            # Make the citation number clickable!
+            filename = citation['filename']
+            page_idx = citation['page_idx'] + 1
+            
+            # Check if PDF exists
+            pdf_path = PROJECT_ROOT / ".data" / "original" / f"{filename}.pdf"
+            
+            if pdf_path.exists():
+                pdf_url = f"{PDF_SERVER_URL}/{filename}.pdf"
+                viewer_url = f"https://mozilla.github.io/pdf.js/web/viewer.html?file={pdf_url}#page={page_idx}"
+                
+                # Clickable citation number
+                st.markdown(
+                    f'<a href="{viewer_url}" target="_blank" '
+                    f'style="color: #1f77b4; font-weight: bold; font-size: 1.1em; '
+                    f'text-decoration: none; border-bottom: 2px solid #1f77b4;" '
+                    f'title="Open PDF at page {page_idx}">[{citation["num"]}]</a>',
+                    unsafe_allow_html=True
+                )
+            else:
+                # Non-clickable if PDF not found
+                st.markdown(f'<span style="color: #1f77b4; font-weight: bold; font-size: 1.1em;">[{citation["num"]}]</span>', unsafe_allow_html=True)
         
         with col2:
-            filename = citation['filename']
             page = citation['page_idx']
             cite_type = citation['type']
             preview = citation['preview']
             
-            # Citation text with page number (ready for PDF viewer integration)
+            # Citation text with page number
             st.markdown(f"*{filename}* - **Page {page}** ({cite_type})")
             
             # Show preview in expander
@@ -542,6 +607,7 @@ if user_input := st.chat_input("Ask something *w*"):
         logger.info(f"Adding {len(text_chunks)} text chunks and {len(image_chunks)} image chunks to session history")
         add_referenced_context_to_history(session_id, text_chunks, image_chunks)
         
+        display_response = clean_response_citations(display_response)
         # Style the citations in the response text
         styled_response = style_citations_in_text(display_response, citations_used)
         

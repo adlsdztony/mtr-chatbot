@@ -18,7 +18,7 @@ services:
           devices:
             - driver: nvidia
               count: all
-              capabilities: [gpu]
+              capabilities: [ gpu ]
 
   chatbot:
     build: .
@@ -47,6 +47,7 @@ volumes:
   ollama_data:
   pip_cache:
   chroma_cache:
+
 
 networks:
   mtr-network:
