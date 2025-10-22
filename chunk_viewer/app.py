@@ -219,6 +219,7 @@ def serve_image(filename):
         return send_file(str(image_path), mimetype='image/jpeg')
     except Exception as e:
         abort(500, description=str(e))
+        
 
 @app.route('/api/pdf')
 def serve_pdf():
@@ -246,36 +247,12 @@ def serve_pdf():
         }), 404
     
     try:
-        response = send_file(
-            str(pdf_path),
-            mimetype='application/pdf',
-            as_attachment=False, 
-        )
-        response.headers['Accept-Ranges'] = 'bytes'
-        response.headers['Content-Disposition'] = 'inline'
-
-        return response
+        return send_file(str(pdf_path), mimetype='application/pdf')
     except Exception as e:
         return jsonify({
             'success': False,
             'error': str(e)
         }), 500
-        
-@app.route('/pdf-viewer')
-def pdf_viewer():
-    """Render PDF viewer with specific page using PDF.js"""
-    filename = request.args.get('filename', 'manual')
-    page = request.args.get('page', '1')
-    
-    # Build full URL to PDF API endpoint
-    # PDF.js needs a full URL, not a relative path
-    pdf_url = request.host_url.rstrip('/') + f'/api/pdf?filename={filename}'
-    
-    return render_template('pdf_viewer.html', 
-                          filename=filename, 
-                          page=page,
-                          pdf_url=pdf_url)
-
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
