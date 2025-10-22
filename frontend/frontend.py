@@ -1,7 +1,6 @@
 import sys, pathlib
 import streamlit as st
 import re
-from config import Config
 
 sys.path.append(pathlib.Path(__file__).parents[1].as_posix())
 
