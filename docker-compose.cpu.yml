@@ -20,7 +20,7 @@ services:
       - "8501"
     volumes:
       - .:/app
-      - pip_cache:/root/.cache/pip
+      - uv_cache:/root/.cache/uv
       - chroma_cache:/root/.cache/chroma
     environment:
       - OLLAMA_BASE_URL=http://ollama:11434
@@ -33,7 +33,7 @@ services:
     restart: unless-stopped
     command: >
       bash -c "
-        streamlit run frontend/frontend.py --server.address 0.0.0.0 --server.port 8501
+        uv run streamlit run frontend/frontend.py --server.address 0.0.0.0 --server.port 8501
       "
 
   pdf-server:
@@ -64,7 +64,7 @@ services:
 
 volumes:
   ollama_data:
-  pip_cache:
+  uv_cache:
   chroma_cache:
 
 

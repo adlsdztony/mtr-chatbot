@@ -6,20 +6,17 @@ services:
             - "8501"
         volumes:
             - .:/app
-            - pip_cache:/root/.cache/pip
             - chroma_cache:/root/.cache/chroma
         environment:
-            - OLLAMA_BASE_URL=http://host.docker.internal:11434
+            - OLLAMA_BASE_URL=http://100.77.24.76:11436
             - PYTHONPATH=/app
             - OLLAMA_CHAT_MODEL=qwen3:30b
-        depends_on:
-            - ollama
         networks:
             - mtr-network
         restart: unless-stopped
         command: >
             bash -c "
-              streamlit run frontend/frontend.py --server.address 0.0.0.0 --server.port 8501
+              uv run streamlit run frontend/frontend.py --server.address 0.0.0.0 --server.port 8501
             "
 
     nginx:
@@ -37,7 +34,6 @@ services:
         restart: unless-stopped
 
 volumes:
-    pip_cache:
     chroma_cache:
 
 networks:
