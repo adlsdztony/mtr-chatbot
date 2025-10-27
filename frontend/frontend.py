@@ -360,7 +360,7 @@ def style_citations_in_text(text: str, citations_list: list) -> str:
     Works for any file size (no base64 encoding).
     """
     from urllib.parse import quote
-    PDF_SERVER_URL = "http://localhost:8502/pdfs"
+    PDF_SERVER_URL = "/pdfs"
     logger.info(f"🔍 PROJECT_ROOT is: {PROJECT_ROOT}")  
     logger.info(f"🔍 Processing {len(citations_list)} citations") 
     citation_map = {c['num']: c for c in citations_list}
@@ -378,10 +378,7 @@ def style_citations_in_text(text: str, citations_list: list) -> str:
                 logger.info(f"[{num}] Creating clickable link!")  
                 pdf_url = f"{PDF_SERVER_URL}/{filename}.pdf"
                 
-                # Mozilla PDF.js viewer with direct file URL
-                viewer_url = f"https://mozilla.github.io/pdf.js/web/viewer.html?file={pdf_url}#page={page_idx}"
-                
-                return f'<a href="{viewer_url}" target="_blank" ' \
+                return f'<a href="{pdf_url}" target="_blank" ' \
                        f'style="color: #1f77b4; text-decoration: none; font-weight: 600; ' \
                        f'border-bottom: 2px solid #1f77b4; cursor: pointer; ' \
                        f'transition: all 0.2s ease;" ' \
