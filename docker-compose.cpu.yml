@@ -16,8 +16,8 @@ services:
   chatbot:
     build: .
     container_name: mtr-chatbot
-    ports:
-      - "8501:8501"
+    expose:
+      - "8501"
     volumes:
       - .:/app
       - pip_cache:/root/.cache/pip
@@ -35,17 +35,32 @@ services:
       bash -c "
         streamlit run frontend/frontend.py --server.address 0.0.0.0 --server.port 8501
       "
+
   pdf-server:
     image: nginx:alpine
     container_name: mtr-pdf-server
-    ports:
-      - "8502:80"
+    expose:
+      - "80"
     volumes:
       - ./.data/original:/usr/share/nginx/html:ro
     networks:
       - mtr-network
     restart: unless-stopped
     command: /bin/sh -c "echo 'server { listen 80; location /pdfs/ { alias /usr/share/nginx/html/; add_header Access-Control-Allow-Origin * always; add_header Access-Control-Allow-Methods GET,OPTIONS always; add_header Access-Control-Allow-Headers Range always; if (\$$request_method = OPTIONS) { return 204; } } }' > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+
+  nginx:
+    image: nginx:alpine
+    container_name: mtr-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - chatbot
+      - pdf-server
+    networks:
+      - mtr-network
+    restart: unless-stopped
 
 volumes:
   ollama_data:

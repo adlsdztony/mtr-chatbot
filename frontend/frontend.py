@@ -1,7 +1,6 @@
 import sys, pathlib
 import streamlit as st
 import re
-from config import Config
 
 sys.path.append(pathlib.Path(__file__).parents[1].as_posix())
 
@@ -425,12 +424,9 @@ def clean_response_citations(response: str) -> str:
 
 
 def display_citations_in_response(citations_list):
-    """Display extracted citations that were actually used in the response"""
+    """Display extracted citations used in the response"""
     if not citations_list:
         return
-    
-    from urllib.parse import quote
-    PDF_SERVER_URL = "http://localhost:8502/pdfs"
     
     st.markdown("---")
     st.markdown("**📚 References Used:**")
@@ -439,38 +435,36 @@ def display_citations_in_response(citations_list):
         col1, col2 = st.columns([0.1, 0.9])
         
         with col1:
-            # Make the citation number clickable!
             filename = citation['filename']
+            clean_filename = filename.replace('.pdf', '')
             page_idx = citation['page_idx'] + 1
             
-            # Check if PDF exists
-            pdf_path = PROJECT_ROOT / ".data" / "original" / f"{filename}.pdf"
+            # Use JavaScript to build URL with current origin
+            onclick_js = f"""
+                window.open(
+                    'https://mozilla.github.io/pdf.js/web/viewer.html?file=' + 
+                    encodeURIComponent(window.location.origin + '/pdfs/{clean_filename}.pdf') + 
+                    '#page={page_idx}',
+                    '_blank'
+                );
+                return false;
+            """
             
-            if pdf_path.exists():
-                pdf_url = f"{PDF_SERVER_URL}/{filename}.pdf"
-                viewer_url = f"https://mozilla.github.io/pdf.js/web/viewer.html?file={pdf_url}#page={page_idx}"
-                
-                # Clickable citation number
-                st.markdown(
-                    f'<a href="{viewer_url}" target="_blank" '
-                    f'style="color: #1f77b4; font-weight: bold; font-size: 1.1em; '
-                    f'text-decoration: none; border-bottom: 2px solid #1f77b4;" '
-                    f'title="Open PDF at page {page_idx}">[{citation["num"]}]</a>',
-                    unsafe_allow_html=True
-                )
-            else:
-                # Non-clickable if PDF not found
-                st.markdown(f'<span style="color: #1f77b4; font-weight: bold; font-size: 1.1em;">[{citation["num"]}]</span>', unsafe_allow_html=True)
+            st.markdown(
+                f'<a href="#" onclick="{onclick_js}" '
+                f'style="color: #1f77b4; font-weight: bold; font-size: 1.1em; '
+                f'text-decoration: none; border-bottom: 2px solid #1f77b4;" '
+                f'title="Open PDF at page {page_idx}">[{citation["num"]}]</a>',
+                unsafe_allow_html=True
+            )
         
         with col2:
             page = citation['page_idx']
             cite_type = citation['type']
             preview = citation['preview']
             
-            # Citation text with page number
             st.markdown(f"*{filename}* - **Page {page}** ({cite_type})")
             
-            # Show preview in expander
             with st.expander("Preview", expanded=False):
                 st.text(preview)
 
