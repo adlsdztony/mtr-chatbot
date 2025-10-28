@@ -376,7 +376,7 @@ def style_citations_in_text(text: str, citations_list: list) -> str:
             if pdf_path.exists():
                 # Direct URL to PDF on nginx server
                 logger.info(f"[{num}] Creating clickable link!")  
-                pdf_url = f"{PDF_SERVER_URL}/{filename}.pdf"
+                pdf_url = f"{PDF_SERVER_URL}/{filename}.pdf#page={page_idx}"
                 
                 return f'<a href="{pdf_url}" target="_blank" ' \
                        f'style="color: #1f77b4; text-decoration: none; font-weight: 600; ' \
