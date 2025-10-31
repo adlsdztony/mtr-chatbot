@@ -1,31 +1,66 @@
 services:
-    chatbot:
-        build: .
-        container_name: mtr-chatbot
-        network_mode: host
-        volumes:
-            - .:/app
-            - chroma_cache:/root/.cache/chroma
-        environment:
-            - OLLAMA_BASE_URL=http://localhost:11436
-            - PYTHONPATH=/app
-            - OLLAMA_CHAT_MODEL=qwen3:30b
-        restart: unless-stopped
-        command: >
-            bash -c "
-              uv run streamlit run frontend/frontend.py --server.address 0.0.0.0 --server.port 38502
-            "
+  ollama:
+    image: ollama/ollama:latest
+    container_name: mtr-ollama
+    volumes:
+      - ollama_data:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+      - NVIDIA_VISIBLE_DEVICES=1,2
+    networks:
+      - mtr-network
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 2
+              capabilities: [ gpu ]
 
-    nginx:
-        image: nginx:alpine
-        container_name: mtr-nginx
-        network_mode: host
-        volumes:
-            - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
-            - ./.data/original:/usr/share/nginx/html:ro
-        depends_on:
-            - chatbot
-        restart: unless-stopped
+  chatbot:
+    build: .
+    container_name: mtr-chatbot
+    expose:
+      - "8501"
+    volumes:
+      - .:/app
+      - pip_cache:/root/.cache/pip
+      - chroma_cache:/root/.cache/chroma
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - PYTHONPATH=/app
+      - OLLAMA_CHAT_MODEL=qwen3:30b
+    depends_on:
+      - ollama
+    networks:
+      - mtr-network
+    restart: unless-stopped
+    command: >
+      bash -c "
+        uv run streamlit run frontend/frontend.py --server.address 0.0.0.0 --server.port 8501
+      "
+
+  nginx:
+    image: nginx:alpine
+    container_name: mtr-nginx
+    ports:
+      - "8502:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./.data/original:/usr/share/nginx/html:ro
+    depends_on:
+      - chatbot
+    networks:
+      - mtr-network
+    restart: unless-stopped
 
 volumes:
-    chroma_cache:
+  ollama_data:
+  pip_cache:
+  chroma_cache:
+
+
+networks:
+  mtr-network:
+    driver: bridge
